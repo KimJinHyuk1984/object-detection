@@ -95,7 +95,8 @@
     "lamp",
     "line",
     "motor",
-    "people"
+    "people",
+    "sign"
   ],
   "unresolvedLampMeaning": false,
   "browserVerification": "not performed: existing browser environment errors",

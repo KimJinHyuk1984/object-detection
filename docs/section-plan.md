@@ -15,7 +15,7 @@
 
 | id | kicker | 제목 | 학습 목표 | 분 | 근거·표현 |
 | --- | --- | --- | --- | --- | --- |
-| road-mission | MISSION | 도로를 읽는 AI | 8개 클래스와 단일 모델의 최종 결과를 설명한다 | 10 | 사용자 제공 라벨, source.mp4 메타데이터, 직접 작성한 개념도 |
+| road-mission | MISSION | 도로를 읽는 AI | 9개 클래스와 단일 모델의 최종 결과를 설명한다 | 10 | 사용자 제공 라벨, source.mp4 메타데이터, 직접 작성한 개념도 |
 | vision-concepts | CONCEPT | 종류, 위치, 모양을 구분하기 | 분류·탐지·분할과 정답·예측을 구분한다 | 10 | 탐지·분할 개념 도식, 확인 질문 |
 | annotation-ready | PREPARE | 같은 기준으로 시작하기 | 프로젝트와 클래스·경계 기준을 확인한다 | 5 | CAPTURE-01, 클래스별 기준 확인 |
 | annotation-practice | PRACTICE | 정답 영역을 직접 표시하기 | 객체와 주행 가능 영역에 정답을 표시한다 | 15 | 공식 라벨링 문서, CAPTURE-02~04, 저장 전 체크 |

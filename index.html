@@ -153,7 +153,7 @@
                 <a href="#capture-01">
                   CAPTURE-01
                 </a>
-                프로젝트 화면 확인 · 실제 라벨 8개 반영
+                프로젝트 화면 확인 · 실제 라벨 9개 반영
               </li>
               <li>
                 <a href="#capture-02">
@@ -219,16 +219,16 @@
                   을 구분해 설명합니다.
                 </li>
                 <li>
-                  8개 클래스의 기준에 맞춰 이미지에 정답을 표시합니다.
+                  9개 클래스의 기준에 맞춰 이미지에 정답을 표시합니다.
                 </li>
                 <li>
                   친구의 어노테이션에서 수정할 부분을 찾습니다.
                 </li>
               </ul>
             </div>
-            <div class="lesson-panel visual-panel" data-slide data-slide-title="이번 프로젝트의 8개 클래스">
+            <div class="lesson-panel visual-panel" data-slide data-slide-title="이번 프로젝트의 9개 클래스">
               <figure class="concept-figure">
-                <svg class="road-visual" viewBox="0 0 960 340" role="img" aria-label="도로 위 객체 박스와 차선 사이 주행 가능한 도로 영역을 그린 개념도">
+                <svg class="road-visual" viewBox="0 0 960 340" role="img" aria-label="자동차·오토바이·사람·신호등·표지판의 박스와 차선 사이 주행 가능한 도로 영역을 그린 개념도">
                   <path class="diagram-road" d="M325 30H635L880 330H80Z"/>
                   <path class="drivable-mask" d="M416 38H552L664 320H271Z"/>
                   <path class="road-marking" d="M404 38H416L271 320H245Z"/>
@@ -256,12 +256,18 @@
                   <circle class="diagram-window" cx="311" cy="69" r="8"/>
                   <circle class="diagram-window" cx="311" cy="94" r="8"/>
                   <rect class="diagram-box" x="286" y="18" width="50" height="101"/>
+                  <g>
+                    <title>표지판 · sign</title>
+                    <path class="diagram-ground" d="M696 135V38"/>
+                    <path class="diagram-sign" d="M696 11 728 65H664Z"/>
+                    <rect class="diagram-box" x="655" y="3" width="82" height="73"/>
+                  </g>
                 </svg>
                 <figcaption>
                   수업용 개념도 · 실제 영상 또는 모델의 추론 결과가 아닙니다.
                 </figcaption>
               </figure>
-              <ul class="class-legend" aria-label="8개 클래스">
+              <ul class="class-legend" aria-label="9개 클래스">
                 <li><code>car</code> · 자동차</li>
                 <li><code>motor</code> · 오토바이</li>
                 <li><code>people</code> · 사람</li>
@@ -269,6 +275,7 @@
                 <li><code>lampr</code> · 빨간 신호등</li>
                 <li><code>lampy</code> · 노란 신호등</li>
                 <li><code>lamp</code> · 색 구분이 어려운 신호등</li>
+                <li><code>sign</code> · 표지판</li>
                 <li class="is-lane"><code>line</code> · 주행 가능 도로 영역</li>
               </ul>
               <p class="note-meta">신호등임을 알 수 있지만 색을 판단하기 어려우면 lamp로 표시합니다.</p>
@@ -291,7 +298,7 @@
                     인식
                   </span>
                   <strong>
-                    8개 클래스를 배운
+                    9개 클래스를 배운
                     <br>
                     하나의 분할 모델
                   </strong>
@@ -312,30 +319,40 @@
                 4차시까지 Roboflow 학습 → API 연결 → Streamlit 배포로 이어집니다.
               </p>
             </div>
-            <div class="lesson-panel" data-slide data-slide-title="이번 수업의 영상">
+            <div class="lesson-panel source-video-panel" data-slide data-slide-title="이번 수업의 영상">
               <div class="source-summary">
                 <div>
-                  <p class="eyebrow">
-                    SOURCE VIDEO
-                  </p>
-                  <h3>
-                    source.mp4
-                  </h3>
-                  <p>
-                    약 5분 1초 · 1920 × 1080 · 30fps
-                  </p>
+                  <p class="eyebrow">SOURCE VIDEO</p>
+                  <h3>source.mp4</h3>
+                  <p class="note-meta">학습용 파일 · 약 5분 1초 · 1920 × 1080 · 30fps</p>
                 </div>
-                <p>
-                  영상은 여러 장의 이미지가 이어진 것입니다. 그중 학습에 사용할 장면을 골라 정답을 표시합니다.
-                </p>
+                <p>영상을 재생하며 자동차·신호등·표지판과 주행 가능한 도로 영역을 찾아보세요.</p>
               </div>
+              <div class="source-video">
+                <iframe
+                  class="source-video-player"
+                  src="https://www.youtube.com/embed/ihokShSN51Y?playsinline=1&amp;rel=0"
+                  title="자율주행 객체 인식 수업용 주행영상 — YouTube"
+                  width="960"
+                  height="540"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="source-video-actions">
+                <a class="button" href="https://www.youtube.com/watch?v=ihokShSN51Y" target="_blank" rel="noopener noreferrer">YouTube에서 열기 ↗</a>
+                <span class="note-meta">인터넷에 연결한 뒤 재생 버튼을 눌러 주세요.</span>
+              </div>
+            </div>
+            <div class="lesson-panel" data-slide data-slide-title="영상에서 학습 장면 고르기">
+              <p>영상은 여러 장의 이미지가 이어진 것입니다. 그중 학습에 사용할 장면을 골라 정답을 표시합니다.</p>
               <p class="prompt">
                 10초 영상도 30fps라면 300프레임입니다. 비슷한 장면을 모두 라벨링해야 할까요?
               </p>
               <details class="answer">
-                <summary>
-                  생각 나누기
-                </summary>
+                <summary>생각 나누기</summary>
                 <p>
                   비슷한 프레임을 반복해서 늘리기보다, 대상의 크기·가림·도로 상황이 다양한 장면을 고릅니다. 데이터 분리 방법은 2차시에서 다룹니다.
                 </p>
@@ -546,7 +563,7 @@
                 </li>
                 <li>
                   <strong>
-                    8개 클래스의 이름을 확인합니다.
+                    9개 클래스의 이름을 확인합니다.
                   </strong>
                   <p>
                     기존 이름을 그대로 사용합니다. 철자나 대소문자를 바꿔 새 클래스를 만들지 않습니다.
@@ -571,7 +588,7 @@
               <figcaption>촬영 당시 프로젝트: aicar · Object Detection · 201 Assets · 0 Models.</figcaption>
             </figure>
               <p>도로 영역에 폴리곤을 그린 것과 모델이 마스크를 출력하는 것은 구분해야 합니다. 기존 어노테이션을 보존하고 분할 학습에 사용할 수 있는지 확인한 뒤 학습합니다.</p>
-              <p class="note-meta">클래스 이름은 사용자가 제공한 8개 라벨을 반영했습니다. 이 캡처에는 전체 클래스 목록이 보이지 않습니다.</p>
+              <p class="note-meta">클래스 이름은 사용자가 제공한 9개 라벨을 반영했습니다. 이 캡처에는 전체 클래스 목록이 보이지 않습니다.</p>
             </details>
             <div class="lesson-panel" data-slide data-slide-title="라벨의 경계부터 합의하기">
               <ul class="rule-list">
@@ -597,6 +614,14 @@
                   </strong>
                   <span>
                     초록은 lampg, 빨강은 lampr, 노랑은 lampy, 색 구분이 어려우면 lamp를 사용합니다. 신호등 전체 또는 점등 부분 중 표시 범위는 확인합니다.
+                  </span>
+                </li>
+                <li>
+                  <strong>
+                    표지판 · sign
+                  </strong>
+                  <span>
+                    표시할 표지판의 종류와 표지판 판·지지대의 포함 범위를 확인합니다.
                   </span>
                 </li>
                 <li>

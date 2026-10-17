@@ -7,6 +7,7 @@
 | source-003 | Roboflow 공식 Annotate an Image 문서 | 웹 문서 | 1개 | 2026-10-17 확인: 박스·폴리곤·마스크 도구, 다각형 닫기, 라벨 선택·검수 | 일반적인 도구 설명과 출처 링크 |
 | source-004 | captures/lesson-01/ | 사용자 제공 캡처 | PNG 6장 | 6장 시각 확인. 프로젝트 Object Detection, car 박스, line 폴리곤, 작업 목록. 원본 메타·해시는 lesson-01-capture-checks.json 참조. | 앞 4장 원본과 동일한 PNG 복사. 계정 정보가 있는 04.png·04(1).png는 비공개 원본 보관. |
 | source-005 | Roboflow 공식 Polygons for Object Detection 설명 | 웹 문서 | 1개 | 2026-10-17 확인: 폴리곤 어노테이션을 사용해도 탐지 모델은 박스를 출력함. | 모델 유형 확인 안내·출처 링크 |
+| source-006 | https://www.youtube.com/watch?v=ihokShSN51Y | 사용자 지정 YouTube 영상 | 영상 ID ihokShSN51Y | 표준 임베드 주소·정적 마크업 확인. 브라우저 연결 없음, 실제 재생·임베드 허용 여부 미확인. | SOURCE VIDEO 플레이어와 YouTube에서 열기 링크 |
 
 원본 자료는 이동·삭제·수정하지 않았습니다. source.mp4는 작업 전후 해시가 같습니다.
 원본 영상·사진·캡처는 .gitignore에서 제외하고, git ls-files로 현재 미추적 상태를 확인했습니다.
@@ -14,3 +15,5 @@
 공식 문서: https://docs.roboflow.com/annotate/use-roboflow-annotate
 
 폴리곤과 탐지 출력 근거: https://blog.roboflow.com/polygons-object-detection/
+
+YouTube 임베드 방식 근거: https://developers.google.com/youtube/player_parameters
