@@ -33,21 +33,82 @@ window.SITE = {
   // 단일 강의의 badge는 비워 둡니다. 번호가 필요 없으므로 표시하지 않습니다.
   // 단일 강의의 slug는 폴더/URL 선택에는 무시하지만 진행 기록의 고정 ID로 사용합니다.
   // 다중 강의에서는 slug와 하위 폴더명, 하위 HTML의 body[data-level]을 일치시킵니다.
-  levels: [{
-    slug: "road-perception",
-    badge: "",
-    title: "자율주행 자동차 모델 만들기",
-    subtitle: "by Object Detection · 1차시 — AI에게 도로를 가르치기",
-    kicker: "LESSON 01 / ROAD PERCEPTION",
-    duration: "50분 · 전체 4차시",
-    target: "",
-    difficulty: "입문",
-    tags: ["Roboflow", "Instance Segmentation", "Streamlit"],
-    accent: "neon-green", // neon-green | violet | amber
-    emoji: "",
-    cover: "", // 선택 사항: 사이트 루트 기준 상대 경로, 예: assets/img/cover.webp
-    status: "ready" // ready | coming: 다중 강의 허브에서 링크 공개 여부를 결정합니다.
-  }],
+  levels: [
+    {
+      "slug": "road-perception",
+      "badge": "1차시",
+      "title": "AI에게 도로를 가르치기",
+      "subtitle": "자율주행 자동차 모델 만들기 · 객체와 주행 가능 영역의 정답 표시",
+      "kicker": "LESSON 01 / ROAD PERCEPTION",
+      "duration": "50분",
+      "target": "",
+      "difficulty": "입문",
+      "tags": [
+        "Roboflow",
+        "Instance Segmentation",
+        "Streamlit"
+      ],
+      "accent": "neon-green",
+      "emoji": "",
+      "cover": "",
+      "status": "ready"
+    },
+    {
+      "slug": "model-training",
+      "badge": "2차시",
+      "title": "모델을 학습하고 평가하기",
+      "subtitle": "자율주행 자동차 모델 만들기 · 데이터 분리부터 오류 분석까지",
+      "kicker": "LESSON 02 / TRAIN & EVALUATE",
+      "duration": "50분",
+      "target": "",
+      "difficulty": "입문",
+      "tags": [
+        "Roboflow",
+        "Instance Segmentation",
+        "모델 평가"
+      ],
+      "accent": "violet",
+      "emoji": "",
+      "cover": "",
+      "status": "ready"
+    },
+    {
+      "slug": "api-app",
+      "badge": "3차시",
+      "title": "API로 이미지 앱 만들기",
+      "subtitle": "Roboflow 예측을 Streamlit 화면에 연결하기",
+      "kicker": "LESSON 03 / API & APP",
+      "duration": "50분",
+      "target": "",
+      "difficulty": "입문",
+      "tags": [
+        "Roboflow API",
+        "Streamlit"
+      ],
+      "accent": "amber",
+      "emoji": "",
+      "cover": "",
+      "status": "coming"
+    },
+    {
+      "slug": "video-app",
+      "badge": "4차시",
+      "title": "주행영상 앱 배포하기",
+      "subtitle": "영상 프레임 처리와 결과 시각화·배포",
+      "kicker": "LESSON 04 / VIDEO & DEPLOY",
+      "duration": "50분",
+      "target": "",
+      "difficulty": "입문",
+      "tags": [
+        "영상",
+        "Streamlit"
+      ],
+      "accent": "neon-green",
+      "emoji": "",
+      "cover": "",
+      "status": "coming"
+    }
+  ],
 
   // 다른 강의로 이동하는 링크 (전부 외부 절대 주소)
   otherLectures: [

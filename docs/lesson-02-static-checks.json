@@ -1,0 +1,738 @@
+{
+  "date": "2026-10-17",
+  "scope": "3 pages after lesson-2 addition",
+  "pages": [
+    {
+      "file": "index.html",
+      "level": null,
+      "sections": [],
+      "slides": 0,
+      "minutes": [],
+      "totalMinutes": 0,
+      "labels": [],
+      "tagErrors": [],
+      "duplicateIds": [],
+      "nestedSlides": []
+    },
+    {
+      "file": "road-perception/index.html",
+      "level": "road-perception",
+      "sections": [
+        "road-mission",
+        "vision-concepts",
+        "annotation-ready",
+        "annotation-practice",
+        "annotation-review"
+      ],
+      "slides": 21,
+      "minutes": [
+        10,
+        10,
+        5,
+        15,
+        10
+      ],
+      "totalMinutes": 50,
+      "labels": [
+        "car",
+        "motor",
+        "people",
+        "lampg",
+        "lampr",
+        "lampy",
+        "lamp",
+        "sign",
+        "line"
+      ],
+      "tagErrors": [],
+      "duplicateIds": [],
+      "nestedSlides": []
+    },
+    {
+      "file": "model-training/index.html",
+      "level": "model-training",
+      "sections": [
+        "training-ready",
+        "dataset-split",
+        "dataset-version",
+        "model-training",
+        "model-evaluation"
+      ],
+      "slides": 20,
+      "minutes": [
+        8,
+        10,
+        8,
+        10,
+        14
+      ],
+      "totalMinutes": 50,
+      "labels": [
+        "car",
+        "motor",
+        "people",
+        "sign",
+        "lampg",
+        "lampr",
+        "lampy",
+        "lamp",
+        "line"
+      ],
+      "tagErrors": [],
+      "duplicateIds": [],
+      "nestedSlides": []
+    }
+  ],
+  "localReferences": [
+    {
+      "page": "index.html",
+      "attribute": "href",
+      "ref": "assets/css/tokens.css",
+      "resolved": "assets/css/tokens.css",
+      "exists": true
+    },
+    {
+      "page": "index.html",
+      "attribute": "href",
+      "ref": "assets/css/base.css",
+      "resolved": "assets/css/base.css",
+      "exists": true
+    },
+    {
+      "page": "index.html",
+      "attribute": "href",
+      "ref": "assets/css/lecture.css",
+      "resolved": "assets/css/lecture.css",
+      "exists": true
+    },
+    {
+      "page": "index.html",
+      "attribute": "src",
+      "ref": "data/site.js",
+      "resolved": "data/site.js",
+      "exists": true
+    },
+    {
+      "page": "index.html",
+      "attribute": "src",
+      "ref": "assets/js/shared.js",
+      "resolved": "assets/js/shared.js",
+      "exists": true
+    },
+    {
+      "page": "index.html",
+      "attribute": "href",
+      "ref": "#main",
+      "resolved": "index.html",
+      "exists": true
+    },
+    {
+      "page": "index.html",
+      "attribute": "href",
+      "ref": "#top",
+      "resolved": "index.html",
+      "exists": true
+    },
+    {
+      "page": "index.html",
+      "attribute": "href",
+      "ref": "road-perception/index.html",
+      "resolved": "road-perception/index.html",
+      "exists": true
+    },
+    {
+      "page": "index.html",
+      "attribute": "href",
+      "ref": "model-training/index.html",
+      "resolved": "model-training/index.html",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "../assets/css/tokens.css",
+      "resolved": "assets/css/tokens.css",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "../assets/css/base.css",
+      "resolved": "assets/css/base.css",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "../assets/css/lecture.css",
+      "resolved": "assets/css/lecture.css",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "src",
+      "ref": "../data/site.js",
+      "resolved": "data/site.js",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "src",
+      "ref": "../assets/js/shared.js",
+      "resolved": "assets/js/shared.js",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "#main",
+      "resolved": "road-perception/index.html",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "#top",
+      "resolved": "road-perception/index.html",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "../road-perception/index.html",
+      "resolved": "road-perception/index.html",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "../model-training/index.html",
+      "resolved": "model-training/index.html",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "#road-mission",
+      "resolved": "road-perception/index.html",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "#capture-01",
+      "resolved": "road-perception/index.html",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "#capture-02",
+      "resolved": "road-perception/index.html",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "#capture-03",
+      "resolved": "road-perception/index.html",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "#capture-04",
+      "resolved": "road-perception/index.html",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "../docs/lesson-01-capture-guide.md",
+      "resolved": "docs/lesson-01-capture-guide.md",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "../assets/img/lesson-01/01-project.png",
+      "resolved": "assets/img/lesson-01/01-project.png",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "src",
+      "ref": "../assets/img/lesson-01/01-project.png",
+      "resolved": "assets/img/lesson-01/01-project.png",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "../assets/img/lesson-01/02-object-label.png",
+      "resolved": "assets/img/lesson-01/02-object-label.png",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "src",
+      "ref": "../assets/img/lesson-01/02-object-label.png",
+      "resolved": "assets/img/lesson-01/02-object-label.png",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "../assets/img/lesson-01/03-lane-before.png",
+      "resolved": "assets/img/lesson-01/03-lane-before.png",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "src",
+      "ref": "../assets/img/lesson-01/03-lane-before.png",
+      "resolved": "assets/img/lesson-01/03-lane-before.png",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "../assets/img/lesson-01/03-lane-mask.png",
+      "resolved": "assets/img/lesson-01/03-lane-mask.png",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "src",
+      "ref": "../assets/img/lesson-01/03-lane-mask.png",
+      "resolved": "assets/img/lesson-01/03-lane-mask.png",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "../docs/lesson-01-capture-guide.md",
+      "resolved": "docs/lesson-01-capture-guide.md",
+      "exists": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "attribute": "href",
+      "ref": "../model-training/index.html",
+      "resolved": "model-training/index.html",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../assets/css/tokens.css",
+      "resolved": "assets/css/tokens.css",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../assets/css/base.css",
+      "resolved": "assets/css/base.css",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../assets/css/lecture.css",
+      "resolved": "assets/css/lecture.css",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "src",
+      "ref": "../data/site.js",
+      "resolved": "data/site.js",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "src",
+      "ref": "../assets/js/shared.js",
+      "resolved": "assets/js/shared.js",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "#main",
+      "resolved": "model-training/index.html",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "#top",
+      "resolved": "model-training/index.html",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../road-perception/index.html",
+      "resolved": "road-perception/index.html",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../model-training/index.html",
+      "resolved": "model-training/index.html",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../files/lesson-02-workbook.txt",
+      "resolved": "files/lesson-02-workbook.txt",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "#l2-capture-01",
+      "resolved": "model-training/index.html",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "#l2-capture-02",
+      "resolved": "model-training/index.html",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "#l2-capture-03",
+      "resolved": "model-training/index.html",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "#l2-capture-04",
+      "resolved": "model-training/index.html",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../docs/lesson-02-capture-guide.md",
+      "resolved": "docs/lesson-02-capture-guide.md",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../docs/lesson-02-capture-guide.md",
+      "resolved": "docs/lesson-02-capture-guide.md",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../docs/lesson-02-capture-guide.md",
+      "resolved": "docs/lesson-02-capture-guide.md",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../docs/lesson-02-capture-guide.md",
+      "resolved": "docs/lesson-02-capture-guide.md",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../docs/lesson-02-capture-guide.md",
+      "resolved": "docs/lesson-02-capture-guide.md",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../files/lesson-02-workbook.txt",
+      "resolved": "files/lesson-02-workbook.txt",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../road-perception/index.html",
+      "resolved": "road-perception/index.html",
+      "exists": true
+    },
+    {
+      "page": "model-training/index.html",
+      "attribute": "href",
+      "ref": "../index.html",
+      "resolved": "index.html",
+      "exists": true
+    }
+  ],
+  "anchors": [
+    {
+      "page": "index.html",
+      "ref": "#main",
+      "found": true
+    },
+    {
+      "page": "index.html",
+      "ref": "#top",
+      "found": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "ref": "#main",
+      "found": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "ref": "#top",
+      "found": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "ref": "#road-mission",
+      "found": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "ref": "#capture-01",
+      "found": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "ref": "#capture-02",
+      "found": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "ref": "#capture-03",
+      "found": true
+    },
+    {
+      "page": "road-perception/index.html",
+      "ref": "#capture-04",
+      "found": true
+    },
+    {
+      "page": "model-training/index.html",
+      "ref": "#main",
+      "found": true
+    },
+    {
+      "page": "model-training/index.html",
+      "ref": "#top",
+      "found": true
+    },
+    {
+      "page": "model-training/index.html",
+      "ref": "#l2-capture-01",
+      "found": true
+    },
+    {
+      "page": "model-training/index.html",
+      "ref": "#l2-capture-02",
+      "found": true
+    },
+    {
+      "page": "model-training/index.html",
+      "ref": "#l2-capture-03",
+      "found": true
+    },
+    {
+      "page": "model-training/index.html",
+      "ref": "#l2-capture-04",
+      "found": true
+    }
+  ],
+  "preservedLesson1": {
+    "slideTitlesAndOrder": true,
+    "slideContentChecks": [
+      {
+        "title": "오늘 완성할 출발점",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "이번 프로젝트의 9개 클래스",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "하나의 모델, 서로 다른 표시",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "이번 수업의 영상",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "영상에서 학습 장면 고르기",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "분류·탐지·분할",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "누끼는 픽셀의 정답 영역",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "학습할 정답과 화면의 표시",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "개념 확인",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "프로젝트와 배정 이미지를 확인",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "라벨의 경계부터 합의하기",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "실습 1 · 대상과 클래스를 연결",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "실제 예시 · 자동차의 위치",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "실습 2 · 주행 가능 영역 표시",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "실제 예시 · 도로의 경계 찾기",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "실제 예시 · line 폴리곤",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "영역의 경계와 가려진 도로",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "실습 3 · 저장 전 3분 점검",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "짝 검수 · 이유까지 말하기",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "종료 질문 · 오늘 배운 것",
+        "unchangedExceptAddedNavigation": true
+      },
+      {
+        "title": "2차시로 가져갈 것",
+        "unchangedExceptAddedNavigation": true
+      }
+    ],
+    "youtubeVideoId": true,
+    "captureCount": 4,
+    "youtubeSource": "https://www.youtube.com/embed/ihokShSN51Y?playsinline=1&amp;rel=0"
+  },
+  "metadata": [
+    {
+      "slug": "road-perception",
+      "status": "ready",
+      "fileExists": true,
+      "bodyMatches": true
+    },
+    {
+      "slug": "model-training",
+      "status": "ready",
+      "fileExists": true,
+      "bodyMatches": true
+    },
+    {
+      "slug": "api-app",
+      "status": "coming",
+      "fileExists": false,
+      "bodyMatches": null
+    },
+    {
+      "slug": "video-app",
+      "status": "coming",
+      "fileExists": false,
+      "bodyMatches": null
+    }
+  ],
+  "instructorUnchanged": true,
+  "protectedFiles": [
+    {
+      "path": "DESIGN.md",
+      "sha256": "c473fca5c871cab360dae65320e6a38189d7e987857cc53700c69e9606a40100",
+      "unchanged": true
+    },
+    {
+      "path": "assets/css/tokens.css",
+      "sha256": "6c3eede764ae1875570731ba175d569da58030c7fda96669fced3fe36deb8590",
+      "unchanged": true
+    },
+    {
+      "path": "assets/css/base.css",
+      "sha256": "2b1d4cfcf12dc00c9a65a288d106bb1f6e9c75ab14d900ca24095738b35b25cb",
+      "unchanged": true
+    },
+    {
+      "path": "assets/js/shared.js",
+      "sha256": "e74face44f5b81e6a96cfa500ca616a089975eb85ef5ef985ce05db182d75569",
+      "unchanged": true
+    },
+    {
+      "path": "source.mp4",
+      "sha256": "047978afc520d8bff222fd21bc890dcab960acf476e7a4b92be2d6824bc60e25",
+      "unchanged": true
+    }
+  ],
+  "jsChecks": [
+    {
+      "file": "data/site.js",
+      "syntax": "pass"
+    },
+    {
+      "file": "assets/js/shared.js",
+      "syntax": "pass"
+    }
+  ],
+  "css": {
+    "newUnknownTokens": []
+  },
+  "git": {
+    "diffCheck": "pass",
+    "ignored": [
+      ".gitignore:5:/captures/\tcaptures/lesson-02/01-dataset.png",
+      ".gitignore:5:/captures/\tcaptures/lesson-01/04.png",
+      ".gitignore:2:/source.mp4\tsource.mp4",
+      ".gitignore:6:/work-temp/\twork-temp/check.txt",
+      ".gitignore:11:.streamlit/secrets.toml\t.streamlit/secrets.toml"
+    ],
+    "sourceTracked": "none",
+    "finalDiffCheck": "pass"
+  },
+  "browser": {
+    "apps": [],
+    "browsers": [],
+    "renderAndInputTests": "not run"
+  },
+  "errors": [],
+  "documentation": {
+    "linksChecked": 27,
+    "brokenLinks": []
+  }
+}

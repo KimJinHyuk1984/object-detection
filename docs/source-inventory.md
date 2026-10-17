@@ -17,3 +17,18 @@
 폴리곤과 탐지 출력 근거: https://blog.roboflow.com/polygons-object-detection/
 
 YouTube 임베드 방식 근거: https://developers.google.com/youtube/player_parameters
+
+## 2차시 추가 자료
+
+2026-10-17에 Roboflow의 공식 자료를 확인했습니다. 설명용 표·격자와 가상 오류는 새로 작성한 교육용 예시이며 실제 사용자 모델 결과가 아닙니다.
+
+| 자료 ID | 위치 | 확인 내용 | 본문 사용 |
+| --- | --- | --- | --- |
+| source-007 | https://roboflow.com/blog/train-test-split | Train·Valid·Test 역할, 분리 후 학습 데이터 증강 | 분리 개념과 설명용 비율 |
+| source-008 | https://roboflow.com/blog/robotics-training-data | 촬영 회차·영상 단위 분리와 인접 프레임 누출 | 현재 단일 영상의 분리 한계 설명 |
+| source-009 | https://roboflow.com/blog/best-practices-for-training-yolo | 데이터 버전·기준 실험·작은 대상의 입력 크기 | 첫 버전과 비교 계획 |
+| source-010 | https://roboflow.com/blog/instance-segmentation | 분할 데이터·버전·모델 학습·미리보기 흐름 | 계정 제공 옵션을 확인하는 학습 절차 |
+| source-011 | https://roboflow.com/blog/mean-average-precision | Precision·Recall·AP·mAP와 IoU 기준 | 지표 해석과 자체 계산 예시 |
+| source-012 | https://roboflow.com/blog/roboflow-training-graphs | Box·Mask IoU, mAP 기준과 학습 그래프 | 평가 값의 정확한 이름 기록 |
+
+2차시 사용자 캡처는 아직 없습니다. API 키·실제 모델 식별자·성능 수치를 수집하거나 가정하지 않았습니다. 다운로드 활동지는 이 수업용으로 새로 작성했으며 실행 코드가 아닙니다.

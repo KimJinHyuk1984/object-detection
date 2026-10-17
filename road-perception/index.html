@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="1차시 50분: 단일 분할 모델로 주행 환경을 인식하기 위한 개념과 어노테이션 실습.">
+    <meta name="color-scheme" content="light dark">
+    <title>
+      자율주행 자동차 모델 만들기 · 1차시
+    </title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/lecture.css">
+    <!-- 일반 스크립트를 사용하므로 file://에서도 데이터를 읽을 수 있습니다. -->
+    <script src="../data/site.js" defer>
+    </script>
+    <script src="../assets/js/shared.js" defer>
+    </script>
+  </head>
+  <body data-level="road-perception">
+    <a class="skip-link" href="#main">
+      본문으로 건너뛰기
+    </a>
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress__fill" data-progress>
+      </div>
+    </div>
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="강의 처음으로">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v15M3 4h5a4 4 0 0 1 4 2 4 4 0 0 1 4-2h5v14h-5a4 4 0 0 0-4 2 4 4 0 0 0-4-2H3Z"/>
+            </svg>
+          </span>
+          <span class="brand-title" data-lecture-title>
+          </span>
+        </a>
+        <!-- shared.js가 본문의 .lecture-section을 수집해 링크를 생성합니다. -->
+        <nav class="section-nav" aria-label="강의 섹션" data-section-nav>
+        </nav>
+        <div class="header-actions">
+          <button class="button" type="button" data-presentation-toggle>
+            발표 모드
+            <kbd>
+              P
+            </kbd>
+          </button>
+          <button class="button button-primary" type="button" data-open-instructor>
+            선생님 소개 보기
+          </button>
+          <button class="button button-icon" type="button" data-theme-toggle aria-label="테마 전환">
+            <svg data-theme-icon width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.9 13a9 9 0 0 1-9.9-9.9A9 9 0 1 0 20.9 13Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <!-- 강의 메타는 전부 data/site.js에서 주입합니다. 이 영역은 그대로 재사용합니다. -->
+      <div class="container">
+        <section class="hero" id="top" aria-labelledby="lecture-title">
+          <p class="kicker" data-lecture-kicker>
+          </p>
+          <h1 id="lecture-title" data-lecture-title>
+          </h1>
+          <p class="hero-subtitle" data-lecture-subtitle>
+          </p>
+          <div class="hero-meta" data-lecture-badges aria-label="강의 정보">
+          </div>
+          <div class="hero-byline">
+            <button class="text-button" type="button" data-open-instructor>
+              <span data-instructor-name>
+              </span>
+              선생님
+            </button>
+            <span data-instructor-affiliation>
+            </span>
+          </div>
+        </section>
+<nav class="course-path" aria-label="전체 4차시 구성">
+  <a class="course-step is-current" href="../road-perception/index.html" aria-current="page"><span>01 · 현재 차시</span><strong>AI에게 도로를 가르치기</strong><span>50분</span></a>
+  <a class="course-step" href="../model-training/index.html"><span>02 · 강의 보기</span><strong>모델을 학습하고 평가하기</strong><span>50분</span></a>
+  <div class="course-step" aria-disabled="true"><span>03 · 준비 중</span><strong>API로 이미지 앱 만들기</strong><span>50분</span></div>
+  <div class="course-step" aria-disabled="true"><span>04 · 준비 중</span><strong>주행영상 앱 배포하기</strong><span>50분</span></div>
+</nav>
+        <div class="lesson-intro">
+          <p>
+            <strong>
+              오늘의 결과물
+            </strong>
+            직접 라벨링한 이미지와 우리 반의 어노테이션 기준
+          </p>
+          <a class="button button-primary" href="#road-mission">
+            1차시 시작하기 →
+          </a>
+        </div>
+        <details class="teacher-prep" id="teacher-prep">
+          <summary>
+            교사용 준비 안내
+            <span class="prep-count">
+              캡처 6장 확인 · 4장 반영
+            </span>
+          </summary>
+          <div class="prep-body">
+            <p>
+              본문은 1차시 50분 수업용 초안입니다. 제공된 캡처 6장을 확인하고 프로젝트·자동차·도로 영역 예시 4장을 반영했습니다.
+            </p>
+            <ul>
+              <li>
+                <a href="#capture-01">
+                  CAPTURE-01
+                </a>
+                프로젝트 화면 확인 · 실제 라벨 9개 반영
+              </li>
+              <li>
+                <a href="#capture-02">
+                  CAPTURE-02
+                </a>
+                자동차 박스 예시 반영
+              </li>
+              <li>
+                <a href="#capture-03">
+                  CAPTURE-03
+                </a>
+                도로 영역 표시 전·후 반영
+              </li>
+              <li>
+                <a href="#capture-04">
+                  CAPTURE-04
+                </a>
+                작업 목록 확인 · 개별 이미지 저장 재확인 필요
+              </li>
+            </ul>
+            <p>
+              <strong>
+                확인:
+              </strong>
+              현재 프로젝트는 <strong>Object Detection</strong>으로 표시됩니다. 폴리곤을 그려도 탐지 모델은 박스를 예측합니다. 도로 마스크를 출력하는 단일 모델을 위해, 기존 어노테이션을 보존하면서 Instance Segmentation 학습에 사용할 수 있는지 먼저 확인해야 합니다.
+            </p>
+            <p>
+              추가 확인: 일반 객체의 분할 학습용 정답 형식 / 도로 영역의 차로 범위·차량·장애물·가림 처리 기준. 실제 학습 결과와 완성 앱 화면은 아직 없습니다.
+            </p>
+            <a class="button" href="../docs/lesson-01-capture-guide.md" download>
+              캡처·확인 체크리스트 받기
+            </a>
+          </div>
+        </details>
+        <section class="lecture-section" id="road-mission" aria-labelledby="road-mission-title" data-reveal>
+          <div class="section-heading">
+            <p class="kicker">
+              01 / MISSION
+              <span class="section-time">
+                10분
+              </span>
+            </p>
+            <h2 id="road-mission-title">
+              도로를 읽는 AI
+            </h2>
+          </div>
+          <div class="lesson-stack">
+            <div class="lesson-panel" data-slide data-slide-title="오늘 완성할 출발점">
+              <p class="eyebrow">
+                1차시 · AI에게 도로를 가르치기
+              </p>
+              <p class="big-question">
+                자동차가 주변을 이해하려면
+                <br>
+                무엇을, 어디까지 알아야 할까요?
+              </p>
+              <ul class="learning-list">
+                <li>
+                  객체의
+                  <strong>
+                    종류·위치·모양
+                  </strong>
+                  을 구분해 설명합니다.
+                </li>
+                <li>
+                  9개 클래스의 기준에 맞춰 이미지에 정답을 표시합니다.
+                </li>
+                <li>
+                  친구의 어노테이션에서 수정할 부분을 찾습니다.
+                </li>
+              </ul>
+            </div>
+            <div class="lesson-panel visual-panel" data-slide data-slide-title="이번 프로젝트의 9개 클래스">
+              <figure class="concept-figure">
+                <svg class="road-visual" viewBox="0 0 960 340" role="img" aria-label="자동차·오토바이·사람·신호등·표지판의 박스와 차선 사이 주행 가능한 도로 영역을 그린 개념도">
+                  <path class="diagram-road" d="M325 30H635L880 330H80Z"/>
+                  <path class="drivable-mask" d="M416 38H552L664 320H271Z"/>
+                  <path class="road-marking" d="M404 38H416L271 320H245Z"/>
+                  <path class="road-marking" d="M552 38H563L690 320H664Z"/>
+                  <path class="diagram-ground" d="M479 46V78M479 105V150M479 190V254M479 287V330"/>
+                  <g transform="translate(343 142) scale(.62)">
+                    <path class="diagram-car" d="M0 53 17 9H120L139 53V127H0Z"/>
+                    <path class="diagram-window" d="M26 22H109L120 58H16Z"/>
+                    <rect class="diagram-box" x="-9" y="0" width="157" height="139"/>
+                  </g>
+                  <g transform="translate(571 225)">
+                    <circle class="diagram-wheel" cx="0" cy="26" r="13"/>
+                    <circle class="diagram-wheel" cx="48" cy="26" r="13"/>
+                    <path class="diagram-ground" d="M0 26 20 0 48 26H0M19 0H36"/>
+                    <rect class="diagram-box" x="-22" y="-13" width="88" height="62"/>
+                  </g>
+                  <g transform="translate(760 114)">
+                    <circle class="diagram-solid" cx="0" cy="0" r="11"/>
+                    <path class="diagram-person" d="M0 17V55M-22 38 0 17 20 38M0 55-18 83M0 55 18 83"/>
+                    <rect class="diagram-box" x="-33" y="-20" width="66" height="115"/>
+                  </g>
+                  <path class="diagram-ground" d="M204 163V36H316"/>
+                  <rect class="diagram-solid" x="294" y="26" width="34" height="85" rx="7"/>
+                  <circle class="diagram-signal" cx="311" cy="44" r="8"/>
+                  <circle class="diagram-window" cx="311" cy="69" r="8"/>
+                  <circle class="diagram-window" cx="311" cy="94" r="8"/>
+                  <rect class="diagram-box" x="286" y="18" width="50" height="101"/>
+                  <g>
+                    <title>표지판 · sign</title>
+                    <path class="diagram-ground" d="M696 135V38"/>
+                    <path class="diagram-sign" d="M696 11 728 65H664Z"/>
+                    <rect class="diagram-box" x="655" y="3" width="82" height="73"/>
+                  </g>
+                </svg>
+                <figcaption>
+                  수업용 개념도 · 실제 영상 또는 모델의 추론 결과가 아닙니다.
+                </figcaption>
+              </figure>
+              <ul class="class-legend" aria-label="9개 클래스">
+                <li><code>car</code> · 자동차</li>
+                <li><code>motor</code> · 오토바이</li>
+                <li><code>people</code> · 사람</li>
+                <li><code>lampg</code> · 초록 신호등</li>
+                <li><code>lampr</code> · 빨간 신호등</li>
+                <li><code>lampy</code> · 노란 신호등</li>
+                <li><code>lamp</code> · 색 구분이 어려운 신호등</li>
+                <li><code>sign</code> · 표지판</li>
+                <li class="is-lane"><code>line</code> · 주행 가능 도로 영역</li>
+              </ul>
+              <p class="note-meta">신호등임을 알 수 있지만 색을 판단하기 어려우면 lamp로 표시합니다.</p>
+              <p class="prompt">
+                옆 사람과 이야기해 보세요. 위치만 알아도 되는 대상과, 모양까지 알아야 하는 대상은 무엇인가요?
+              </p>
+            </div>
+            <div class="lesson-panel" data-slide data-slide-title="하나의 모델, 서로 다른 표시">
+              <ol class="process-flow">
+                <li>
+                  <span>
+                    입력
+                  </span>
+                  <strong>
+                    주행영상의 한 프레임
+                  </strong>
+                </li>
+                <li>
+                  <span>
+                    인식
+                  </span>
+                  <strong>
+                    9개 클래스를 배운
+                    <br>
+                    하나의 분할 모델
+                  </strong>
+                </li>
+                <li>
+                  <span>
+                    표시
+                  </span>
+                  <strong>
+                    객체 박스 + 도로 영역 마스크
+                  </strong>
+                </li>
+              </ol>
+              <p>
+                하나의 예측 결과에서 객체를 둘러싼 박스를 표시하고, 차선 사이의 주행 가능한 도로 영역을 색칠합니다.
+              </p>
+              <p class="muted">
+                4차시까지 Roboflow 학습 → API 연결 → Streamlit 배포로 이어집니다.
+              </p>
+            </div>
+            <div class="lesson-panel source-video-panel" data-slide data-slide-title="이번 수업의 영상">
+              <div class="source-summary">
+                <div>
+                  <p class="eyebrow">SOURCE VIDEO</p>
+                  <h3>source.mp4</h3>
+                  <p class="note-meta">학습용 파일 · 약 5분 1초 · 1920 × 1080 · 30fps</p>
+                </div>
+                <p>영상을 재생하며 자동차·신호등·표지판과 주행 가능한 도로 영역을 찾아보세요.</p>
+              </div>
+              <div class="source-video">
+                <iframe
+                  class="source-video-player"
+                  src="https://www.youtube.com/embed/ihokShSN51Y?playsinline=1&amp;rel=0"
+                  title="자율주행 객체 인식 수업용 주행영상 — YouTube"
+                  width="960"
+                  height="540"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="source-video-actions">
+                <a class="button" href="https://www.youtube.com/watch?v=ihokShSN51Y" target="_blank" rel="noopener noreferrer">YouTube에서 열기 ↗</a>
+                <span class="note-meta">인터넷에 연결한 뒤 재생 버튼을 눌러 주세요.</span>
+              </div>
+            </div>
+            <div class="lesson-panel" data-slide data-slide-title="영상에서 학습 장면 고르기">
+              <p>영상은 여러 장의 이미지가 이어진 것입니다. 그중 학습에 사용할 장면을 골라 정답을 표시합니다.</p>
+              <p class="prompt">
+                10초 영상도 30fps라면 300프레임입니다. 비슷한 장면을 모두 라벨링해야 할까요?
+              </p>
+              <details class="answer">
+                <summary>생각 나누기</summary>
+                <p>
+                  비슷한 프레임을 반복해서 늘리기보다, 대상의 크기·가림·도로 상황이 다양한 장면을 고릅니다. 데이터 분리 방법은 2차시에서 다룹니다.
+                </p>
+              </details>
+            </div>
+          </div>
+        </section>
+        <section class="lecture-section" id="vision-concepts" aria-labelledby="vision-concepts-title" data-reveal>
+          <div class="section-heading">
+            <p class="kicker">
+              02 / CONCEPT
+              <span class="section-time">
+                10분
+              </span>
+            </p>
+            <h2 id="vision-concepts-title">
+              종류, 위치, 모양을 구분하기
+            </h2>
+          </div>
+          <div class="lesson-stack">
+            <div class="lesson-panel visual-panel" data-slide data-slide-title="분류·탐지·분할">
+              <div class="concept-grid">
+                <article>
+                  <p class="eyebrow">
+                    CLASSIFICATION
+                  </p>
+                  <h3>
+                    분류
+                  </h3>
+                  <svg class="concept-visual" viewBox="0 0 320 180" role="img" aria-label="자동차가 있다는 분류 결과">
+                    <path class="diagram-ground" d="M0 144H320"/>
+                    <path class="diagram-car" d="M58 115 69 89 102 82 121 53H207L232 88 261 98 269 127H58Z"/>
+                    <path class="diagram-window" d="M130 62H197L216 84H115Z"/>
+                    <circle class="diagram-wheel" cx="105" cy="127" r="18"/>
+                    <circle class="diagram-wheel" cx="229" cy="127" r="18"/>
+                  </svg>
+                  <p>
+                    “자동차가 있다.”
+                  </p>
+                  <p class="muted">
+                    이미지의 종류를 판단합니다.
+                  </p>
+                </article>
+                <article>
+                  <p class="eyebrow">
+                    OBJECT DETECTION
+                  </p>
+                  <h3>
+                    객체 탐지
+                  </h3>
+                  <svg class="concept-visual" viewBox="0 0 320 180" role="img" aria-label="자동차를 둘러싼 사각형 탐지 결과">
+                    <path class="diagram-ground" d="M0 144H320"/>
+                    <path class="diagram-car" d="M58 115 69 89 102 82 121 53H207L232 88 261 98 269 127H58Z"/>
+                    <path class="diagram-window" d="M130 62H197L216 84H115Z"/>
+                    <circle class="diagram-wheel" cx="105" cy="127" r="18"/>
+                    <circle class="diagram-wheel" cx="229" cy="127" r="18"/>
+                    <rect class="diagram-box" x="50" y="45" width="227" height="108" rx="3"/>
+                  </svg>
+                  <p>
+                    “자동차가 여기에 있다.”
+                  </p>
+                  <p class="muted">
+                    종류와 사각형 위치를 찾습니다.
+                  </p>
+                </article>
+                <article>
+                  <p class="eyebrow">
+                    INSTANCE SEGMENTATION
+                  </p>
+                  <h3>
+                    인스턴스 분할
+                  </h3>
+                  <svg class="concept-visual" viewBox="0 0 320 180" role="img" aria-label="자동차 윤곽을 따라 표시한 분할 영역">
+                    <path class="diagram-ground" d="M0 144H320"/>
+                    <path class="diagram-car" d="M58 115 69 89 102 82 121 53H207L232 88 261 98 269 127H58Z"/>
+                    <path class="diagram-window" d="M130 62H197L216 84H115Z"/>
+                    <circle class="diagram-wheel" cx="105" cy="127" r="18"/>
+                    <circle class="diagram-wheel" cx="229" cy="127" r="18"/>
+                    <path class="diagram-mask" d="M58 115 69 89 102 82 121 53H207L232 88 261 98 269 127H247A18 18 0 0 1 211 127H123A18 18 0 0 1 87 127H58Z"/>
+                  </svg>
+                  <p>
+                    “이 영역이 자동차다.”
+                  </p>
+                  <p class="muted">
+                    객체별 종류와 영역을 찾습니다.
+                  </p>
+                </article>
+              </div>
+              <p class="figure-label">
+                같은 자동차를 세 가지 방식으로 표현한 개념도
+              </p>
+            </div>
+            <div class="lesson-panel" data-slide data-slide-title="누끼는 픽셀의 정답 영역">
+              <p class="big-question">
+                마스크는 “이 부분이 대상이다”라는 표시입니다.
+              </p>
+              <div class="two-column">
+                <div>
+                  <h3>
+                    바운딩 박스
+                  </h3>
+                  <p>
+                    대상을 둘러싼 사각형입니다. 주변 배경도 함께 들어갈 수 있습니다.
+                  </p>
+                </div>
+                <div>
+                  <h3>
+                    분할 마스크
+                  </h3>
+                  <p>
+                    대상의 모양을 따라 선택한 영역입니다. 화면에서는 색칠한 윤곽으로 볼 수 있습니다.
+                  </p>
+                </div>
+              </div>
+              <p class="prompt">
+                휘어진 도로를 큰 사각형 하나로 감싸면, 실제 주행 가능한 영역을 알 수 있을까요?
+              </p>
+            </div>
+            <div class="lesson-panel" data-slide data-slide-title="학습할 정답과 화면의 표시">
+              <div class="two-column">
+                <div>
+                  <p class="eyebrow">
+                    TRAINING
+                  </p>
+                  <h3>
+                    어노테이션
+                  </h3>
+                  <p>
+                    사람이 이미지에 종류와 위치·영역의 정답을 표시합니다. 같은 대상은 같은 기준으로 표시합니다.
+                  </p>
+                </div>
+                <div>
+                  <p class="eyebrow">
+                    INFERENCE
+                  </p>
+                  <h3>
+                    모델의 예측
+                  </h3>
+                  <p>
+                    모델이 처음 보는 이미지에서 종류와 위치·영역을 추정합니다. 예측에는 오류가 있을 수 있습니다.
+                  </p>
+                </div>
+              </div>
+              <aside class="callout">
+                <div>
+                  <strong>
+                    표시 방법과 학습 방식은 구분합니다.
+                  </strong>
+                  <p>
+                    우리 앱의 목표는 단일 분할 모델의 예측에서 객체 박스와 line 영역을 표시하는 것입니다. 현재 어노테이션 화면과 완성 모델의 출력을 구분합니다.
+                  </p>
+                </div>
+              </aside>
+            </div>
+            <div class="lesson-panel" data-slide data-slide-title="개념 확인">
+              <p class="big-question">
+                주행 가능한 도로의 모양을 보여주려면
+                <br>
+                어떤 결과가 필요할까요?
+              </p>
+              <ol class="choice-list">
+                <li>
+                  영상 전체의 이름 한 개
+                </li>
+                <li>
+                  도로 주변의 사각형
+                </li>
+                <li>
+                  주행 가능한 도로 모양을 따라 선택한 영역
+                </li>
+              </ol>
+              <details class="answer">
+                <summary>
+                  정답과 이유 보기
+                </summary>
+                <p>
+                  <strong>
+                    3번, 분할 영역입니다.
+                  </strong>
+                  주행 가능 영역의 경계를 구분하려면 대상에 해당하는 픽셀 영역이 필요합니다.
+                </p>
+              </details>
+            </div>
+          </div>
+        </section>
+        <section class="lecture-section" id="annotation-ready" aria-labelledby="annotation-ready-title" data-reveal>
+          <div class="section-heading">
+            <p class="kicker">
+              03 / PREPARE
+              <span class="section-time">
+                5분
+              </span>
+            </p>
+            <h2 id="annotation-ready-title">
+              같은 기준으로 시작하기
+            </h2>
+          </div>
+          <div class="lesson-stack">
+            <div class="lesson-panel" data-slide data-slide-title="프로젝트와 배정 이미지를 확인">
+              <ol class="numbered-steps">
+                <li>
+                  <strong>
+                    선생님이 안내한 프로젝트를 엽니다.
+                  </strong>
+                  <p>
+                    프로젝트 이름과 유형을 함께 확인합니다. 현재 캡처는 Object Detection입니다. 목표인 도로 마스크 출력을 위해 분할 모델 학습 구성을 먼저 확인합니다.
+                  </p>
+                </li>
+                <li>
+                  <strong>
+                    9개 클래스의 이름을 확인합니다.
+                  </strong>
+                  <p>
+                    기존 이름을 그대로 사용합니다. 철자나 대소문자를 바꿔 새 클래스를 만들지 않습니다.
+                  </p>
+                </li>
+                <li>
+                  <strong>
+                    배정받은 이미지를 엽니다.
+                  </strong>
+                  <p>
+                    다른 사람의 작업과 겹치지 않도록 작업할 이미지를 확인합니다.
+                  </p>
+                </li>
+              </ol>
+            </div>
+            <details class="capture-note" id="capture-01">
+              <summary><span class="capture-id">CAPTURE-01 · 확인됨</span> 현재 프로젝트: aicar · Object Detection</summary>
+            <figure class="media-figure capture-figure">
+              <a href="../assets/img/lesson-01/01-project.png" target="_blank" rel="noopener noreferrer" aria-label="현재 프로젝트 정보 원본 크게 보기 (새 탭)">
+                <img src="../assets/img/lesson-01/01-project.png" width="832" height="189" loading="lazy" decoding="async" alt="aicar 프로젝트 정보에 Object Detection, 201 Assets, 0 Models가 표시된 화면">
+              </a>
+              <figcaption>촬영 당시 프로젝트: aicar · Object Detection · 201 Assets · 0 Models.</figcaption>
+            </figure>
+              <p>도로 영역에 폴리곤을 그린 것과 모델이 마스크를 출력하는 것은 구분해야 합니다. 기존 어노테이션을 보존하고 분할 학습에 사용할 수 있는지 확인한 뒤 학습합니다.</p>
+              <p class="note-meta">클래스 이름은 사용자가 제공한 9개 라벨을 반영했습니다. 이 캡처에는 전체 클래스 목록이 보이지 않습니다.</p>
+            </details>
+            <div class="lesson-panel" data-slide data-slide-title="라벨의 경계부터 합의하기">
+              <ul class="rule-list">
+                <li>
+                  <strong>
+                    자동차의 범위
+                  </strong>
+                  <span>
+                    승용차·버스·트럭을 같은 클래스로 묶는지 확인합니다.
+                  </span>
+                </li>
+                <li>
+                  <strong>
+                    사람과 오토바이
+                  </strong>
+                  <span>
+                    탑승자를 사람으로도 표시하는지 확인합니다.
+                  </span>
+                </li>
+                <li>
+                  <strong>
+                    신호등의 상태
+                  </strong>
+                  <span>
+                    초록은 lampg, 빨강은 lampr, 노랑은 lampy, 색 구분이 어려우면 lamp를 사용합니다. 신호등 전체 또는 점등 부분 중 표시 범위는 확인합니다.
+                  </span>
+                </li>
+                <li>
+                  <strong>
+                    표지판 · sign
+                  </strong>
+                  <span>
+                    표시할 표지판의 종류와 표지판 판·지지대의 포함 범위를 확인합니다.
+                  </span>
+                </li>
+                <li>
+                  <strong>
+                    차선
+                  </strong>
+                  <span>
+                    차선 사이의 주행 가능 영역과 가려진 부분의 처리 기준을 확인합니다.
+                  </span>
+                </li>
+              </ul>
+              <p class="prompt">
+                답이 서로 다르면 작업 전에 기준부터 맞춥니다.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="lecture-section" id="annotation-practice" aria-labelledby="annotation-practice-title" data-reveal>
+          <div class="section-heading">
+            <p class="kicker">
+              04 / PRACTICE
+              <span class="section-time">
+                15분
+              </span>
+            </p>
+            <h2 id="annotation-practice-title">
+              정답 영역을 직접 표시하기
+            </h2>
+          </div>
+          <div class="lesson-stack">
+            <div class="lesson-panel" data-slide data-slide-title="실습 1 · 대상과 클래스를 연결">
+              <p class="eyebrow">
+                개인 실습 · 5분
+              </p>
+              <ol class="numbered-steps">
+                <li>
+                  <strong>
+                    이미지 전체를 먼저 살펴봅니다.
+                  </strong>
+                  <p>
+                    가까운 대상뿐 아니라 작거나 겹친 대상도 찾아봅니다.
+                  </p>
+                </li>
+                <li>
+                  <strong>
+                    대상 하나의 정답을 표시합니다.
+                  </strong>
+                  <p>
+                    선생님이 정한 라벨 형식과 경계 기준을 따릅니다.
+                  </p>
+                </li>
+                <li>
+                  <strong>
+                    기존 클래스 이름을 선택합니다.
+                  </strong>
+                  <p>
+                    선택한 대상과 이름이 맞는지 확인하고 다음 대상으로 이동합니다.
+                  </p>
+                </li>
+              </ol>
+            </div>
+            <figure class="media-figure capture-figure" id="capture-02" data-slide data-slide-title="실제 예시 · 자동차의 위치">
+              <a href="../assets/img/lesson-01/02-object-label.png" target="_blank" rel="noopener noreferrer" aria-label="실제 예시 · 자동차의 위치 원본 크게 보기 (새 탭)">
+                <img src="../assets/img/lesson-01/02-object-label.png" width="1967" height="1135" loading="lazy" decoding="async" alt="주행영상 속 여러 자동차 주변에 보라색 사각형 박스가 표시된 어노테이션 화면">
+              </a>
+              <figcaption>자동차를 둘러싼 박스를 관찰해 보세요. 사람이 표시한 정답 예시입니다.</figcaption>
+            </figure>
+            <div class="lesson-panel" data-slide data-slide-title="실습 2 · 주행 가능 영역 표시">
+              <p class="eyebrow">
+                개인 실습 · 7분
+              </p>
+              <ol class="numbered-steps">
+                <li>
+                  <strong>
+                    차선 사이의 주행 가능한 도로 영역을 확인합니다.
+                  </strong>
+                  <p>
+                    차선의 도색 표식, 인도, 도로 밖 배경과 주행 가능 영역의 경계를 구분합니다.
+                  </p>
+                </li>
+                <li>
+                  <strong>
+                    다각형 또는 마스크 도구로 영역을 만듭니다.
+                  </strong>
+                  <p>
+                    다각형은 윤곽의 방향이 바뀌는 곳에 점을 찍고, 시작점으로 돌아와 닫습니다.
+                  </p>
+                </li>
+                <li>
+                  <strong>
+                    line 클래스를 지정하고 경계를 검수합니다.
+                  </strong>
+                  <p>
+                    자동 선택을 사용했다면 누락되거나 배경이 포함된 부분을 직접 고칩니다.
+                  </p>
+                </li>
+              </ol>
+            </div>
+            <figure class="media-figure capture-figure" id="capture-03" data-slide data-slide-title="실제 예시 · 도로의 경계 찾기">
+              <a href="../assets/img/lesson-01/03-lane-before.png" target="_blank" rel="noopener noreferrer" aria-label="실제 예시 · 도로의 경계 찾기 원본 크게 보기 (새 탭)">
+                <img src="../assets/img/lesson-01/03-lane-before.png" width="1967" height="1146" loading="lazy" decoding="async" alt="여러 자동차와 차로가 보이는 도로 장면. 하단 일부에 주황색 경계선이 보임">
+              </a>
+              <figcaption>차선 사이에서 주행 가능한 도로 영역을 찾아보세요.</figcaption>
+            </figure>
+            <figure class="media-figure capture-figure" id="capture-03-after" data-slide data-slide-title="실제 예시 · line 폴리곤">
+              <a href="../assets/img/lesson-01/03-lane-mask.png" target="_blank" rel="noopener noreferrer" aria-label="실제 예시 · line 폴리곤 원본 크게 보기 (새 탭)">
+                <img src="../assets/img/lesson-01/03-lane-mask.png" width="1968" height="1146" loading="lazy" decoding="async" alt="인접한 여러 차로의 주행 가능 도로 영역에 line이라고 적힌 주황색 다각형 경계가 표시된 화면">
+              </a>
+              <figcaption>주황색 line 폴리곤은 차선 사이 도로 영역의 정답 표시입니다.</figcaption>
+            </figure>
+            <div class="lesson-panel" data-slide data-slide-title="영역의 경계와 가려진 도로">
+              <div class="two-column">
+                <div>
+                  <h3>
+                    도로 영역의 경계
+                  </h3>
+                  <p>
+                    이번 마스크는 차선 사이의 주행 가능한 도로 영역입니다. 도로 경계와 곡선을 따라 영역을 만들고, 인도와 도로 밖 배경을 구분합니다.
+                  </p>
+                </div>
+                <div>
+                  <h3>
+                    다른 물체에 가려진 부분
+                  </h3>
+                  <p>
+                    보이는 영역을 표시할지, 가려진 범위를 추정할지 기준을 먼저 확인합니다. 이미지마다 다른 방식을 섞지 않습니다.
+                  </p>
+                </div>
+              </div>
+              <aside class="callout">
+                <div>
+                  <strong>
+                    line = 차선 사이의 주행 가능한 도로 영역
+                  </strong>
+                  <p>
+                    캡처에는 인접한 여러 차로를 각각 line 폴리곤으로 표시했습니다. 차로별 분리 여부와 차량·장애물·가림 처리 기준은 선생님과 확인합니다.
+                  </p>
+                </div>
+              </aside>
+            </div>
+            <div class="lesson-panel" data-slide data-slide-title="실습 3 · 저장 전 3분 점검">
+              <p class="eyebrow">
+                개인 점검 · 3분
+              </p>
+              <ul class="tick-list">
+                <li>
+                  <label>
+                    <input type="checkbox">
+                    <span>
+                      클래스 이름이 대상과 일치한다.
+                    </span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox">
+                    <span>
+                      정해진 기준에 해당하는 대상을 빠뜨리지 않았다.
+                    </span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox">
+                    <span>
+                      주행 가능 영역에 인도·도로 밖 배경이 섞이지 않았다.
+                    </span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox">
+                    <span>
+                      저장한 뒤 다시 열어 라벨이 남아 있는지 확인했다.
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <p class="muted">
+                이 체크는 현재 화면에서 확인하는 용도입니다. 작업 결과는 Roboflow에서 저장합니다.
+              </p>
+            </div>
+            <details class="capture-note" id="capture-04">
+              <summary><span class="capture-id">CAPTURE-04 · 목록 확인</span> 라벨링 진행 상황과 저장 점검</summary>
+              <p>04.png와 04(1).png에서 촬영 당시 전체 201장 중 Annotated 135장, Unannotated 66장을 확인했습니다. Dataset은 0이며, 학습용 데이터셋 반영이나 개별 이미지의 최종 검수가 완료되었다는 뜻은 아닙니다.</p>
+              <p>두 목록 화면은 계정 정보가 포함되어 원본을 보관하고 강의에는 수치만 반영했습니다. 저장 점검 예시가 필요하면 완료한 이미지 한 장을 다시 열어 라벨이 유지되는지 확인합니다.</p>
+              <p class="note-meta"><a href="../docs/lesson-01-capture-guide.md">확인 결과와 남은 항목 보기</a></p>
+            </details>
+          </div>
+        </section>
+        <section class="lecture-section" id="annotation-review" aria-labelledby="annotation-review-title" data-reveal>
+          <div class="section-heading">
+            <p class="kicker">
+              05 / REVIEW
+              <span class="section-time">
+                10분
+              </span>
+            </p>
+            <h2 id="annotation-review-title">
+              서로의 정답을 검수하기
+            </h2>
+          </div>
+          <div class="lesson-stack">
+            <div class="lesson-panel" data-slide data-slide-title="짝 검수 · 이유까지 말하기">
+              <p class="eyebrow">
+                짝 활동 · 5분
+              </p>
+              <div class="two-column">
+                <div>
+                  <h3>
+                    작업자가 설명합니다.
+                  </h3>
+                  <ul>
+                    <li>
+                      이 대상에 이 클래스를 붙인 이유
+                    </li>
+                    <li>
+                      주행 가능 영역의 경계를 정한 이유
+                    </li>
+                    <li>
+                      판단하기 어려웠던 부분 한 가지
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>
+                    검수자가 확인합니다.
+                  </h3>
+                  <ul>
+                    <li>
+                      틀린 클래스 또는 빠진 대상
+                    </li>
+                    <li>
+                      과하게 포함된 배경 또는 누락 영역
+                    </li>
+                    <li>
+                      다른 이미지와 기준이 달라진 곳
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <p class="prompt">
+                “여기가 틀렸다”에서 한 걸음 더 나아가, 어떤 기준으로 고칠지 설명합니다.
+              </p>
+            </div>
+            <div class="lesson-panel" data-slide data-slide-title="종료 질문 · 오늘 배운 것">
+              <p class="eyebrow">
+                개별 정리 · 3분
+              </p>
+              <ol class="reflection-list">
+                <li>
+                  객체 탐지와 인스턴스 분할의 차이를 한 문장으로 설명해 보세요.
+                </li>
+                <li>
+                  우리 프로젝트에서 차선 마스크는 어떤 도로 영역을 뜻하나요?
+                </li>
+                <li>
+                  내 어노테이션에서 고친 부분과 이유를 한 가지 적어 보세요.
+                </li>
+              </ol>
+              <details class="answer">
+                <summary>
+                  첫 번째 질문의 예시 답안
+                </summary>
+                <p>
+                  객체 탐지는 종류와 사각형 위치를 찾고, 인스턴스 분할은 객체별 종류와 영역을 찾습니다.
+                </p>
+              </details>
+            </div>
+            <div class="lesson-panel" data-slide data-slide-title="2차시로 가져갈 것">
+              <p class="eyebrow">
+                정리 · 2분
+              </p>
+              <ul class="learning-list">
+                <li>
+                  <strong>
+                    저장한 어노테이션
+                  </strong>
+                  — 이미지와 클래스·영역의 정답
+                </li>
+                <li>
+                  <strong>
+                    우리 반의 작업 기준
+                  </strong>
+                  — 포함 범위와 경계 처리 규칙
+                </li>
+                <li>
+                  <strong>
+                    아직 어려운 사례
+                  </strong>
+                  — 작거나 겹치거나 가려진 대상
+                </li>
+              </ul>
+              <div class="next-session">
+                <span>
+                  다음 차시 · 50분
+                </span>
+                <h3>
+                  이 정답으로 모델을 학습합니다.
+                </h3>
+                <p>
+                  데이터를 나누고 → 버전을 만들고 → 학습을 시작하고 → 예측 오류를 살펴봅니다.
+                </p>
+                <a class="button button-primary" href="../model-training/index.html">2차시로 이동 →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <aside class="lesson-references">
+          <p>
+            <strong>
+              자료 안내
+            </strong>
+            도식은 학습용으로 직접 작성했습니다. 실제 Roboflow 캡처 4장은 사용자가 제공한 어노테이션 화면이며 모델의 예측 결과가 아닙니다.
+          </p>
+          <p>
+            라벨링 도구 설명:
+            <a href="https://docs.roboflow.com/annotate/use-roboflow-annotate" target="_blank" rel="noopener noreferrer">
+              Roboflow 공식 문서 · Annotate an Image
+            </a>
+          </p>
+          <p>폴리곤과 모델 출력의 차이: <a href="https://blog.roboflow.com/polygons-object-detection/" target="_blank" rel="noopener noreferrer">Roboflow 공식 설명 · Polygons for Object Detection</a></p>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-instructor">
+          <div data-instructor-avatar>
+          </div>
+          <div>
+            <strong data-instructor-name>
+            </strong>
+            <p data-instructor-affiliation>
+            </p>
+            <a class="footer-email" data-instructor-email>
+            </a>
+          </div>
+        </div>
+        <div data-other-lectures-region>
+          <h2 class="footer-heading">
+            다른 강의 둘러보기
+          </h2>
+          <div class="other-lectures" data-other-lectures>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- 선생님 소개 모달의 내용은 shared.js가 SITE.instructor로 한 번만 생성합니다. -->
+    <div class="sr-only" role="status" aria-live="polite" data-copy-status>
+    </div>
+    <noscript>
+      강의 정보와 인터랙션을 표시하려면 브라우저에서 JavaScript를 켜 주세요.
+    </noscript>
+  </body>
+</html>

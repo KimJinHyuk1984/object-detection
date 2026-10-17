@@ -9,3 +9,7 @@ venv/
 __pycache__/
 *.pyc
 .streamlit/secrets.toml
+
+# PDF 생성·미리보기 중간 결과
+/tmp/pdfs/
+/output/pdf/

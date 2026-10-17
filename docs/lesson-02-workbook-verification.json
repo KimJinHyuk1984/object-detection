@@ -1,0 +1,130 @@
+{
+  "date": "2026-10-17",
+  "file": "files/lesson-02-workbook.pdf",
+  "content": {
+    "pages": 4,
+    "page_size": "A4",
+    "bytes": 142559,
+    "sha256": "16cd2ccc7af214b9d0290957a9ece1993ac8164ea8a236d6f81b7a11c113d6e0",
+    "classes": [
+      "car",
+      "motor",
+      "people",
+      "sign",
+      "lampg",
+      "lampr",
+      "lampy",
+      "lamp",
+      "line"
+    ],
+    "required_sections_present": true,
+    "embedded_fonts": [
+      {
+        "name": "/Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "unicode_map": false
+      },
+      {
+        "name": "/AAAAAA+MalgunGothicBold",
+        "subtype": "/TrueType",
+        "embedded": true,
+        "unicode_map": true
+      },
+      {
+        "name": "/AAAAAB+MalgunGothicBold",
+        "subtype": "/TrueType",
+        "embedded": true,
+        "unicode_map": true
+      },
+      {
+        "name": "/AAAAAA+MalgunGothic",
+        "subtype": "/TrueType",
+        "embedded": true,
+        "unicode_map": true
+      },
+      {
+        "name": "/AAAAAB+MalgunGothic",
+        "subtype": "/TrueType",
+        "embedded": true,
+        "unicode_map": true
+      }
+    ],
+    "output_and_download_identical": true,
+    "text_characters_per_page": [
+      628,
+      570,
+      521,
+      555
+    ]
+  },
+  "render": {
+    "tool": "Poppler pdftoppm",
+    "dpi": 130,
+    "pages": [
+      {
+        "page": 1,
+        "width": 1075,
+        "height": 1521,
+        "sha256": "06ab219e97ecc829813437c91450fa5b331ecdc8c099dc641a1c2fa013ded6cd",
+        "visualReview": "pass: no clipping, overlap or missing Korean glyphs"
+      },
+      {
+        "page": 2,
+        "width": 1075,
+        "height": 1521,
+        "sha256": "26a93e4cbbd3665f9d3441755612f5dfb53ebee4250a1ca010c2eea97d46e941",
+        "visualReview": "pass: no clipping, overlap or missing Korean glyphs"
+      },
+      {
+        "page": 3,
+        "width": 1075,
+        "height": 1521,
+        "sha256": "d1c0d1fbcc4df0ec97fa5b7f0b1bbbffbf2a54ff3eac8b7b984db3b1e6f98e71",
+        "visualReview": "pass: no clipping, overlap or missing Korean glyphs"
+      },
+      {
+        "page": 4,
+        "width": 1075,
+        "height": 1521,
+        "sha256": "13ff29b525b2953ee5b9823e0dab25040bb6d6e037b34ba449b770aeb72b9acf",
+        "visualReview": "pass: no clipping, overlap or missing Korean glyphs"
+      }
+    ]
+  },
+  "http": [
+    {
+      "route": "/model-training/index.html",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "bytes": 29246,
+      "matchesFile": true
+    },
+    {
+      "route": "/files/lesson-02-workbook.pdf",
+      "status": 200,
+      "type": "application/pdf",
+      "bytes": 142559,
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/model-training/index.html",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "bytes": 29246,
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/files/lesson-02-workbook.pdf",
+      "status": 200,
+      "type": "application/pdf",
+      "bytes": 142559,
+      "matchesFile": true
+    }
+  ],
+  "htmlPdfLinks": 2,
+  "limitations": [
+    "Print worksheet; no interactive PDF form fields.",
+    "Actual browser download click not tested."
+  ]
+}

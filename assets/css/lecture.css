@@ -1,4 +1,4 @@
-/* 1차시 전용 스타일. 공통 tokens.css / base.css는 유지합니다. */
+/* 강의별 전용 스타일. 공통 tokens.css / base.css는 유지합니다. */
 .lesson-stack { display: grid; gap: var(--space-6); }
 .lesson-panel { display: grid; gap: var(--space-6); padding: var(--space-7); background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-lg); }
 .lesson-panel > * { min-width: 0; }
@@ -107,3 +107,32 @@ summary:focus-visible, input:focus-visible { outline: 3px solid var(--accent-tex
 .presentation-stage .source-video { width: min(100%, 80vh); }
 .presentation-stage .source-video-panel .source-summary > div { gap: var(--space-2); }
 @media print { .source-video { display: none; } }
+
+/* 강의 목록과 2차시: 분리 비율·지표·영역 겹침 도식 */
+a.course-step { text-decoration: none; }
+a.course-step:hover { background: var(--accent-soft); }
+a.course-step:focus-visible { outline: 3px solid var(--accent-text); outline-offset: -3px; }
+.hub-fallback-links { display: grid; gap: var(--space-5); padding-left: 1.4em; }
+.table-scroll { overflow-x: auto; }
+.training-table { width: 100%; border-collapse: collapse; }
+.training-table th, .training-table td { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--border); text-align: left; }
+.training-table thead { background: var(--surface); }
+.training-table th { font-weight: var(--weight-heading); }
+.split-bar { display: grid; grid-template-columns: 7fr 2fr 1fr; height: 28px; gap: var(--space-2); }
+.split-bar span { background: var(--accent-text); border: 1px solid var(--control-border); border-radius: var(--radius-sm); }
+.split-bar span:nth-child(2) { background: var(--accent-soft); }
+.split-bar span:nth-child(3) { background: var(--surface); }
+.metric-formula { font-weight: var(--weight-heading); font-variant-numeric: tabular-nums; color: var(--accent-text); overflow-wrap: anywhere; }
+.iou-figure { margin: 0; }
+.iou-figure figcaption { color: var(--text-muted); font-size: var(--font-small); }
+.iou-visual { display: block; width: 100%; max-height: 300px; }
+.iou-grid-line { fill: none; stroke: var(--control-border); stroke-width: 1; }
+.iou-union { fill: var(--surface); }
+.iou-intersection { fill: var(--accent-soft); }
+.iou-truth { fill: none; stroke: var(--text); stroke-width: 3; }
+.iou-prediction { fill: none; stroke: var(--accent-text); stroke-width: 3; stroke-dasharray: 8 5; }
+.presentation-stage .iou-figure figcaption { font-size: var(--slide-body); }
+.presentation-stage .training-table th, .presentation-stage .training-table td { padding: var(--space-3); }
+@media (max-width: 767px) {
+  .training-table th, .training-table td { padding: var(--space-3) var(--space-2); }
+}

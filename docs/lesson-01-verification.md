@@ -86,3 +86,7 @@
 - 기존 HTTP 검사 기록은 영상 삽입 전 파일의 응답 기록입니다. 이번 변경으로 영상 재생이나 외부 요청 성공을 검증한 것으로 해석하지 않습니다.
 
 구현 근거: [YouTube 공식 임베드 문서](https://developers.google.com/youtube/player_parameters).
+
+## 2차시 추가에 따른 경로 변경
+
+1차시 현재 경로는 road-perception/index.html이며 루트는 강의 목록입니다. 위 기록과 기존 lesson-01-*-checks.json은 각 변경 당시의 검사 이력입니다. 현재 3개 페이지의 구조·경로 검사는 [2차시 검증 기록](lesson-02-verification.md)에서 확인합니다. 1차시 21개 발표 제목과 순서·영상·이미지 참조를 이번 검사에서 비교합니다.

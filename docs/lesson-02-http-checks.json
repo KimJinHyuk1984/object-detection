@@ -1,0 +1,296 @@
+{
+  "date": "2026-10-17",
+  "server": "Node HTTP, 127.0.0.1 ephemeral port, stopped after checks",
+  "scope": "Root and /object-detection/ prefix; local HTML links, assets and downloads; no browser interaction",
+  "requests": [
+    {
+      "route": "/index.html",
+      "file": "index.html",
+      "status": 200,
+      "bytes": 4522,
+      "sha256": "dcd61a37954e3f89df891e2f818c74b17b91eb22145daa9080738e62a9c0ddb2",
+      "matchesFile": true
+    },
+    {
+      "route": "/road-perception/index.html",
+      "file": "road-perception/index.html",
+      "status": 200,
+      "bytes": 44216,
+      "sha256": "68a4d7af282af7f491edd76cf68ff101514528651f106768a5d18f655a4fb5f0",
+      "matchesFile": true
+    },
+    {
+      "route": "/model-training/index.html",
+      "file": "model-training/index.html",
+      "status": 200,
+      "bytes": 29238,
+      "sha256": "46a7c0150db59d103c4571c0983828c86f0b3a6771a0c48a5ff4d6d04de72e2f",
+      "matchesFile": true
+    },
+    {
+      "route": "/assets/css/tokens.css",
+      "file": "assets/css/tokens.css",
+      "status": 200,
+      "bytes": 3928,
+      "sha256": "6c3eede764ae1875570731ba175d569da58030c7fda96669fced3fe36deb8590",
+      "matchesFile": true
+    },
+    {
+      "route": "/assets/css/base.css",
+      "file": "assets/css/base.css",
+      "status": 200,
+      "bytes": 24119,
+      "sha256": "2b1d4cfcf12dc00c9a65a288d106bb1f6e9c75ab14d900ca24095738b35b25cb",
+      "matchesFile": true
+    },
+    {
+      "route": "/assets/css/lecture.css",
+      "file": "assets/css/lecture.css",
+      "status": 200,
+      "bytes": 11404,
+      "sha256": "fca5d21719daf9bc1de6c4002ea7377fa2414f192ef934cfa27a04eac2d87d49",
+      "matchesFile": true
+    },
+    {
+      "route": "/data/site.js",
+      "file": "data/site.js",
+      "status": 200,
+      "bytes": 4535,
+      "sha256": "201418992370455874b6fd172f9daadbbdb4e9f97e83506fe83298791b9263d2",
+      "matchesFile": true
+    },
+    {
+      "route": "/assets/js/shared.js",
+      "file": "assets/js/shared.js",
+      "status": 200,
+      "bytes": 50205,
+      "sha256": "e74face44f5b81e6a96cfa500ca616a089975eb85ef5ef985ce05db182d75569",
+      "matchesFile": true
+    },
+    {
+      "route": "/docs/lesson-01-capture-guide.md",
+      "file": "docs/lesson-01-capture-guide.md",
+      "status": 200,
+      "bytes": 8098,
+      "sha256": "f6c359c753870c51692bf32f23849c5fa8d1e38364df6d94b3f8a23382353894",
+      "matchesFile": true
+    },
+    {
+      "route": "/assets/img/lesson-01/01-project.png",
+      "file": "assets/img/lesson-01/01-project.png",
+      "status": 200,
+      "bytes": 40832,
+      "sha256": "a35ea79d00a67f2d2fa1af7d61d26e6af60b2a36af3663151c2b225322159598",
+      "matchesFile": true
+    },
+    {
+      "route": "/assets/img/lesson-01/02-object-label.png",
+      "file": "assets/img/lesson-01/02-object-label.png",
+      "status": 200,
+      "bytes": 3027891,
+      "sha256": "7bb523de42eefa9752e1b506be6f9dc54b95d17ef187fed2bbaddaf859c7c16b",
+      "matchesFile": true
+    },
+    {
+      "route": "/assets/img/lesson-01/03-lane-before.png",
+      "file": "assets/img/lesson-01/03-lane-before.png",
+      "status": 200,
+      "bytes": 2632109,
+      "sha256": "9eb08dcc7f43a917232a336506740fc13199a931e7811f53c3efa1dea5270d8c",
+      "matchesFile": true
+    },
+    {
+      "route": "/assets/img/lesson-01/03-lane-mask.png",
+      "file": "assets/img/lesson-01/03-lane-mask.png",
+      "status": 200,
+      "bytes": 2700876,
+      "sha256": "ad09896f3beed1c78e9971cd6dec37afb49fae1caa90a90309671eef2d2e28e5",
+      "matchesFile": true
+    },
+    {
+      "route": "/files/lesson-02-workbook.txt",
+      "file": "files/lesson-02-workbook.txt",
+      "status": 200,
+      "bytes": 4584,
+      "sha256": "b927966d13d867589acbd02733472e9aad553ea2b9e4fff62a645313dcc5794e",
+      "matchesFile": true
+    },
+    {
+      "route": "/docs/lesson-02-capture-guide.md",
+      "file": "docs/lesson-02-capture-guide.md",
+      "status": 200,
+      "bytes": 3544,
+      "sha256": "23e383b3b67cbf32d2153aabd4e6ff11810ebe2d460b5d0e22b06274d2f0bfd7",
+      "matchesFile": true
+    },
+    {
+      "route": "/",
+      "file": "index.html",
+      "status": 200,
+      "bytes": 4522,
+      "sha256": "dcd61a37954e3f89df891e2f818c74b17b91eb22145daa9080738e62a9c0ddb2",
+      "matchesFile": true
+    },
+    {
+      "route": "/road-perception/",
+      "file": "road-perception/index.html",
+      "status": 200,
+      "bytes": 44216,
+      "sha256": "68a4d7af282af7f491edd76cf68ff101514528651f106768a5d18f655a4fb5f0",
+      "matchesFile": true
+    },
+    {
+      "route": "/model-training/",
+      "file": "model-training/index.html",
+      "status": 200,
+      "bytes": 29238,
+      "sha256": "46a7c0150db59d103c4571c0983828c86f0b3a6771a0c48a5ff4d6d04de72e2f",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/index.html",
+      "file": "index.html",
+      "status": 200,
+      "bytes": 4522,
+      "sha256": "dcd61a37954e3f89df891e2f818c74b17b91eb22145daa9080738e62a9c0ddb2",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/road-perception/index.html",
+      "file": "road-perception/index.html",
+      "status": 200,
+      "bytes": 44216,
+      "sha256": "68a4d7af282af7f491edd76cf68ff101514528651f106768a5d18f655a4fb5f0",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/model-training/index.html",
+      "file": "model-training/index.html",
+      "status": 200,
+      "bytes": 29238,
+      "sha256": "46a7c0150db59d103c4571c0983828c86f0b3a6771a0c48a5ff4d6d04de72e2f",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/assets/css/tokens.css",
+      "file": "assets/css/tokens.css",
+      "status": 200,
+      "bytes": 3928,
+      "sha256": "6c3eede764ae1875570731ba175d569da58030c7fda96669fced3fe36deb8590",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/assets/css/base.css",
+      "file": "assets/css/base.css",
+      "status": 200,
+      "bytes": 24119,
+      "sha256": "2b1d4cfcf12dc00c9a65a288d106bb1f6e9c75ab14d900ca24095738b35b25cb",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/assets/css/lecture.css",
+      "file": "assets/css/lecture.css",
+      "status": 200,
+      "bytes": 11404,
+      "sha256": "fca5d21719daf9bc1de6c4002ea7377fa2414f192ef934cfa27a04eac2d87d49",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/data/site.js",
+      "file": "data/site.js",
+      "status": 200,
+      "bytes": 4535,
+      "sha256": "201418992370455874b6fd172f9daadbbdb4e9f97e83506fe83298791b9263d2",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/assets/js/shared.js",
+      "file": "assets/js/shared.js",
+      "status": 200,
+      "bytes": 50205,
+      "sha256": "e74face44f5b81e6a96cfa500ca616a089975eb85ef5ef985ce05db182d75569",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/docs/lesson-01-capture-guide.md",
+      "file": "docs/lesson-01-capture-guide.md",
+      "status": 200,
+      "bytes": 8098,
+      "sha256": "f6c359c753870c51692bf32f23849c5fa8d1e38364df6d94b3f8a23382353894",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/assets/img/lesson-01/01-project.png",
+      "file": "assets/img/lesson-01/01-project.png",
+      "status": 200,
+      "bytes": 40832,
+      "sha256": "a35ea79d00a67f2d2fa1af7d61d26e6af60b2a36af3663151c2b225322159598",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/assets/img/lesson-01/02-object-label.png",
+      "file": "assets/img/lesson-01/02-object-label.png",
+      "status": 200,
+      "bytes": 3027891,
+      "sha256": "7bb523de42eefa9752e1b506be6f9dc54b95d17ef187fed2bbaddaf859c7c16b",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/assets/img/lesson-01/03-lane-before.png",
+      "file": "assets/img/lesson-01/03-lane-before.png",
+      "status": 200,
+      "bytes": 2632109,
+      "sha256": "9eb08dcc7f43a917232a336506740fc13199a931e7811f53c3efa1dea5270d8c",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/assets/img/lesson-01/03-lane-mask.png",
+      "file": "assets/img/lesson-01/03-lane-mask.png",
+      "status": 200,
+      "bytes": 2700876,
+      "sha256": "ad09896f3beed1c78e9971cd6dec37afb49fae1caa90a90309671eef2d2e28e5",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/files/lesson-02-workbook.txt",
+      "file": "files/lesson-02-workbook.txt",
+      "status": 200,
+      "bytes": 4584,
+      "sha256": "b927966d13d867589acbd02733472e9aad553ea2b9e4fff62a645313dcc5794e",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/docs/lesson-02-capture-guide.md",
+      "file": "docs/lesson-02-capture-guide.md",
+      "status": 200,
+      "bytes": 3544,
+      "sha256": "23e383b3b67cbf32d2153aabd4e6ff11810ebe2d460b5d0e22b06274d2f0bfd7",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/",
+      "file": "index.html",
+      "status": 200,
+      "bytes": 4522,
+      "sha256": "dcd61a37954e3f89df891e2f818c74b17b91eb22145daa9080738e62a9c0ddb2",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/road-perception/",
+      "file": "road-perception/index.html",
+      "status": 200,
+      "bytes": 44216,
+      "sha256": "68a4d7af282af7f491edd76cf68ff101514528651f106768a5d18f655a4fb5f0",
+      "matchesFile": true
+    },
+    {
+      "route": "/object-detection/model-training/",
+      "file": "model-training/index.html",
+      "status": 200,
+      "bytes": 29238,
+      "sha256": "46a7c0150db59d103c4571c0983828c86f0b3a6771a0c48a5ff4d6d04de72e2f",
+      "matchesFile": true
+    }
+  ],
+  "errors": []
+}
