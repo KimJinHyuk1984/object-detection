@@ -88,7 +88,7 @@ window.SITE = {
       "accent": "amber",
       "emoji": "",
       "cover": "",
-      "status": "coming"
+      "status": "ready"
     },
     {
       "slug": "video-app",

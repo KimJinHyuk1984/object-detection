@@ -32,3 +32,19 @@ YouTube 임베드 방식 근거: https://developers.google.com/youtube/player_pa
 | source-012 | https://roboflow.com/blog/roboflow-training-graphs | Box·Mask IoU, mAP 기준과 학습 그래프 | 평가 값의 정확한 이름 기록 |
 
 2차시 사용자 캡처는 아직 없습니다. API 키·실제 모델 식별자·성능 수치를 수집하거나 가정하지 않았습니다. 다운로드 활동지는 이 수업용으로 새로 작성했으며 실행 코드가 아닙니다.
+
+## 3차시 추가 자료
+
+2026-10-17 확인. 사용자 상태는 어노테이션 진행 중이며 실제 API 키·모델 ID·응답은 받지 않았습니다.
+
+| 자료 ID | 위치 | 확인·사용 |
+| --- | --- | --- |
+| source-013 | https://inference.roboflow.com/quickstart/roboflow_ecosystem/ | InferenceHTTPClient와 hosted Serverless의 단일 모델 요청 |
+| source-014 | https://github.com/roboflow/computer-vision-skills/blob/main/skills/roboflow-api-reference/inference.md | 중심 박스 좌표·instance segmentation points 응답 |
+| source-015 | https://docs.streamlit.io/develop/concepts/connections/secrets-management | secrets.toml의 비밀 설정 |
+| source-016 | https://docs.streamlit.io/develop/api-reference/caching-and-state/st.session_state | 사용자 세션의 결과 보관과 재실행 |
+| source-017 | https://docs.streamlit.io/develop/api-reference/app-testing/st.testing.v1.apptest | 브라우저와 구분하는 AppTest 자동 검사 |
+| source-018 | files/lesson-03/demo.py | 직접 그린 가상 도로와 손으로 작성한 9개 예제 결과. 실제 모델 예측 아님 |
+
+공식 PyPI에서 Streamlit 1.66.0·inference-sdk 1.8.0·Pillow 12.3.0을 설치해 테스트했습니다. SDK의 설치된 코드·서명에서 polygon 응답·header 키 전송 설정을 확인했습니다.
+assets/img/lesson-03/demo-result.png는 앱의 그리기 함수로 만든 예제 결과이며 DEMO 표시를 포함합니다. 사용자 원본 영상·캡처를 새로 복사하지 않았습니다.

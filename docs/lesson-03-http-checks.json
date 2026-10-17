@@ -1,0 +1,439 @@
+{
+  "date": "2026-10-17",
+  "server": "Node HTTP; stopped",
+  "requests": [
+    {
+      "route": "/index.html",
+      "file": "index.html",
+      "status": 200,
+      "bytes": 4540,
+      "matchesFile": true,
+      "sha256": "c2cc9a93fe0f583e82b62f4f4e0808535c3922d0533445555c8a861e4735c739"
+    },
+    {
+      "route": "/road-perception/index.html",
+      "file": "road-perception/index.html",
+      "status": 200,
+      "bytes": 44223,
+      "matchesFile": true,
+      "sha256": "5ddd9ea759331dc7a521f9f9c507c531034d3533d88e906aa1429abb99dfbe86"
+    },
+    {
+      "route": "/model-training/index.html",
+      "file": "model-training/index.html",
+      "status": 200,
+      "bytes": 29253,
+      "matchesFile": true,
+      "sha256": "35b0f6dfa8455ff7012e5a32701a33d6b52aa00043394312eed21ac9c3b34b5c"
+    },
+    {
+      "route": "/api-app/index.html",
+      "file": "api-app/index.html",
+      "status": 200,
+      "bytes": 22848,
+      "matchesFile": true,
+      "sha256": "b6f7376bf38bf6adbdd4bfdc7cfe0a598ba2d2360644cf21cc78c0dd9f957f4e"
+    },
+    {
+      "route": "/assets/css/tokens.css",
+      "file": "assets/css/tokens.css",
+      "status": 200,
+      "bytes": 3928,
+      "matchesFile": true,
+      "sha256": "6c3eede764ae1875570731ba175d569da58030c7fda96669fced3fe36deb8590"
+    },
+    {
+      "route": "/assets/css/base.css",
+      "file": "assets/css/base.css",
+      "status": 200,
+      "bytes": 24119,
+      "matchesFile": true,
+      "sha256": "2b1d4cfcf12dc00c9a65a288d106bb1f6e9c75ab14d900ca24095738b35b25cb"
+    },
+    {
+      "route": "/assets/css/lecture.css",
+      "file": "assets/css/lecture.css",
+      "status": 200,
+      "bytes": 11404,
+      "matchesFile": true,
+      "sha256": "fca5d21719daf9bc1de6c4002ea7377fa2414f192ef934cfa27a04eac2d87d49"
+    },
+    {
+      "route": "/data/site.js",
+      "file": "data/site.js",
+      "status": 200,
+      "bytes": 4534,
+      "matchesFile": true,
+      "sha256": "128c9c1d29bdd3772c6053fdffd54eab89a21bca9c47bc5f447e3538bbb42ad8"
+    },
+    {
+      "route": "/assets/js/shared.js",
+      "file": "assets/js/shared.js",
+      "status": 200,
+      "bytes": 50205,
+      "matchesFile": true,
+      "sha256": "e74face44f5b81e6a96cfa500ca616a089975eb85ef5ef985ce05db182d75569"
+    },
+    {
+      "route": "/docs/lesson-01-capture-guide.md",
+      "file": "docs/lesson-01-capture-guide.md",
+      "status": 200,
+      "bytes": 8098,
+      "matchesFile": true,
+      "sha256": "f6c359c753870c51692bf32f23849c5fa8d1e38364df6d94b3f8a23382353894"
+    },
+    {
+      "route": "/assets/img/lesson-01/01-project.png",
+      "file": "assets/img/lesson-01/01-project.png",
+      "status": 200,
+      "bytes": 40832,
+      "matchesFile": true,
+      "sha256": "a35ea79d00a67f2d2fa1af7d61d26e6af60b2a36af3663151c2b225322159598"
+    },
+    {
+      "route": "/assets/img/lesson-01/02-object-label.png",
+      "file": "assets/img/lesson-01/02-object-label.png",
+      "status": 200,
+      "bytes": 3027891,
+      "matchesFile": true,
+      "sha256": "7bb523de42eefa9752e1b506be6f9dc54b95d17ef187fed2bbaddaf859c7c16b"
+    },
+    {
+      "route": "/assets/img/lesson-01/03-lane-before.png",
+      "file": "assets/img/lesson-01/03-lane-before.png",
+      "status": 200,
+      "bytes": 2632109,
+      "matchesFile": true,
+      "sha256": "9eb08dcc7f43a917232a336506740fc13199a931e7811f53c3efa1dea5270d8c"
+    },
+    {
+      "route": "/assets/img/lesson-01/03-lane-mask.png",
+      "file": "assets/img/lesson-01/03-lane-mask.png",
+      "status": 200,
+      "bytes": 2700876,
+      "matchesFile": true,
+      "sha256": "ad09896f3beed1c78e9971cd6dec37afb49fae1caa90a90309671eef2d2e28e5"
+    },
+    {
+      "route": "/files/lesson-02-workbook.pdf",
+      "file": "files/lesson-02-workbook.pdf",
+      "status": 200,
+      "bytes": 142559,
+      "matchesFile": true,
+      "sha256": "16cd2ccc7af214b9d0290957a9ece1993ac8164ea8a236d6f81b7a11c113d6e0"
+    },
+    {
+      "route": "/docs/lesson-02-capture-guide.md",
+      "file": "docs/lesson-02-capture-guide.md",
+      "status": 200,
+      "bytes": 3544,
+      "matchesFile": true,
+      "sha256": "23e383b3b67cbf32d2153aabd4e6ff11810ebe2d460b5d0e22b06274d2f0bfd7"
+    },
+    {
+      "route": "/files/lesson-03.zip",
+      "file": "files/lesson-03.zip",
+      "status": 200,
+      "bytes": 11797,
+      "matchesFile": true,
+      "sha256": "dd650436d21ffbb9a3a0b40733bc7ba148a6b7e4bae7f1b55f8934d9008d35f0"
+    },
+    {
+      "route": "/files/lesson-03-workbook.pdf",
+      "file": "files/lesson-03-workbook.pdf",
+      "status": 200,
+      "bytes": 102469,
+      "matchesFile": true,
+      "sha256": "0dfdfa9254d5760aaefbb4b3cdcf95410c2811913a5de73159078edba420844f"
+    },
+    {
+      "route": "/docs/lesson-03-teacher-guide.md",
+      "file": "docs/lesson-03-teacher-guide.md",
+      "status": 200,
+      "bytes": 3804,
+      "matchesFile": true,
+      "sha256": "6fc3beb531e01a7a8ddfa1294e84c4ac1ce8a1ffc649e48baf02849135a3d5c5"
+    },
+    {
+      "route": "/docs/lesson-03-capture-guide.md",
+      "file": "docs/lesson-03-capture-guide.md",
+      "status": 200,
+      "bytes": 2105,
+      "matchesFile": true,
+      "sha256": "ba927e50efa7e60085d7e1e36b45be5c74b4b46f62f19e25839152fab3f2e838"
+    },
+    {
+      "route": "/files/lesson-03/README.md",
+      "file": "files/lesson-03/README.md",
+      "status": 200,
+      "bytes": 5692,
+      "matchesFile": true,
+      "sha256": "f1a359665d48a1ad647810af83660e074f0a3df71430718c433c640dbe381ffa"
+    },
+    {
+      "route": "/files/lesson-03/run-local.txt",
+      "file": "files/lesson-03/run-local.txt",
+      "status": 200,
+      "bytes": 136,
+      "matchesFile": true,
+      "sha256": "36c7c9900812b458702d9049dc68659c23342de93ddc8d8fb43f78699294d3df"
+    },
+    {
+      "route": "/files/lesson-03/.streamlit/secrets.toml.example",
+      "file": "files/lesson-03/.streamlit/secrets.toml.example",
+      "status": 200,
+      "bytes": 138,
+      "matchesFile": true,
+      "sha256": "106b1444c46df2c2c98d7c16e689961c5e5561e0421da3ac4eb32ae1d2905abe"
+    },
+    {
+      "route": "/files/lesson-03/core.py",
+      "file": "files/lesson-03/core.py",
+      "status": 200,
+      "bytes": 9731,
+      "matchesFile": true,
+      "sha256": "350a576b5937dd17b835a6b78449b3fd029dd0e2ac758daf90ab84ebc76157d1"
+    },
+    {
+      "route": "/assets/img/lesson-03/demo-result.png",
+      "file": "assets/img/lesson-03/demo-result.png",
+      "status": 200,
+      "bytes": 24207,
+      "matchesFile": true,
+      "sha256": "c75c52aad52efc54e13f02c75032ec1ffe69c2b2e14544a01879347f470a609d"
+    },
+    {
+      "route": "/",
+      "file": "index.html",
+      "status": 200,
+      "bytes": 4540,
+      "matchesFile": true,
+      "sha256": "c2cc9a93fe0f583e82b62f4f4e0808535c3922d0533445555c8a861e4735c739"
+    },
+    {
+      "route": "/api-app/",
+      "file": "api-app/index.html",
+      "status": 200,
+      "bytes": 22848,
+      "matchesFile": true,
+      "sha256": "b6f7376bf38bf6adbdd4bfdc7cfe0a598ba2d2360644cf21cc78c0dd9f957f4e"
+    },
+    {
+      "route": "/object-detection/index.html",
+      "file": "index.html",
+      "status": 200,
+      "bytes": 4540,
+      "matchesFile": true,
+      "sha256": "c2cc9a93fe0f583e82b62f4f4e0808535c3922d0533445555c8a861e4735c739"
+    },
+    {
+      "route": "/object-detection/road-perception/index.html",
+      "file": "road-perception/index.html",
+      "status": 200,
+      "bytes": 44223,
+      "matchesFile": true,
+      "sha256": "5ddd9ea759331dc7a521f9f9c507c531034d3533d88e906aa1429abb99dfbe86"
+    },
+    {
+      "route": "/object-detection/model-training/index.html",
+      "file": "model-training/index.html",
+      "status": 200,
+      "bytes": 29253,
+      "matchesFile": true,
+      "sha256": "35b0f6dfa8455ff7012e5a32701a33d6b52aa00043394312eed21ac9c3b34b5c"
+    },
+    {
+      "route": "/object-detection/api-app/index.html",
+      "file": "api-app/index.html",
+      "status": 200,
+      "bytes": 22848,
+      "matchesFile": true,
+      "sha256": "b6f7376bf38bf6adbdd4bfdc7cfe0a598ba2d2360644cf21cc78c0dd9f957f4e"
+    },
+    {
+      "route": "/object-detection/assets/css/tokens.css",
+      "file": "assets/css/tokens.css",
+      "status": 200,
+      "bytes": 3928,
+      "matchesFile": true,
+      "sha256": "6c3eede764ae1875570731ba175d569da58030c7fda96669fced3fe36deb8590"
+    },
+    {
+      "route": "/object-detection/assets/css/base.css",
+      "file": "assets/css/base.css",
+      "status": 200,
+      "bytes": 24119,
+      "matchesFile": true,
+      "sha256": "2b1d4cfcf12dc00c9a65a288d106bb1f6e9c75ab14d900ca24095738b35b25cb"
+    },
+    {
+      "route": "/object-detection/assets/css/lecture.css",
+      "file": "assets/css/lecture.css",
+      "status": 200,
+      "bytes": 11404,
+      "matchesFile": true,
+      "sha256": "fca5d21719daf9bc1de6c4002ea7377fa2414f192ef934cfa27a04eac2d87d49"
+    },
+    {
+      "route": "/object-detection/data/site.js",
+      "file": "data/site.js",
+      "status": 200,
+      "bytes": 4534,
+      "matchesFile": true,
+      "sha256": "128c9c1d29bdd3772c6053fdffd54eab89a21bca9c47bc5f447e3538bbb42ad8"
+    },
+    {
+      "route": "/object-detection/assets/js/shared.js",
+      "file": "assets/js/shared.js",
+      "status": 200,
+      "bytes": 50205,
+      "matchesFile": true,
+      "sha256": "e74face44f5b81e6a96cfa500ca616a089975eb85ef5ef985ce05db182d75569"
+    },
+    {
+      "route": "/object-detection/docs/lesson-01-capture-guide.md",
+      "file": "docs/lesson-01-capture-guide.md",
+      "status": 200,
+      "bytes": 8098,
+      "matchesFile": true,
+      "sha256": "f6c359c753870c51692bf32f23849c5fa8d1e38364df6d94b3f8a23382353894"
+    },
+    {
+      "route": "/object-detection/assets/img/lesson-01/01-project.png",
+      "file": "assets/img/lesson-01/01-project.png",
+      "status": 200,
+      "bytes": 40832,
+      "matchesFile": true,
+      "sha256": "a35ea79d00a67f2d2fa1af7d61d26e6af60b2a36af3663151c2b225322159598"
+    },
+    {
+      "route": "/object-detection/assets/img/lesson-01/02-object-label.png",
+      "file": "assets/img/lesson-01/02-object-label.png",
+      "status": 200,
+      "bytes": 3027891,
+      "matchesFile": true,
+      "sha256": "7bb523de42eefa9752e1b506be6f9dc54b95d17ef187fed2bbaddaf859c7c16b"
+    },
+    {
+      "route": "/object-detection/assets/img/lesson-01/03-lane-before.png",
+      "file": "assets/img/lesson-01/03-lane-before.png",
+      "status": 200,
+      "bytes": 2632109,
+      "matchesFile": true,
+      "sha256": "9eb08dcc7f43a917232a336506740fc13199a931e7811f53c3efa1dea5270d8c"
+    },
+    {
+      "route": "/object-detection/assets/img/lesson-01/03-lane-mask.png",
+      "file": "assets/img/lesson-01/03-lane-mask.png",
+      "status": 200,
+      "bytes": 2700876,
+      "matchesFile": true,
+      "sha256": "ad09896f3beed1c78e9971cd6dec37afb49fae1caa90a90309671eef2d2e28e5"
+    },
+    {
+      "route": "/object-detection/files/lesson-02-workbook.pdf",
+      "file": "files/lesson-02-workbook.pdf",
+      "status": 200,
+      "bytes": 142559,
+      "matchesFile": true,
+      "sha256": "16cd2ccc7af214b9d0290957a9ece1993ac8164ea8a236d6f81b7a11c113d6e0"
+    },
+    {
+      "route": "/object-detection/docs/lesson-02-capture-guide.md",
+      "file": "docs/lesson-02-capture-guide.md",
+      "status": 200,
+      "bytes": 3544,
+      "matchesFile": true,
+      "sha256": "23e383b3b67cbf32d2153aabd4e6ff11810ebe2d460b5d0e22b06274d2f0bfd7"
+    },
+    {
+      "route": "/object-detection/files/lesson-03.zip",
+      "file": "files/lesson-03.zip",
+      "status": 200,
+      "bytes": 11797,
+      "matchesFile": true,
+      "sha256": "dd650436d21ffbb9a3a0b40733bc7ba148a6b7e4bae7f1b55f8934d9008d35f0"
+    },
+    {
+      "route": "/object-detection/files/lesson-03-workbook.pdf",
+      "file": "files/lesson-03-workbook.pdf",
+      "status": 200,
+      "bytes": 102469,
+      "matchesFile": true,
+      "sha256": "0dfdfa9254d5760aaefbb4b3cdcf95410c2811913a5de73159078edba420844f"
+    },
+    {
+      "route": "/object-detection/docs/lesson-03-teacher-guide.md",
+      "file": "docs/lesson-03-teacher-guide.md",
+      "status": 200,
+      "bytes": 3804,
+      "matchesFile": true,
+      "sha256": "6fc3beb531e01a7a8ddfa1294e84c4ac1ce8a1ffc649e48baf02849135a3d5c5"
+    },
+    {
+      "route": "/object-detection/docs/lesson-03-capture-guide.md",
+      "file": "docs/lesson-03-capture-guide.md",
+      "status": 200,
+      "bytes": 2105,
+      "matchesFile": true,
+      "sha256": "ba927e50efa7e60085d7e1e36b45be5c74b4b46f62f19e25839152fab3f2e838"
+    },
+    {
+      "route": "/object-detection/files/lesson-03/README.md",
+      "file": "files/lesson-03/README.md",
+      "status": 200,
+      "bytes": 5692,
+      "matchesFile": true,
+      "sha256": "f1a359665d48a1ad647810af83660e074f0a3df71430718c433c640dbe381ffa"
+    },
+    {
+      "route": "/object-detection/files/lesson-03/run-local.txt",
+      "file": "files/lesson-03/run-local.txt",
+      "status": 200,
+      "bytes": 136,
+      "matchesFile": true,
+      "sha256": "36c7c9900812b458702d9049dc68659c23342de93ddc8d8fb43f78699294d3df"
+    },
+    {
+      "route": "/object-detection/files/lesson-03/.streamlit/secrets.toml.example",
+      "file": "files/lesson-03/.streamlit/secrets.toml.example",
+      "status": 200,
+      "bytes": 138,
+      "matchesFile": true,
+      "sha256": "106b1444c46df2c2c98d7c16e689961c5e5561e0421da3ac4eb32ae1d2905abe"
+    },
+    {
+      "route": "/object-detection/files/lesson-03/core.py",
+      "file": "files/lesson-03/core.py",
+      "status": 200,
+      "bytes": 9731,
+      "matchesFile": true,
+      "sha256": "350a576b5937dd17b835a6b78449b3fd029dd0e2ac758daf90ab84ebc76157d1"
+    },
+    {
+      "route": "/object-detection/assets/img/lesson-03/demo-result.png",
+      "file": "assets/img/lesson-03/demo-result.png",
+      "status": 200,
+      "bytes": 24207,
+      "matchesFile": true,
+      "sha256": "c75c52aad52efc54e13f02c75032ec1ffe69c2b2e14544a01879347f470a609d"
+    },
+    {
+      "route": "/object-detection/",
+      "file": "index.html",
+      "status": 200,
+      "bytes": 4540,
+      "matchesFile": true,
+      "sha256": "c2cc9a93fe0f583e82b62f4f4e0808535c3922d0533445555c8a861e4735c739"
+    },
+    {
+      "route": "/object-detection/api-app/",
+      "file": "api-app/index.html",
+      "status": 200,
+      "bytes": 22848,
+      "matchesFile": true,
+      "sha256": "b6f7376bf38bf6adbdd4bfdc7cfe0a598ba2d2360644cf21cc78c0dd9f957f4e"
+    }
+  ],
+  "errors": []
+}

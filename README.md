@@ -4,14 +4,17 @@ Roboflow로 객체와 주행 가능 도로 영역을 인식하는 단일 분할 
 
 | 페이지 | 내용 | 현재 상태 |
 | --- | --- | --- |
-| [강의 목록](index.html) | 전체 4차시 안내 | 1·2차시 이동 가능 |
+| [강의 목록](index.html) | 전체 4차시 안내 | 1·2·3차시 이동 가능 |
 | [1차시](road-perception/index.html) | 개념·어노테이션·검수 | 21개 발표 조각, 영상·캡처 반영 |
 | [2차시](model-training/index.html) | 데이터 분리·버전·학습·평가 | 20개 발표 조각 초안, 실제 결과 대기 |
-| 3·4차시 | API 이미지 앱·주행영상 앱 배포 | 준비 중 |
+| [3차시](api-app/index.html) | API 이미지 분석 앱 | 18개 발표 조각·예제 실행·실습 ZIP |
+| 4차시 | 주행영상 앱 배포 | 준비 중 |
 
 현재 어노테이션 진행 중입니다. 기존 캡처는 Object Detection이므로 단일 모델의 마스크 출력을 위한 프로젝트 유형과 정답 형식을 학습 전에 확인해야 합니다. `line`은 도색된 선이 아닌 **차선 사이의 주행 가능한 도로 영역**입니다.
 
 - [2차시 활동지 PDF · A4 4쪽](files/lesson-02-workbook.pdf)
+- [3차시 실습 ZIP](files/lesson-03.zip) · [실행 안내](files/lesson-03/README.md) · [활동지 PDF · A4 2쪽](files/lesson-03-workbook.pdf)
+- [3차시 캡처 안내](docs/lesson-03-capture-guide.md) · [검증 기록](docs/lesson-03-verification.md)
 - [캡처·확인 안내](docs/lesson-02-capture-guide.md)
 - [교사용 50분 진행안](docs/lesson-02-teacher-guide.md)
 - [검증 결과와 남은 확인](docs/lesson-02-verification.md)
