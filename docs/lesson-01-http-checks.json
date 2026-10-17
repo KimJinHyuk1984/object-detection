@@ -1,0 +1,139 @@
+{
+  "checked": "2026-10-17",
+  "scope": "Local static serving of observed relative references at root and repository prefix; no browser rendering.",
+  "httpChecks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 42537,
+      "bytesMatch": true
+    },
+    {
+      "path": "/object-detection/",
+      "status": 200,
+      "bytes": 42537,
+      "bytesMatch": true
+    },
+    {
+      "path": "/assets/css/tokens.css",
+      "status": 200,
+      "bytes": 3928,
+      "bytesMatch": true
+    },
+    {
+      "path": "/object-detection/assets/css/tokens.css",
+      "status": 200,
+      "bytes": 3928,
+      "bytesMatch": true
+    },
+    {
+      "path": "/assets/css/base.css",
+      "status": 200,
+      "bytes": 24119,
+      "bytesMatch": true
+    },
+    {
+      "path": "/object-detection/assets/css/base.css",
+      "status": 200,
+      "bytes": 24119,
+      "bytesMatch": true
+    },
+    {
+      "path": "/assets/css/lecture.css",
+      "status": 200,
+      "bytes": 8615,
+      "bytesMatch": true
+    },
+    {
+      "path": "/object-detection/assets/css/lecture.css",
+      "status": 200,
+      "bytes": 8615,
+      "bytesMatch": true
+    },
+    {
+      "path": "/data/site.js",
+      "status": 200,
+      "bytes": 3103,
+      "bytesMatch": true
+    },
+    {
+      "path": "/object-detection/data/site.js",
+      "status": 200,
+      "bytes": 3103,
+      "bytesMatch": true
+    },
+    {
+      "path": "/assets/js/shared.js",
+      "status": 200,
+      "bytes": 50205,
+      "bytesMatch": true
+    },
+    {
+      "path": "/object-detection/assets/js/shared.js",
+      "status": 200,
+      "bytes": 50205,
+      "bytesMatch": true
+    },
+    {
+      "path": "/docs/lesson-01-capture-guide.md",
+      "status": 200,
+      "bytes": 4826,
+      "bytesMatch": true
+    },
+    {
+      "path": "/object-detection/docs/lesson-01-capture-guide.md",
+      "status": 200,
+      "bytes": 4826,
+      "bytesMatch": true
+    },
+    {
+      "path": "/assets/img/lesson-01/01-project.png",
+      "status": 200,
+      "bytes": 40832,
+      "bytesMatch": true
+    },
+    {
+      "path": "/object-detection/assets/img/lesson-01/01-project.png",
+      "status": 200,
+      "bytes": 40832,
+      "bytesMatch": true
+    },
+    {
+      "path": "/assets/img/lesson-01/02-object-label.png",
+      "status": 200,
+      "bytes": 3027891,
+      "bytesMatch": true
+    },
+    {
+      "path": "/object-detection/assets/img/lesson-01/02-object-label.png",
+      "status": 200,
+      "bytes": 3027891,
+      "bytesMatch": true
+    },
+    {
+      "path": "/assets/img/lesson-01/03-lane-before.png",
+      "status": 200,
+      "bytes": 2632109,
+      "bytesMatch": true
+    },
+    {
+      "path": "/object-detection/assets/img/lesson-01/03-lane-before.png",
+      "status": 200,
+      "bytes": 2632109,
+      "bytesMatch": true
+    },
+    {
+      "path": "/assets/img/lesson-01/03-lane-mask.png",
+      "status": 200,
+      "bytes": 2700876,
+      "bytesMatch": true
+    },
+    {
+      "path": "/object-detection/assets/img/lesson-01/03-lane-mask.png",
+      "status": 200,
+      "bytes": 2700876,
+      "bytesMatch": true
+    }
+  ],
+  "guideMatches": true
+}

@@ -1,0 +1,108 @@
+{
+  "checked": "2026-10-17",
+  "captureCount": 6,
+  "publicImageCount": 4,
+  "images": [
+    {
+      "name": "01-project.png",
+      "bytes": 40832,
+      "width": 832,
+      "height": 189,
+      "sha256": "a35ea79d00a67f2d2fa1af7d61d26e6af60b2a36af3663151c2b225322159598",
+      "originalUnchanged": true,
+      "publicCopy": true,
+      "publicCopyMatches": true
+    },
+    {
+      "name": "02-object-label.png",
+      "bytes": 3027891,
+      "width": 1967,
+      "height": 1135,
+      "sha256": "7bb523de42eefa9752e1b506be6f9dc54b95d17ef187fed2bbaddaf859c7c16b",
+      "originalUnchanged": true,
+      "publicCopy": true,
+      "publicCopyMatches": true
+    },
+    {
+      "name": "03-lane-before.png",
+      "bytes": 2632109,
+      "width": 1967,
+      "height": 1146,
+      "sha256": "9eb08dcc7f43a917232a336506740fc13199a931e7811f53c3efa1dea5270d8c",
+      "originalUnchanged": true,
+      "publicCopy": true,
+      "publicCopyMatches": true
+    },
+    {
+      "name": "03-lane-mask.png",
+      "bytes": 2700876,
+      "width": 1968,
+      "height": 1146,
+      "sha256": "ad09896f3beed1c78e9971cd6dec37afb49fae1caa90a90309671eef2d2e28e5",
+      "originalUnchanged": true,
+      "publicCopy": true,
+      "publicCopyMatches": true
+    },
+    {
+      "name": "04(1).png",
+      "bytes": 2460358,
+      "width": 2879,
+      "height": 1548,
+      "sha256": "e3a05abaad883ecc664563ed72c12d3ca792266e3dbeef97a455c06d4859459e",
+      "originalUnchanged": true,
+      "publicCopy": false,
+      "publicCopyMatches": null
+    },
+    {
+      "name": "04.png",
+      "bytes": 3039128,
+      "width": 2879,
+      "height": 1545,
+      "sha256": "f47ab7ea79e6e68f7df22d76150de0d07d5ee07b357c7cf533cdf775f7354f69",
+      "originalUnchanged": true,
+      "publicCopy": false,
+      "publicCopyMatches": null
+    }
+  ],
+  "protectedFiles": [
+    {
+      "path": "DESIGN.md",
+      "unchanged": true
+    },
+    {
+      "path": "assets/css/tokens.css",
+      "unchanged": true
+    },
+    {
+      "path": "assets/css/base.css",
+      "unchanged": true
+    },
+    {
+      "path": "assets/js/shared.js",
+      "unchanged": true
+    },
+    {
+      "path": "source.mp4",
+      "unchanged": true
+    }
+  ],
+  "modelTypeInCapture": "Object Detection",
+  "labelsFromUser": [
+    "car",
+    "lampg",
+    "lampr",
+    "lampy",
+    "lamp",
+    "line",
+    "motor",
+    "people"
+  ],
+  "unresolvedLampMeaning": false,
+  "browserVerification": "not performed: existing browser environment errors",
+  "signalLabelMeaningsFromUser": {
+    "lampg": "초록 신호등",
+    "lampr": "빨간 신호등",
+    "lampy": "노란 신호등",
+    "lamp": "신호등이지만 색을 구분하기 어려운 경우"
+  }
+}

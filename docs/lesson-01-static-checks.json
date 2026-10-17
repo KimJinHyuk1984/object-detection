@@ -1,0 +1,162 @@
+{
+  "structuralErrors": [],
+  "duplicateIds": [],
+  "brokenAnchors": [],
+  "localReferences": [
+    {
+      "ref": "assets/css/tokens.css",
+      "exists": true
+    },
+    {
+      "ref": "assets/css/base.css",
+      "exists": true
+    },
+    {
+      "ref": "assets/css/lecture.css",
+      "exists": true
+    },
+    {
+      "ref": "data/site.js",
+      "exists": true
+    },
+    {
+      "ref": "assets/js/shared.js",
+      "exists": true
+    },
+    {
+      "ref": "docs/lesson-01-capture-guide.md",
+      "exists": true
+    },
+    {
+      "ref": "assets/img/lesson-01/01-project.png",
+      "exists": true
+    },
+    {
+      "ref": "assets/img/lesson-01/02-object-label.png",
+      "exists": true
+    },
+    {
+      "ref": "assets/img/lesson-01/03-lane-before.png",
+      "exists": true
+    },
+    {
+      "ref": "assets/img/lesson-01/03-lane-mask.png",
+      "exists": true
+    }
+  ],
+  "sections": [
+    "road-mission",
+    "vision-concepts",
+    "annotation-ready",
+    "annotation-practice",
+    "annotation-review"
+  ],
+  "slides": 20,
+  "slideEntries": [
+    {
+      "section": "road-mission",
+      "title": "오늘 완성할 출발점",
+      "skip": false
+    },
+    {
+      "section": "road-mission",
+      "title": "이번 프로젝트의 8개 클래스",
+      "skip": false
+    },
+    {
+      "section": "road-mission",
+      "title": "하나의 모델, 서로 다른 표시",
+      "skip": false
+    },
+    {
+      "section": "road-mission",
+      "title": "이번 수업의 영상",
+      "skip": false
+    },
+    {
+      "section": "vision-concepts",
+      "title": "분류·탐지·분할",
+      "skip": false
+    },
+    {
+      "section": "vision-concepts",
+      "title": "누끼는 픽셀의 정답 영역",
+      "skip": false
+    },
+    {
+      "section": "vision-concepts",
+      "title": "학습할 정답과 화면의 표시",
+      "skip": false
+    },
+    {
+      "section": "vision-concepts",
+      "title": "개념 확인",
+      "skip": false
+    },
+    {
+      "section": "annotation-ready",
+      "title": "프로젝트와 배정 이미지를 확인",
+      "skip": false
+    },
+    {
+      "section": "annotation-ready",
+      "title": "라벨의 경계부터 합의하기",
+      "skip": false
+    },
+    {
+      "section": "annotation-practice",
+      "title": "실습 1 · 대상과 클래스를 연결",
+      "skip": false
+    },
+    {
+      "section": "annotation-practice",
+      "title": "실제 예시 · 자동차의 위치",
+      "skip": false
+    },
+    {
+      "section": "annotation-practice",
+      "title": "실습 2 · 주행 가능 영역 표시",
+      "skip": false
+    },
+    {
+      "section": "annotation-practice",
+      "title": "실제 예시 · 도로의 경계 찾기",
+      "skip": false
+    },
+    {
+      "section": "annotation-practice",
+      "title": "실제 예시 · line 폴리곤",
+      "skip": false
+    },
+    {
+      "section": "annotation-practice",
+      "title": "영역의 경계와 가려진 도로",
+      "skip": false
+    },
+    {
+      "section": "annotation-practice",
+      "title": "실습 3 · 저장 전 3분 점검",
+      "skip": false
+    },
+    {
+      "section": "annotation-review",
+      "title": "짝 검수 · 이유까지 말하기",
+      "skip": false
+    },
+    {
+      "section": "annotation-review",
+      "title": "종료 질문 · 오늘 배운 것",
+      "skip": false
+    },
+    {
+      "section": "annotation-review",
+      "title": "2차시로 가져갈 것",
+      "skip": false
+    }
+  ],
+  "scriptCount": 2,
+  "legacyExampleText": false,
+  "nestedSlides": [],
+  "missingRefs": [],
+  "images": 4
+}

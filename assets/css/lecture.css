@@ -1,15 +1,99 @@
-﻿/* 강의별 커스텀 스타일은 이 파일에만 작성합니다.
- * 공통 토큰은 tokens.css에 있습니다. 여기서는 공통 토큰을 재정의하지 않습니다.
- * value-slider는 범용 등록 예시이며 실제 강의 콘텐츠가 아닙니다.
- */
-.interactive-widget { display: grid; gap: var(--space-4); padding: var(--space-6); border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface-2); color: var(--text); }
-.widget-slider { font-weight: var(--weight-medium); }
-.value-slider input[type="range"] { width: 100%; min-width: 0; min-height: 44px; margin: 0; accent-color: var(--accent-text); }
-.value-slider input:focus-visible { outline: 3px solid var(--accent-text); outline-offset: var(--space-1); }
-.widget-result { font-size: var(--font-card); font-weight: var(--weight-heading); }
-.widget-meter { height: var(--space-6); overflow: hidden; border: 1px solid var(--control-border); border-radius: var(--radius-pill); background: var(--surface); }
-.widget-meter-fill { display: block; width: 100%; height: 100%; background: var(--accent-text); transform: scaleX(var(--demo-value, .5)); transform-origin: left; transition: transform var(--duration-fast) ease; }
-.widget-note { color: var(--text-muted); }
-@media (prefers-reduced-motion: reduce) {
-  .widget-meter-fill { transition: none; }
+/* 1차시 전용 스타일. 공통 tokens.css / base.css는 유지합니다. */
+.lesson-stack { display: grid; gap: var(--space-6); }
+.lesson-panel { display: grid; gap: var(--space-6); padding: var(--space-7); background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.lesson-panel > * { min-width: 0; }
+.eyebrow { font-size: var(--font-small); font-weight: var(--weight-heading); color: var(--accent-text); letter-spacing: .04em; }
+.big-question { font-size: 1.8rem; font-weight: var(--weight-heading); line-height: 1.45; word-break: keep-all; }
+.muted, .figure-label { color: var(--text-muted); }
+.prompt { padding-top: var(--space-5); border-top: 1px solid var(--border); font-weight: var(--weight-medium); }
+.section-time { margin-left: auto; color: var(--text-muted); font-weight: var(--weight-medium); }
+.section-heading .kicker { display: flex; gap: var(--space-3); }
+.course-path { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-block: 1px solid var(--border); }
+.course-step { display: grid; gap: var(--space-2); padding: var(--space-5); color: var(--text-muted); font-size: var(--font-small); }
+.course-step strong { font-size: var(--font-body); color: var(--text); }
+.course-step.is-current { background: var(--surface); box-shadow: inset 0 -3px var(--accent-text); }
+.course-step.is-current > span:first-child { color: var(--accent-text); font-weight: var(--weight-heading); }
+.lesson-intro { display: flex; justify-content: space-between; align-items: center; gap: var(--space-6); padding-block: var(--space-6); }
+.lesson-intro p { max-width: 650px; }
+.teacher-prep { margin-bottom: var(--space-section-sm); border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); }
+.teacher-prep > summary { padding: var(--space-5) var(--space-6); font-weight: var(--weight-heading); cursor: pointer; }
+.prep-count { display: inline-block; margin-left: var(--space-3); color: var(--text-muted); font-size: var(--font-small); font-weight: var(--weight-medium); }
+.prep-body { display: grid; gap: var(--space-4); padding: 0 var(--space-6) var(--space-6); }
+.prep-body .button { justify-self: start; }
+.learning-list, .choice-list, .reflection-list { margin: 0; padding-left: 1.4em; display: grid; gap: var(--space-4); }
+.two-column { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--space-7); }
+.two-column > div { display: grid; align-content: start; gap: var(--space-3); }
+.two-column ul { margin: 0; padding-left: 1.3em; display: grid; gap: var(--space-3); }
+.process-flow { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: var(--space-5); }
+.process-flow li { padding: var(--space-5); border: 1px solid var(--control-border); border-radius: var(--radius-md); display: grid; gap: var(--space-3); }
+.process-flow span { color: var(--accent-text); font-size: var(--font-small); }
+.process-flow strong { font-size: var(--font-card); }
+.source-summary { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: var(--space-7); }
+.source-summary > div { display: grid; gap: var(--space-3); }
+.class-legend { display: flex; flex-wrap: wrap; gap: var(--space-3); list-style: none; margin: 0; padding: 0; }
+.class-legend li { padding: var(--space-2) var(--space-4); border: 1px solid var(--control-border); border-radius: var(--radius-pill); font-size: var(--font-small); }
+.class-legend .is-lane { background: var(--accent-soft); color: var(--accent-ink); border-color: var(--accent-text); }
+.concept-figure { margin: 0; }
+.concept-figure figcaption, .figure-label { font-size: var(--font-small); margin-top: var(--space-3); }
+.road-visual { display: block; width: 100%; max-height: 300px; }
+.concept-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: var(--space-6); }
+.concept-grid article { display: grid; align-content: start; gap: var(--space-3); }
+.concept-grid .eyebrow { letter-spacing: 0; overflow-wrap: anywhere; }
+.concept-visual { display: block; width: 100%; max-height: 210px; }
+.diagram-ground { fill: none; stroke: var(--control-border); stroke-width: 5; stroke-linecap: round; }
+.diagram-road { fill: var(--surface); stroke: var(--control-border); stroke-width: 2; }
+.diagram-car { fill: var(--text-muted); stroke: var(--text); stroke-width: 2; }
+.diagram-window { fill: var(--surface-2); }
+.diagram-wheel, .diagram-solid { fill: var(--text); }
+.diagram-box { fill: none; stroke: var(--accent-text); stroke-width: 4; stroke-dasharray: 9 4; }
+.diagram-mask, .lane-shape { fill: var(--accent-soft); stroke: var(--accent-text); stroke-width: 3; }
+.diagram-person { fill: none; stroke: var(--text); stroke-width: 10; stroke-linecap: round; }
+.diagram-signal { fill: var(--accent-soft); }
+.numbered-steps { display: grid; gap: var(--space-6); margin: 0; padding-left: 1.4em; }
+.numbered-steps p { color: var(--text-muted); margin-top: var(--space-2); }
+.rule-list { display: grid; gap: var(--space-4); margin: 0; padding: 0; list-style: none; }
+.rule-list li { display: grid; grid-template-columns: 190px 1fr; gap: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid var(--border); }
+.tick-list { display: grid; gap: var(--space-4); list-style: none; margin: 0; padding: 0; }
+.tick-list label { display: flex; align-items: flex-start; gap: var(--space-4); cursor: pointer; min-height: 44px; }
+.tick-list input { flex: 0 0 auto; width: 24px; height: 24px; margin-top: 3px; accent-color: var(--accent-text); }
+.answer { border-top: 1px solid var(--border); padding-top: var(--space-4); }
+.answer summary { color: var(--accent-text); cursor: pointer; font-weight: var(--weight-heading); min-height: 44px; }
+.answer p { margin-top: var(--space-3); }
+.capture-note { border: 1px dashed var(--control-border); border-radius: var(--radius-md); padding: var(--space-4) var(--space-5); background: var(--surface); }
+.capture-note summary { cursor: pointer; color: var(--text-muted); min-height: 44px; }
+.capture-note p { margin-top: var(--space-3); }
+.capture-id { display: inline-block; color: var(--warn); font-weight: var(--weight-heading); font-size: var(--font-small); margin-right: var(--space-3); }
+.note-meta { color: var(--text-muted); font-size: var(--font-small); }
+.next-session { display: grid; gap: var(--space-3); border-top: 1px solid var(--border); padding-top: var(--space-5); }
+.next-session > span { color: var(--accent-text); }
+.lesson-references { border-top: 1px solid var(--border); padding-block: var(--space-7); display: grid; gap: var(--space-3); color: var(--text-muted); font-size: var(--font-small); }
+summary:focus-visible, input:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 4px; }
+.presentation-stage .lesson-panel { padding: 28px; gap: 24px; }
+.presentation-stage .big-question { font-size: 36px; line-height: 1.4; }
+.presentation-stage .concept-figure figcaption, .presentation-stage .figure-label, .presentation-stage .eyebrow { font-size: var(--slide-body); }
+.presentation-stage .road-visual { max-height: 300px; }
+.presentation-stage .concept-visual { max-height: 240px; }
+.presentation-stage .numbered-steps { gap: 24px; }
+.presentation-stage .class-legend li, .presentation-stage .process-flow span { font-size: var(--slide-body); }
+.presentation-stage .concept-grid .eyebrow { font-size: var(--slide-code); }
+@media (max-width: 767px) {
+  .lesson-panel { padding: var(--space-5); gap: var(--space-5); }
+  .course-path { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .course-step { padding: var(--space-4); }
+  .lesson-intro { align-items: flex-start; flex-direction: column; }
+  .two-column, .source-summary, .concept-grid, .process-flow { grid-template-columns: 1fr; }
+  .big-question { font-size: 1.5rem; }
+  .rule-list li { grid-template-columns: 1fr; gap: var(--space-2); }
+  .prep-count { display: block; margin: var(--space-2) 0 0; }
+  .concept-grid article + article { border-top: 1px solid var(--border); padding-top: var(--space-5); }
+  .capture-id { display: block; margin-bottom: var(--space-2); }
+  .presentation-stage .lesson-panel { padding: var(--space-4); }
 }
+@media print { .teacher-prep, .capture-note, .header-actions { display: none; } }
+
+.drivable-mask { fill: var(--accent-soft); stroke: var(--accent-text); stroke-width: 3; }
+.road-marking { fill: var(--text-muted); }
+
+/* 사용자 캡처는 비율과 전체 경계를 보존합니다. 클릭하면 원본을 엽니다. */
+.capture-figure > a { display: block; }
+.capture-note .capture-figure { margin-top: var(--space-4); }
