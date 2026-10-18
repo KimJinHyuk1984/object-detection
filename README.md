@@ -6,11 +6,11 @@ Roboflow로 객체와 주행 가능 도로 영역을 인식하는 단일 분할 
 | --- | --- | --- |
 | [강의 목록](index.html) | 전체 4차시 안내 | 1·2·3차시 이동 가능 |
 | [1차시](road-perception/index.html) | 개념·어노테이션·검수 | 21개 발표 조각, 영상·캡처 반영 |
-| [2차시](model-training/index.html) | 데이터 분리·버전·학습·평가 | 20개 발표 조각 초안, 실제 결과 대기 |
-| [3차시](api-app/index.html) | API 이미지 분석 앱 | 18개 발표 조각·예제 실행·실습 ZIP |
+| [2차시](model-training/index.html) | 데이터 분리·버전·학습·평가 | 20개 발표 조각·설정/데이터/평가 캡처 8장 |
+| [3차시](api-app/index.html) | API 영상 테스트 앱 | 18개 발표 조각·영상 업로드·MP4 저장·실습 ZIP |
 | 4차시 | 주행영상 앱 배포 | 준비 중 |
 
-현재 어노테이션 진행 중입니다. 기존 캡처는 Object Detection이므로 단일 모델의 마스크 출력을 위한 프로젝트 유형과 정답 형식을 학습 전에 확인해야 합니다. `line`은 도색된 선이 아닌 **차선 사이의 주행 가능한 도로 영역**입니다.
+캡처 12장으로 201장·정답 2,972개와 RF-DETR Object Detection (Small) v1 학습 완료를 확인했습니다. Test 20장 기준 mAP@50 47.3%, Precision 53.0%, Recall 41.2%입니다. 현재 모델은 박스를 출력하므로 기존 데이터를 보존하며 Instance Segmentation 모델을 준비한 뒤 도로 마스크·API 연결을 확인합니다. [캡처 검토와 다음 확인](docs/training-capture-review.md)을 참고하세요. `line`은 도색된 선이 아닌 **차선 사이의 주행 가능한 도로 영역**입니다.
 
 - [2차시 활동지 PDF · A4 4쪽](files/lesson-02-workbook.pdf)
 - [3차시 실습 ZIP](files/lesson-03.zip) · [실행 안내](files/lesson-03/README.md) · [활동지 PDF · A4 2쪽](files/lesson-03-workbook.pdf)

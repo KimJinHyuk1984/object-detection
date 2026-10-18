@@ -1,0 +1,141 @@
+{
+  "checked": "2026-10-18",
+  "annotation": {
+    "total": 201,
+    "annotated": 201,
+    "unannotated": 0,
+    "evidence": "captures/lesson-03/1.png"
+  },
+  "training": {
+    "completed": true,
+    "evidence": "user confirmation",
+    "model_type": null,
+    "metrics": null,
+    "api_model_id": null
+  },
+  "capture_records": [
+    {
+      "path": "captures/lesson-03/1.png",
+      "bytes": 2416035,
+      "sha256": "d6cd8ec1eefd9baf3c84d696304b20f5f3a2c66a2e424b44bb3f3072bef36253",
+      "unchanged": true
+    },
+    {
+      "path": "captures/lesson-03/2.png",
+      "bytes": 98135,
+      "sha256": "49aef56417c139f77e7ea00f4c51e528ec75776b98769bf7b135e6f9b045989f",
+      "unchanged": true
+    },
+    {
+      "path": "captures/lesson-03/3.png",
+      "bytes": 57255,
+      "sha256": "3ffcdde32b82f92fb6473a09a0430f408e6670fe2a8ba9f8804986d661998f4c",
+      "unchanged": true
+    },
+    {
+      "path": "captures/lesson-03/4.png",
+      "bytes": 44775,
+      "sha256": "0f26011fbf36d1d9ce07e9eb7324251b6211e88b36d87823c304288f5999f2f0",
+      "unchanged": true
+    },
+    {
+      "path": "captures/lesson-03/5.png",
+      "bytes": 79562,
+      "sha256": "4e98790b9a2662694f7decde6af9322ece83b1a7cbfa7862ccff6e67aa6aebbb",
+      "unchanged": true
+    },
+    {
+      "path": "captures/lesson-03/6.png",
+      "bytes": 83268,
+      "sha256": "096f28355bf0031bbfb32aededa9dfcb0b5a1e176653a6d658013e85384b7e4a",
+      "unchanged": true
+    }
+  ],
+  "public_copies": [
+    {
+      "source": "captures/lesson-03/2.png",
+      "file": "assets/img/lesson-02/dataset-split-settings.png",
+      "width": 871,
+      "height": 740,
+      "identical": true
+    },
+    {
+      "source": "captures/lesson-03/3.png",
+      "file": "assets/img/lesson-02/preprocessing-settings.png",
+      "width": 815,
+      "height": 556,
+      "identical": true
+    },
+    {
+      "source": "captures/lesson-03/5.png",
+      "file": "assets/img/lesson-02/augmentation-settings.png",
+      "width": 825,
+      "height": 680,
+      "identical": true
+    },
+    {
+      "source": "captures/lesson-03/6.png",
+      "file": "assets/img/lesson-02/version-size-settings.png",
+      "width": 1707,
+      "height": 561,
+      "identical": true
+    }
+  ],
+  "html": [
+    {
+      "path": "index.html",
+      "slides": 0,
+      "tag_errors": [],
+      "duplicate_ids": [],
+      "nested_slides": 0
+    },
+    {
+      "path": "road-perception/index.html",
+      "slides": 21,
+      "tag_errors": [],
+      "duplicate_ids": [],
+      "nested_slides": 0
+    },
+    {
+      "path": "model-training/index.html",
+      "slides": 20,
+      "tag_errors": [],
+      "duplicate_ids": [],
+      "nested_slides": 0
+    },
+    {
+      "path": "api-app/index.html",
+      "slides": 18,
+      "tag_errors": [],
+      "duplicate_ids": [],
+      "nested_slides": 0
+    }
+  ],
+  "local_refs": 102,
+  "local_errors": [],
+  "protected": [
+    {
+      "path": "DESIGN.md",
+      "unchanged": true
+    },
+    {
+      "path": "assets/css/tokens.css",
+      "unchanged": true
+    },
+    {
+      "path": "assets/css/base.css",
+      "unchanged": true
+    },
+    {
+      "path": "assets/js/shared.js",
+      "unchanged": true
+    },
+    {
+      "path": "source.mp4",
+      "unchanged": true
+    }
+  ],
+  "captures_ignored": true,
+  "browser_ui": "not executed",
+  "real_api_calls": 0
+}

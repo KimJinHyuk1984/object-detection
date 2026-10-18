@@ -10,8 +10,8 @@ from core import (
 )
 from demo import make_demo
 
-st.set_page_config(page_title="도로 이미지 분석", page_icon="🚦", layout="wide")
-st.title("도로 이미지 분석")
+st.set_page_config(page_title="도로 영상 분석", page_icon="🚦", layout="wide")
+st.title("도로 영상 분석")
 st.caption("한 모델의 결과를 객체 박스와 주행 가능 도로 영역으로 표시합니다.")
 
 
@@ -27,7 +27,7 @@ def setting(name):
 
 with st.sidebar:
     st.header("분석 설정")
-    mode = st.radio("실행 모드", ["예제 결과로 연습", "내 모델로 분석"], key="mode")
+    mode = st.radio("실행 모드", ["영상 업로드 확인", "예제 결과로 연습", "내 모델로 분석"], key="mode")
     threshold = st.slider("표시 confidence 임계값", MIN_CONFIDENCE, 1.0, 0.40, 0.05, key="threshold")
     opacity = st.slider("도로 영역 불투명도", 0.0, 0.8, 0.3, 0.05, key="opacity")
     selected = st.multiselect("표시할 클래스", list(CLASSES), default=list(CLASSES), key="classes")
@@ -42,16 +42,33 @@ api_key = ""
 image = None
 sample = None
 
+if mode == "영상 업로드 확인":
+    st.session_state.pop("prediction_result",None)
+    st.session_state.pop("analysis_context",None)
+    from video_ui import run_video_ui
+    run_video_ui(mode,"","",threshold,selected,opacity)
+    st.stop()
+
 if demo_mode:
+    from video_ui import clear_video_result
+    clear_video_result()
     st.info("수업용 가상 도로와 미리 작성한 결과입니다. 실제 모델의 예측·성능이 아닙니다.")
     image, sample = make_demo()
 else:
-    st.info("분석 실행을 누르면 선택한 이미지 한 장이 Roboflow로 전송됩니다.")
     model_id = st.text_input("모델 ID", value=setting("ROBOFLOW_MODEL_ID"),
                              placeholder="프로젝트이름/1", key="model_id").strip()
     api_key = setting("ROBOFLOW_API_KEY")
     if not api_key:
         st.warning("API 키가 설정되지 않았습니다. 실습 README의 secrets.toml 설정을 확인하세요.")
+    input_type = st.radio("입력 방식",["영상 업로드","이미지 한 장"],key="input_type")
+    from video_ui import clear_video_result, run_video_ui
+    if input_type == "영상 업로드":
+        st.session_state.pop("prediction_result",None)
+        st.session_state.pop("analysis_context",None)
+        run_video_ui(mode,model_id,api_key,threshold,selected,opacity)
+        st.stop()
+    clear_video_result()
+    st.info("분석 실행을 누르면 선택한 이미지 한 장이 Roboflow로 전송됩니다.")
     uploaded = st.file_uploader("도로 이미지 한 장", type=["jpg", "jpeg", "png", "webp"], key="upload")
     if uploaded is not None:
         try:
@@ -86,7 +103,7 @@ if image is not None:
     left, right = st.columns(2)
     with left:
         st.subheader("입력 이미지")
-        st.image(image, width="stretch")
+        st.image(image, width=image.width)
         st.caption(f"분석 좌표 기준: {image.width} × {image.height}px")
     with right:
         st.subheader("표시 결과")
@@ -97,7 +114,7 @@ if image is not None:
                 st.warning(message)
             visible = visible_predictions(result, threshold, selected)
             rendered = render_predictions(image, visible, opacity, demo=demo_mode)
-            st.image(rendered, width="stretch")
+            st.image(rendered, width=rendered.width)
             objects = sum(p["class"] != "line" for p in visible)
             regions = sum(p["class"] == "line" for p in visible)
             st.caption(f"표시된 객체 {objects}개 · 도로 영역 {regions}개")
@@ -110,7 +127,7 @@ if image is not None:
                      "표시":"도로 마스크" if p["class"]=="line" else "객체 박스"}
                     for p in visible]
             if rows:
-                st.dataframe(rows, hide_index=True, width="stretch")
+                st.dataframe(rows, hide_index=True)
             prefix = "demo" if demo_mode else "prediction"
             st.download_button("결과 이미지 PNG 받기", png_bytes(rendered),
                                f"{prefix}-result.png", "image/png")

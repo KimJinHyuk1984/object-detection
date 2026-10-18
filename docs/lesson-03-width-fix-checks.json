@@ -1,0 +1,85 @@
+{
+  "checked": "2026-10-18",
+  "issue": "st.image width='stretch' TypeError",
+  "changes": [
+    "app.py: integer widths for input/result images; default dataframe width",
+    "video_ui.py: integer frame image width",
+    "README: environment and downloaded-copy guidance"
+  ],
+  "standard_environment": {
+    "python": "3.12.14",
+    "streamlit": "1.66.0",
+    "tests": 12,
+    "passed": true,
+    "log": "work-temp/lesson03/width-fix-current.log"
+  },
+  "legacy_environment": {
+    "python": "3.12.14",
+    "streamlit": "1.32.0",
+    "original_error_reproduced": true,
+    "numeric_width_example_passed": true,
+    "full_app_tests_passed": false,
+    "attempted_tests": 3,
+    "limitations": [
+      "Image UI tests: temporary PyArrow 26 / NumPy 1.26 dependency conflict",
+      "Video UI test: old AppTest formatted select_slider serialization error"
+    ],
+    "log": "work-temp/lesson03/width-fix-legacy.log"
+  },
+  "package": {
+    "entries": 12,
+    "all_source_bytes_match": true,
+    "python_required": "3.12 (PyAV 19.0.1 Requires-Python >=3.12)"
+  },
+  "files": [
+    {
+      "path": "files/lesson-03/app.py",
+      "bytes": 7360,
+      "sha256": "7b09f973e71fcd630208615c85fc4aa7b1cf6340666402cf8b1497054750a117"
+    },
+    {
+      "path": "files/lesson-03/video_ui.py",
+      "bytes": 6500,
+      "sha256": "2696afb166524bdf2e59387705d121c80f3aef6f9faba8637f81be67b50b96e9"
+    },
+    {
+      "path": "files/lesson-03/README.md",
+      "bytes": 9660,
+      "sha256": "7939fb1ba0dcfa14585154275caa1d31137f31207c49453834e26cc6b17202a3"
+    },
+    {
+      "path": "files/lesson-03.zip",
+      "bytes": 19156,
+      "sha256": "1b118c125dc7057c8344eed24234db1bd3399d6827591c951a3a4b09730eb031"
+    }
+  ],
+  "protected": [
+    {
+      "path": "DESIGN.md",
+      "unchanged": true
+    },
+    {
+      "path": "assets/css/tokens.css",
+      "unchanged": true
+    },
+    {
+      "path": "assets/css/base.css",
+      "unchanged": true
+    },
+    {
+      "path": "assets/js/shared.js",
+      "unchanged": true
+    },
+    {
+      "path": "source.mp4",
+      "unchanged": true
+    }
+  ],
+  "downloads_folder_modified": false,
+  "browser_ui": "not executed",
+  "real_api_calls": 0,
+  "git_diff_check": {
+    "exit_code": 0,
+    "output": ""
+  }
+}

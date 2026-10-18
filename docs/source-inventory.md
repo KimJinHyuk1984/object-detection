@@ -48,3 +48,33 @@ YouTube 임베드 방식 근거: https://developers.google.com/youtube/player_pa
 
 공식 PyPI에서 Streamlit 1.66.0·inference-sdk 1.8.0·Pillow 12.3.0을 설치해 테스트했습니다. SDK의 설치된 코드·서명에서 polygon 응답·header 키 전송 설정을 확인했습니다.
 assets/img/lesson-03/demo-result.png는 앱의 그리기 함수로 만든 예제 결과이며 DEMO 표시를 포함합니다. 사용자 원본 영상·캡처를 새로 복사하지 않았습니다.
+
+## 영상 업로드 테스트 추가 근거
+
+| 자료 ID | 위치 | 확인·사용 |
+| --- | --- | --- |
+| source-019 | 사용자 요청: 테스트는 영상 업로드로 확인 | 기본 입력을 영상으로 변경, 3차시 앱·강의·PDF 반영 |
+| source-020 | https://docs.streamlit.io/develop/api-reference/media/st.video | 브라우저 영상 표시·H.264 출력 안내 |
+| source-021 | https://pyav.basswood.io/docs/stable/cookbook/basics.html | 프레임 디코딩·H.264 인코딩 |
+| source-022 | https://pyav.basswood.io/docs/stable/api/container.html | stream time_base·seek·decode |
+
+기존 source-001에서 로컬로 첫 10초·20프레임을 추출하고 MP4 인코딩·디코딩을 검사했습니다. 해당 테스트 산출물은 Git에서 제외된 work-temp/에만 저장했으며 외부로 전송하지 않았습니다. 원본 SHA-256은 변하지 않았습니다. PyAV가 읽은 영상 트랙 길이는 301.433초이며 앞서 기록한 약 301.49초는 컨테이너 메타데이터입니다.
+
+## 어노테이션·학습 완료 후 추가 자료 (2026-10-18)
+
+| 자료 ID | 위치 | 확인·반영 |
+| --- | --- | --- |
+| source-023 | captures/lesson-03/1.png~6.png | 6장 시각 확인. 201장 완료·분리·전처리·증강·생성 선택. 2·3·5·6번만 계정 정보 없는 공개 복사본으로 2차시 안내에 반영 |
+| source-024 | 사용자 “모델학습도 완료” | 학습 완료 상태 반영. 모델 유형·지표·예측·API 정보는 별도 확인 |
+
+이전에 기록한 “어노테이션 진행 중”, “2차시 캡처 없음”은 당시 상태입니다. 최신 자료의 해석·확인할 점은 [캡처 검토](training-capture-review.md)에 기록합니다. 캡처에 보이는 설정과 실제 학습된 모델의 최종 구성을 구분하며, 성능 수치나 line 출력 성공을 추정하지 않습니다.
+
+## 학습 결과·클래스 통계 추가 자료 (2026-10-18)
+
+| 자료 ID | 위치 | 확인·반영 |
+| --- | --- | --- |
+| source-025 | captures/lesson-03/7.png~12.png | 6장 추가 시각 확인. 201장·2,972개 정답, 9개 사용 클래스, lampy 4개, 빈 이름 2개, v1 RF-DETR Object Detection (Small), Test 20장 평가. 7·8·11·12번 공개 복사 |
+| source-026 | https://discuss.roboflow.com/t/roboflow-missing-yolov8-instance-segmentation-weight-pt-segmentation-version-to-download-how-to-train-and-deploy-with-segmentation-masks/8942 | Roboflow 담당자 답변: Object Detection 프로젝트를 Duplicate Project에서 Instance Segmentation으로 복제하는 순서 |
+| source-027 | https://rfdetr.roboflow.com/latest/learn/run/segmentation/ | RF-DETR의 분할 모델과 마스크 출력 확인. 현재 탐지 모델과 구분 |
+
+현재 학습 결과는 박스 평가로 반영했습니다. 도로 마스크 성공, API model_id, 실제 API 호출 성공은 추정하지 않았습니다. 9번의 계정 식별 정보와 10번의 사용량·결제 관련 영역은 공개 이미지로 복사하지 않았습니다. 원본 12장·공개 복사본 8장의 해시·정적 검사는 training-result-checks.json을 참고합니다.

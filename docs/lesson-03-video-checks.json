@@ -1,0 +1,221 @@
+{
+  "date": "2026-10-17",
+  "tests": {
+    "total": 12,
+    "passed": 12,
+    "real_api_calls": 0
+  },
+  "source_video": {
+    "input": {
+      "duration": 301.43333333333334,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30
+    },
+    "source_sha256": "047978afc520d8bff222fd21bc890dcab960acf476e7a4b92be2d6824bc60e25",
+    "sample_count": 20,
+    "timestamps": [
+      0,
+      0.5,
+      0.9999999999999999,
+      1.5,
+      2,
+      2.5,
+      3,
+      3.5,
+      4,
+      4.5,
+      5,
+      5.5,
+      6,
+      6.5,
+      7,
+      7.5,
+      7.999999999999999,
+      8.5,
+      9,
+      9.5
+    ],
+    "encoded": {
+      "codec": "h264",
+      "size": [
+        960,
+        540
+      ],
+      "frames": 20,
+      "duration": 10,
+      "bytes": 1612072
+    },
+    "real_api_calls": 0
+  },
+  "pages": [
+    {
+      "page": "index.html",
+      "slides": 0,
+      "minutes": 0
+    },
+    {
+      "page": "road-perception/index.html",
+      "slides": 21,
+      "minutes": 50
+    },
+    {
+      "page": "model-training/index.html",
+      "slides": 20,
+      "minutes": 50
+    },
+    {
+      "page": "api-app/index.html",
+      "slides": 18,
+      "minutes": 50
+    }
+  ],
+  "local_refs": 91,
+  "errors": [],
+  "code_excerpts": [
+    {
+      "file": "../files/lesson-03/run-local.txt",
+      "lines": "1-3",
+      "equal": true
+    },
+    {
+      "file": "../files/lesson-03/.streamlit/secrets.toml.example",
+      "lines": "1-3",
+      "equal": true
+    },
+    {
+      "file": "../files/lesson-03/core.py",
+      "lines": "81-89",
+      "equal": true
+    }
+  ],
+  "protected": {
+    "DESIGN.md": {
+      "actual": "c473fca5c871cab360dae65320e6a38189d7e987857cc53700c69e9606a40100",
+      "unchanged": true
+    },
+    "assets/css/tokens.css": {
+      "actual": "6c3eede764ae1875570731ba175d569da58030c7fda96669fced3fe36deb8590",
+      "unchanged": true
+    },
+    "assets/css/base.css": {
+      "actual": "2b1d4cfcf12dc00c9a65a288d106bb1f6e9c75ab14d900ca24095738b35b25cb",
+      "unchanged": true
+    },
+    "assets/js/shared.js": {
+      "actual": "e74face44f5b81e6a96cfa500ca616a089975eb85ef5ef985ce05db182d75569",
+      "unchanged": true
+    }
+  },
+  "instructor_unchanged": true,
+  "artifacts": {
+    "files/lesson-03.zip": {
+      "bytes": 18270,
+      "sha256": "55d55381fb61873263b0151acb735380292c2a3dcfa488c2b99080c6013d802d"
+    },
+    "files/lesson-03-workbook.pdf": {
+      "bytes": 101343,
+      "sha256": "31c4356f130f2085f3e7d92240a9d0d081472db1e4664639bd76d0928bf9e1db"
+    }
+  },
+  "pdf": {
+    "pages": 2,
+    "rendered_and_visually_checked": 2,
+    "clipping_or_overlap": 0,
+    "output_copy_matches": true
+  },
+  "browser": {
+    "available": false,
+    "playback_upload_download_ui": "not verified"
+  },
+  "http": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "road-perception/index.html",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "model-training/index.html",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "api-app/index.html",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "files/lesson-03.zip",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "files/lesson-03-workbook.pdf",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "files/lesson-03/video.py",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "files/lesson-03/video_ui.py",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "object-detection/index.html",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "object-detection/road-perception/index.html",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "object-detection/model-training/index.html",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "object-detection/api-app/index.html",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "object-detection/files/lesson-03.zip",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "object-detection/files/lesson-03-workbook.pdf",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "object-detection/files/lesson-03/video.py",
+      "status": 200,
+      "bytes_match": true
+    },
+    {
+      "path": "object-detection/files/lesson-03/video_ui.py",
+      "status": 200,
+      "bytes_match": true
+    }
+  ],
+  "zip": {
+    "public_source_files": 11,
+    "all_source_bytes_match": true
+  },
+  "git_diff_check": {
+    "exit": 0,
+    "stdout": ""
+  }
+}

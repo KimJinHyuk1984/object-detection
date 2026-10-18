@@ -95,6 +95,7 @@ class AppTests(unittest.TestCase):
     def test_demo_controls_and_mode_reset(self):
         with patch("core.infer_image") as inference:
             app=self.app.run()
+            app.radio(key="mode").set_value("예제 결과로 연습").run()
             self.assertFalse(app.exception)
             app.button(key="analyze").click().run()
             self.assertFalse(app.exception)
@@ -106,6 +107,7 @@ class AppTests(unittest.TestCase):
             self.assertTrue(any("현재 조건" in x.value for x in app.info))
             inference.assert_not_called()
             app.radio(key="mode").set_value("내 모델로 분석").run()
+            app.radio(key="input_type").set_value("이미지 한 장").run()
             self.assertTrue(app.button(key="analyze").disabled)
             self.assertNotIn("prediction_result",app.session_state)
 
@@ -117,6 +119,7 @@ class AppTests(unittest.TestCase):
              patch("core.infer_image",return_value=payload) as inference:
             app=self.app.run()
             app.radio(key="mode").set_value("내 모델로 분석").run()
+            app.radio(key="input_type").set_value("이미지 한 장").run()
             self.assertFalse(app.button(key="analyze").disabled)
             app.button(key="analyze").click().run()
             self.assertFalse(app.exception)
