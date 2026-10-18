@@ -1,0 +1,260 @@
+{
+  "date": "2026-10-18",
+  "pageChecks": [
+    {
+      "file": "index.html",
+      "sections": 0,
+      "slides": 0,
+      "minutes": [],
+      "totalMinutes": 0,
+      "nestedSlides": 0,
+      "duplicateIds": [],
+      "markupErrors": []
+    },
+    {
+      "file": "road-perception/index.html",
+      "sections": 5,
+      "slides": 21,
+      "minutes": [
+        10,
+        10,
+        5,
+        15,
+        10
+      ],
+      "totalMinutes": 50,
+      "nestedSlides": 0,
+      "duplicateIds": [],
+      "markupErrors": []
+    },
+    {
+      "file": "model-training/index.html",
+      "sections": 5,
+      "slides": 20,
+      "minutes": [
+        8,
+        10,
+        8,
+        10,
+        14
+      ],
+      "totalMinutes": 50,
+      "nestedSlides": 0,
+      "duplicateIds": [],
+      "markupErrors": []
+    },
+    {
+      "file": "api-app/index.html",
+      "sections": 5,
+      "slides": 18,
+      "minutes": [
+        8,
+        10,
+        10,
+        14,
+        8
+      ],
+      "totalMinutes": 50,
+      "nestedSlides": 0,
+      "duplicateIds": [],
+      "markupErrors": []
+    },
+    {
+      "file": "video-app/index.html",
+      "sections": 5,
+      "slides": 18,
+      "minutes": [
+        5,
+        15,
+        10,
+        10,
+        10
+      ],
+      "totalMinutes": 50,
+      "nestedSlides": 0,
+      "duplicateIds": [],
+      "markupErrors": []
+    }
+  ],
+  "allReady": true,
+  "levelSlugs": [
+    "road-perception",
+    "model-training",
+    "api-app",
+    "video-app"
+  ],
+  "totalSlides": 77,
+  "localLinkChecks": 140,
+  "localLinkErrors": [],
+  "protectedFiles": [
+    {
+      "file": "DESIGN.md",
+      "sha256": "c473fca5c871cab360dae65320e6a38189d7e987857cc53700c69e9606a40100",
+      "unchanged": true
+    },
+    {
+      "file": "assets/css/tokens.css",
+      "sha256": "6c3eede764ae1875570731ba175d569da58030c7fda96669fced3fe36deb8590",
+      "unchanged": true
+    },
+    {
+      "file": "assets/css/base.css",
+      "sha256": "2b1d4cfcf12dc00c9a65a288d106bb1f6e9c75ab14d900ca24095738b35b25cb",
+      "unchanged": true
+    },
+    {
+      "file": "assets/js/shared.js",
+      "sha256": "e74face44f5b81e6a96cfa500ca616a089975eb85ef5ef985ce05db182d75569",
+      "unchanged": true
+    },
+    {
+      "file": "source.mp4",
+      "sha256": "047978afc520d8bff222fd21bc890dcab960acf476e7a4b92be2d6824bc60e25",
+      "unchanged": true
+    }
+  ],
+  "instructorUnchanged": true,
+  "appZip": {
+    "sha256": "f97a7ca4499734d17d8c1e618a0c7863499bbd694290be5d785883c1c50f2b1e",
+    "unchanged": true
+  },
+  "pdf": {
+    "copiesIdentical": true,
+    "sha256": "c3ca33c74ca345c3031c275466b15a52c7a5c19d191ee1424fadce20a20b3817",
+    "content": {
+      "pages": 3,
+      "page_text_lengths": [
+        574,
+        642,
+        548
+      ],
+      "page_numbers": true,
+      "required_terms": true,
+      "embedded_fonts": true
+    },
+    "visualReview": {
+      "renderedWith": "Poppler 110 dpi",
+      "pagesReviewed": [
+        1,
+        2,
+        3
+      ],
+      "result": "passed: no clipping, overlap, or missing Korean glyphs observed"
+    },
+    "layoutBoundsPassed": true
+  },
+  "actualRoboflowApiCalls": 0,
+  "browser": {
+    "apps": 0,
+    "browsers": 0,
+    "visualAndInteractionChecks": "not run; no connected browser"
+  },
+  "externalDeployment": "not performed",
+  "http": {
+    "mode": "Local static server, root and simulated repository prefix; not browser clicks",
+    "checks": [
+      {
+        "path": "/index.html",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 4593,
+        "identical": true
+      },
+      {
+        "path": "/road-perception/index.html",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 50311,
+        "identical": true
+      },
+      {
+        "path": "/model-training/index.html",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 34582,
+        "identical": true
+      },
+      {
+        "path": "/api-app/index.html",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 23516,
+        "identical": true
+      },
+      {
+        "path": "/video-app/index.html",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 24604,
+        "identical": true
+      },
+      {
+        "path": "/files/lesson-04-workbook.pdf",
+        "status": 200,
+        "contentType": "application/pdf",
+        "bytes": 131796,
+        "identical": true
+      },
+      {
+        "path": "/files/lesson-03.zip",
+        "status": 200,
+        "contentType": "application/zip",
+        "bytes": 25778,
+        "identical": true
+      },
+      {
+        "path": "/object-detection/index.html",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 4593,
+        "identical": true
+      },
+      {
+        "path": "/object-detection/road-perception/index.html",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 50311,
+        "identical": true
+      },
+      {
+        "path": "/object-detection/model-training/index.html",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 34582,
+        "identical": true
+      },
+      {
+        "path": "/object-detection/api-app/index.html",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 23516,
+        "identical": true
+      },
+      {
+        "path": "/object-detection/video-app/index.html",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 24604,
+        "identical": true
+      },
+      {
+        "path": "/object-detection/files/lesson-04-workbook.pdf",
+        "status": 200,
+        "contentType": "application/pdf",
+        "bytes": 131796,
+        "identical": true
+      },
+      {
+        "path": "/object-detection/files/lesson-03.zip",
+        "status": 200,
+        "contentType": "application/zip",
+        "bytes": 25778,
+        "identical": true
+      }
+    ],
+    "ownedServerStopped": true
+  },
+  "gitDiffCheck": "passed",
+  "appSourceDiff": "",
+  "newGuideLocalLinks": 19
+}

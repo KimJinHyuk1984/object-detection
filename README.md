@@ -4,24 +4,24 @@ Roboflow로 객체와 주행 가능 도로 영역을 인식하는 단일 분할 
 
 | 페이지 | 내용 | 현재 상태 |
 | --- | --- | --- |
-| [강의 목록](index.html) | 전체 4차시 안내 | 1·2·3차시 이동 가능 |
+| [강의 목록](index.html) | 전체 4차시 안내 | 1–4차시 이동 가능 |
 | [1차시](road-perception/index.html) | 개념·어노테이션·검수 | 21개 발표 조각, 영상·캡처 반영 |
 | [2차시](model-training/index.html) | 데이터 분리·버전·학습·평가 | 20개 발표 조각·설정/데이터/평가 캡처 8장 |
-| [3차시](api-app/index.html) | API 영상 테스트 앱 | 18개 발표 조각·Drive Vision 대시보드·Workflow 배치 분석·실습 ZIP |
-| 4차시 | 주행영상 앱 배포 | 준비 중 |
+| [3차시](api-app/index.html) | API 영상 테스트 앱 | 18개 발표 조각·Drive Vision·Workflow 배치 분석·실습 ZIP |
+| [4차시](video-app/index.html) | 주행 인식 앱을 검증하고 공유하기 | 18개 발표 조각·A4 3쪽 활동지·교사/캡처/공유 안내 |
 
-캡처 12장으로 201장·정답 2,972개와 RF-DETR Object Detection (Small) v1 학습 완료를 확인했습니다. Test 20장 기준 mAP@50 47.3%, Precision 53.0%, Recall 41.2%입니다. 현재 모델은 박스를 출력하므로 기존 데이터를 보존하며 Instance Segmentation 모델을 준비한 뒤 도로 마스크·API 연결을 확인합니다. [캡처 검토와 다음 확인](docs/training-capture-review.md)을 참고하세요. `line`은 도색된 선이 아닌 **차선 사이의 주행 가능한 도로 영역**입니다.
+기존 캡처 12장에는 201장·정답 2,972개와 RF-DETR Object Detection (Small) v1 평가가 담겨 있습니다. 이후 사용자는 분할 모델 재학습을 시작했고, Drive Vision 앱이 잘 작동한다고 확인했습니다. 기존 박스 평가 수치를 새 분할 모델의 성능으로 사용하지 않습니다. [기존 캡처 검토](docs/training-capture-review.md)를 참고하세요. `line`은 도색된 선이 아닌 **차선 사이의 주행 가능한 도로 영역**입니다.
 
-3차시 실습 앱은 **Python 3.11 또는 3.12**에서 실행합니다. PowerShell·CMD 명령은 [실행 안내](files/lesson-03/README.md)에 있습니다.
+실습 앱은 **Python 3.11 또는 3.12**에서 실행합니다. PowerShell·CMD 명령은 [실행 안내](files/lesson-03/README.md)에 있습니다.
 
-- [2차시 활동지 PDF · A4 4쪽](files/lesson-02-workbook.pdf)
-- [3차시 실습 ZIP](files/lesson-03.zip) · [실행 안내](files/lesson-03/README.md) · [활동지 PDF · A4 2쪽](files/lesson-03-workbook.pdf)
-- [3차시 캡처 안내](docs/lesson-03-capture-guide.md) · [검증 기록](docs/lesson-03-verification.md)
-- [캡처·확인 안내](docs/lesson-02-capture-guide.md)
-- [교사용 50분 진행안](docs/lesson-02-teacher-guide.md)
-- [검증 결과와 남은 확인](docs/lesson-02-verification.md)
+- [2차시 활동지 PDF · A4 4쪽](files/lesson-02-workbook.pdf) · [캡처 안내](docs/lesson-02-capture-guide.md) · [교사용 진행안](docs/lesson-02-teacher-guide.md)
+- [3차시 실습 ZIP](files/lesson-03.zip) · [실행 안내](files/lesson-03/README.md) · [활동지 PDF · A4 2쪽](files/lesson-03-workbook.pdf) · [캡처 안내](docs/lesson-03-capture-guide.md)
+- [4차시 활동지 PDF · A4 3쪽](files/lesson-04-workbook.pdf) · [교사용 50분 진행안](docs/lesson-04-teacher-guide.md) · [캡처 목록](docs/lesson-04-capture-guide.md) · [공유 준비](docs/lesson-04-sharing-guide.md)
+- 검증 기록: [2차시](docs/lesson-02-verification.md) · [3차시](docs/lesson-03-verification.md) · [4차시](docs/lesson-04-verification.md)
 
-강의 페이지는 정적 파일로 구성되어 별도 빌드가 없습니다. Drive Vision 실습 앱은 별도의 Python 서버로 실행합니다. 아래는 이 저장소가 사용하는 템플릿의 운영 안내입니다. 실제 브라우저의 발표·모바일·테마 검증은 아직 완료하지 못했습니다.
+4차시는 **기준 5분 → 새 영상 검증 15분 → 조건 비교 10분 → 공유 체험 10분 → 발표 10분**입니다. 교사는 새 영상의 성공·실패 사례와 초당 2회/5회 분석 실측 자료를 준비합니다. 학생은 같은 장면의 신뢰도 기준 40%/70%를 비교합니다. 공유는 교사가 미리 준비한 배포 주소로 진행하고, 주소가 없으면 별도 PC 실행으로 대체해 기록합니다. 실제 외부 배포는 아직 수행하지 않았습니다.
+
+강의 페이지는 정적 파일로 구성되어 별도 빌드가 없습니다. Drive Vision 실습 앱은 별도의 Python 서버로 실행하며 GitHub Pages에 강의를 올리는 것만으로 실행되지 않습니다. 아래는 이 저장소가 사용하는 템플릿의 운영 안내입니다. 실제 브라우저의 발표·모바일·테마 검증은 아직 완료하지 못했습니다.
 
 빌드 도구·번들러·npm 의존성·외부 CDN·웹폰트 다운로드가 없습니다.
 이 저장소에서 복제한 각 강의 저장소 자체가 사이트 루트입니다.
@@ -68,7 +68,7 @@ shared.js의 `currentLevel()`은 단일이면 첫 원소, 다중이면 body의 d
 ## 조각 단위 발표 모드
 
 읽기 모드에서는 문서가 원래 순서대로 보입니다. 발표 모드는 기존 DOM을 조각별로 옮겨 보여준 뒤 복원합니다.
-현재 1차시는 21조각, 2차시는 20조각이며 건너뛰기 조각은 없습니다.
+현재 1차시 21조각·2차시 20조각·3차시 18조각·4차시 18조각, 총 77조각이며 건너뛰기 조각은 없습니다.
 
 | 속성 | 사용법 |
 | --- | --- |

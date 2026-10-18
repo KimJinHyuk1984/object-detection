@@ -131,3 +131,16 @@ source.mp4의 실제 30fps 영상으로 10초·300프레임 출력과 길이를 
 | source-037 | https://pypi.org/project/fastapi/ · https://pypi.org/project/uvicorn/ · https://pypi.org/project/requests/ | Python 지원 메타데이터 확인 및 FastAPI 0.143.3·Uvicorn 0.54.0·requests 2.34.2 실제 설치 검사 |
 
 새 화면 예제는 직접 작성한 Canvas 가상 도로이며 실제 모델 결과·사용자 원본 영상이 아닙니다. 테슬라 로고·제품 이미지는 사용하지 않았습니다. 모델 API·원본 영상의 외부 전송은 수행하지 않았습니다.
+
+
+## 4차시 검증·공유 수업 (2026-10-18)
+
+| 자료 ID | 위치 | 확인·사용 |
+| --- | --- | --- |
+| source-038 | 사용자 “잘되네” 및 4차시 구성 검토 후 “작업하자” | 앱 정상 동작의 사용자 확인과 50분 검증·공유 수업 제작 승인. 개별 예측 품질·정량 성능·외부 배포 완료의 근거로 확대하지 않음 |
+| source-039 | https://fastapi.tiangolo.com/deployment/concepts/ | Python 서버 운영·HTTPS·재시작·자원 관련 공식 배포 개념을 웹 도구로 확인. 교사 공유 준비 가이드에 반영 |
+| source-040 | https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages | GitHub Pages의 정적 호스팅 범위를 웹 도구로 확인. 강의 페이지와 Python 앱 서버의 역할 구분 |
+
+신뢰도 필터·분석 빈도 변경·캐시·신호 우선순위는 현재 files/lesson-03/web/dashboard.mjs와 perception.mjs, app.py의 구현을 근거로 설명합니다. 새 API 호출이나 실제 추론 측정은 하지 않았습니다. 180초·2회/5회·묶음 8장 수치는 수업용 계산 예시이며 처리 시간을 지어내지 않습니다.
+
+4차시의 실제 결과 캡처는 아직 받지 않았습니다. 캡처 안내의 파일명은 준비 목록이며 가짜 결과를 제작하지 않았습니다. PDF 활동지는 직접 작성한 A4 3쪽 문서이고 코드 실습 ZIP은 기존 3차시 파일을 그대로 연결합니다. Roboflow Inference configuration 페이지의 재조회는 접근 오류로 끝나 새 확인 근거에 포함하지 않습니다.

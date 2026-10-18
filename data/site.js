@@ -93,20 +93,21 @@ window.SITE = {
     {
       "slug": "video-app",
       "badge": "4차시",
-      "title": "주행영상 앱 배포하기",
-      "subtitle": "영상 업로드 앱의 배포와 실제 모델 결과 점검",
-      "kicker": "LESSON 04 / VIDEO & DEPLOY",
+      "title": "주행 인식 앱을 검증하고 공유하기",
+      "subtitle": "새 영상 검증 · 조건 비교 · 공유 체험 · 결과 발표",
+      "kicker": "LESSON 04 / VERIFY & SHARE",
       "duration": "50분",
       "target": "",
       "difficulty": "입문",
       "tags": [
-        "영상",
-        "Python 웹앱"
+        "영상 검증",
+        "조건 비교",
+        "결과 발표"
       ],
       "accent": "neon-green",
       "emoji": "",
       "cover": "",
-      "status": "coming"
+      "status": "ready"
     }
   ],
 

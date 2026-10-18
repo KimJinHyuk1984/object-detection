@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="4차시 50분: 새 주행영상 검증, 조건 비교, 공유 체험과 결과 발표.">
+    <meta name="color-scheme" content="light dark">
+    <title>주행 인식 앱을 검증하고 공유하기 · 4차시</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/lecture.css">
+    <!-- 일반 스크립트를 사용하므로 file://에서도 데이터를 읽을 수 있습니다. -->
+    <script src="../data/site.js" defer>
+    </script>
+    <script src="../assets/js/shared.js" defer>
+    </script>
+  </head>
+  <body data-level="video-app">
+    <a class="skip-link" href="#main">
+      본문으로 건너뛰기
+    </a>
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress__fill" data-progress>
+      </div>
+    </div>
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="강의 처음으로">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v15M3 4h5a4 4 0 0 1 4 2 4 4 0 0 1 4-2h5v14h-5a4 4 0 0 0-4 2 4 4 0 0 0-4-2H3Z"/>
+            </svg>
+          </span>
+          <span class="brand-title" data-lecture-title>
+          </span>
+        </a>
+        <!-- shared.js가 본문의 .lecture-section을 수집해 링크를 생성합니다. -->
+        <nav class="section-nav" aria-label="강의 섹션" data-section-nav>
+        </nav>
+        <div class="header-actions">
+          <button class="button" type="button" data-presentation-toggle>
+            발표 모드
+            <kbd>
+              P
+            </kbd>
+          </button>
+          <button class="button button-primary" type="button" data-open-instructor>
+            선생님 소개 보기
+          </button>
+          <button class="button button-icon" type="button" data-theme-toggle aria-label="테마 전환">
+            <svg data-theme-icon width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.9 13a9 9 0 0 1-9.9-9.9A9 9 0 1 0 20.9 13Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="container">
+        <section class="hero" id="top" aria-labelledby="lecture-title">
+          <p class="kicker" data-lecture-kicker>
+          </p>
+          <h1 id="lecture-title" data-lecture-title>
+          </h1>
+          <p class="hero-subtitle" data-lecture-subtitle>
+          </p>
+          <div class="hero-meta" data-lecture-badges aria-label="강의 정보">
+          </div>
+          <div class="hero-byline">
+            <button class="text-button" type="button" data-open-instructor>
+              <span data-instructor-name>
+              </span>
+              선생님
+            </button>
+            <span data-instructor-affiliation>
+            </span>
+          </div>
+        </section>
+<nav class="course-path" aria-label="전체 4차시 구성"><a class="course-step" href="../road-perception/index.html"><span>01 · 강의 보기</span><strong>AI에게 도로를 가르치기</strong><span>50분</span></a>
+<a class="course-step" href="../model-training/index.html"><span>02 · 강의 보기</span><strong>모델을 학습하고 평가하기</strong><span>50분</span></a>
+<a class="course-step" href="../api-app/index.html"><span>03 · 강의 보기</span><strong>API로 영상 테스트 앱 만들기</strong><span>50분</span></a>
+<a class="course-step is-current" href="../video-app/index.html" aria-current="page"><span>04 · 현재 차시</span><strong>주행 인식 앱을 검증하고 공유하기</strong><span>50분</span></a></nav>
+<div class="lesson-intro"><p><strong>오늘의 결과물</strong> 성공·실패 캡처 2장 · 조건 비교표 · 개선 계획</p><a class="button button-primary" href="../files/lesson-04-workbook.pdf" download>4차시 활동지 PDF ↓</a><a class="button" href="../files/lesson-03.zip" download>실습 앱 ZIP ↓</a></div>
+<details class="teacher-prep" id="teacher-prep"><summary>교사용 준비 안내 <span class="prep-count">새 영상·실제 비교 자료·공유 방식 사전 준비</span></summary><div class="prep-body"><p>사용자가 Drive Vision의 정상 동작을 확인했습니다. 수업 전에는 사용할 Workflow와 모델 버전, 새 영상의 성공·실패 장면, 초당 2회·5회 분석 비교 자료를 준비합니다. 현재 실습 ZIP은 로컬 앱이며 외부 배포 주소는 별도 준비가 필요합니다.</p><p>수업은 검증·발표를 중심으로 진행합니다. 공유 주소가 없으면 별도 PC 실행으로 대체하고 활동지에 구분합니다. 설치·계정 생성·모델 재학습은 수업 전에 준비하거나 후속 과제로 남깁니다.</p><ul><li><a href="#l4-capture-01">L4-01 · 성공·실패 장면</a></li><li><a href="#l4-capture-02">L4-02 · 같은 장면 조건 비교</a></li><li><a href="#l4-capture-03">L4-03 · 공유 환경 확인</a></li></ul><p><a href="../docs/lesson-04-teacher-guide.md">50분 진행안</a> · <a href="../docs/lesson-04-capture-guide.md">캡처 목록</a> · <a href="../docs/lesson-04-sharing-guide.md">공유 체험 준비</a></p></div></details>
+<section class="lecture-section" id="verification-goal" aria-labelledby="verification-goal-title" data-reveal><div class="section-heading"><p class="kicker">01 / CRITERIA<span class="section-time">5분</span></p><h2 id="verification-goal-title">무엇을 확인하면 잘 만든 앱일까요?</h2></div><div class="lesson-stack">
+<div class="lesson-panel" data-slide data-slide-title="오늘의 목표와 결과물">
+<p class="big-question">내 영상에서 잘 된 AI,<br>처음 보는 도로에서도 잘 될까요?</p><ul class="learning-list"><li>새 영상에서 성공과 실패를 근거로 설명합니다.</li><li>같은 장면의 표시 조건을 비교합니다.</li><li>다른 환경에서 확인하고 개선 계획을 발표합니다.</li></ul><p class="prompt">결과물: 성공·실패 캡처 2장 + 조건 비교표 + 개선 계획 한 문장</p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="먼저 평가 기준을 합의하기">
+<ul class="rule-list"><li><strong>객체</strong><span>실제 대상과 종류·박스 위치가 맞는가?</span></li><li><strong>도로 영역</strong><span>line이 차선 사이의 주행 가능 도로를 따라가는가?</span></li><li><strong>신호 안내</strong><span>감지된 색과 안내가 일치하고, 미분석 때 이전 안내가 사라지는가?</span></li></ul><p class="note-meta">한두 장면의 관찰로 모델 전체 정확도를 계산하지 않습니다. 퍼센트는 개별 예측의 신뢰도입니다.</p>
+</div></div></section>
+<section class="lecture-section" id="new-video-test" aria-labelledby="new-video-test-title" data-reveal><div class="section-heading"><p class="kicker">02 / TEST<span class="section-time">15분</span></p><h2 id="new-video-test-title">새로운 블랙박스 영상으로 검증하기</h2></div><div class="lesson-stack">
+<div class="lesson-panel" data-slide data-slide-title="시험할 영상과 장면 정하기">
+<ol class="numbered-steps"><li><strong>학습에 쓰지 않은 촬영 영상부터 선택합니다.</strong><p>같은 source.mp4의 인접 장면보다 촬영 시각·도로가 다른 영상이 좋습니다.</p></li><li><strong>객체·도로·신호를 볼 시각을 정합니다.</strong><p>대상이 실제로 있는지 사람이 원본을 먼저 확인합니다.</p></li><li><strong>영상 출처와 사용 조건을 기록합니다.</strong><p>얼굴·번호판·계정 정보가 보이는 캡처의 공유 범위를 확인합니다.</p></li></ol><p class="note-meta">새 영상이 없으면 기존 영상으로 앱 동작만 점검하고, 새 환경에 대한 성능 검증과 구분해 기록합니다.</p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="실습 · 영상 위 예측을 관찰하기">
+<ol class="numbered-steps"><li><strong>Drive Vision에서 준비한 영상을 선택합니다.</strong><p>기본: 신뢰도 50%, 초당 2회, 묶음 8장, 동기화 재생 켜기.</p></li><li><strong>분석을 시작하고 완료된 구간을 확인합니다.</strong><p>MODEL RESULT를 확인합니다. 분석 대기는 검출 실패와 다릅니다.</p></li><li><strong>좋은 장면과 실패 장면에서 일시정지합니다.</strong><p>장면의 시각·대상·보이는 현상을 기록합니다. 실패를 찾지 못했다면 관찰 범위를 적습니다.</p></li></ol><p><a href="../files/lesson-03/README.md">앱 실행·Workflow 연결 안내</a> · <a href="../files/lesson-03.zip" download>현재 실습 앱 ZIP</a></p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="실패를 네 가지로 나눠 기록하기">
+<div class="table-scroll" tabindex="0" role="region" aria-label="관찰 오류 분류"><table class="training-table"><thead><tr><th scope="col">관찰</th><th scope="col">기록할 근거</th></tr></thead><tbody><tr><th scope="row">놓침</th><td>대상이 있는데 해당 예측이 없음</td></tr><tr><th scope="row">오탐·잘못된 종류</th><td>없는 대상에 박스가 생기거나 색·종류가 다름</td></tr><tr><th scope="row">경계 어긋남</th><td>박스가 벗어나거나 도로 마스크가 보도까지 침범함</td></tr><tr><th scope="row">판단 보류</th><td>원본도 흐리거나 분석이 아직 완료되지 않음</td></tr></tbody></table></div><p class="prompt">“못 찾는다” 대신 “영상 ○초에서 사람 1명을 놓쳤다”처럼 적습니다.</p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="초록 신호를 찾았으면 출발해도 될까요?">
+<p class="big-question">신호 인식과<br>실제 주행 판단은 다릅니다.</p><ul class="learning-list"><li>초록 신호가 다른 차로에 적용될 수 있습니다.</li><li>보행자·정지선·주변 차량의 상황도 필요합니다.</li><li>현재 앱은 신호 색에 따른 학습용 안내를 표시합니다.</li></ul><details class="answer"><summary>현재 앱의 안내 규칙 확인</summary><p>빨강 → 노랑 → 색 미확인 → 초록 순으로 우선합니다. 신호가 없으면 신호 확인, 현재 구간의 결과가 없으면 분석 대기입니다. 실제 운전 판단에 사용하지 않습니다.</p></details>
+</div><details class="capture-note" id="l4-capture-01"><summary><span class="capture-id">L4-CAPTURE-01</span>성공·실패 장면 캡처</summary><p>현재 화면 저장으로 성공 01-success.png, 실패 02-error.png를 준비합니다. 같은 결과에 대응하는 재생 시각·신뢰도 기준·모델 정보를 활동지에 기록합니다. API 키는 포함하지 않습니다.</p><p class="note-meta"><a href="../docs/lesson-04-capture-guide.md">캡처 파일명과 확인 항목</a></p></details></div></section>
+<section class="lecture-section" id="settings-comparison" aria-labelledby="settings-comparison-title" data-reveal><div class="section-heading"><p class="kicker">03 / COMPARE<span class="section-time">10분</span></p><h2 id="settings-comparison-title">한 번에 한 조건만 바꾸기</h2></div><div class="lesson-stack">
+<div class="lesson-panel" data-slide data-slide-title="학생 실험 · 신뢰도 40%와 70%">
+<ol class="numbered-steps"><li><strong>분석이 끝난 같은 시각에서 일시정지합니다.</strong><p>영상·Workflow·클래스·불투명도를 고정합니다.</p></li><li><strong>최소 신뢰도만 40% → 70%로 바꿉니다.</strong><p>남은 대상·사라진 대상·놓침을 비교합니다. 이 표시 변경 자체는 API를 다시 호출하지 않습니다.</p></li><li><strong>어떤 조건이 이 장면에 적절한지 설명합니다.</strong><p>박스가 적다고 더 정확한 것은 아닙니다.</p></li></ol><p class="note-meta">화면 기준은 이미 받은 예측만 거릅니다. Workflow에서 먼저 제외한 예측을 복원하지는 못합니다.</p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="교사 비교 · 초당 2회와 5회">
+<div class="table-scroll" tabindex="0" role="region" aria-label="분석 빈도에 따른 계획 이미지 수"><table class="training-table"><thead><tr><th scope="col">3분 영상 기준</th><th scope="col">초당 2회</th><th scope="col">초당 5회</th></tr></thead><tbody><tr><th scope="row">분석 이미지</th><td>360장</td><td>900장</td></tr><tr><th scope="row">분석 간격</th><td>0.5초</td><td>0.2초</td></tr><tr><th scope="row">8장 묶음 요청</th><td>약 45회</td><td>약 113회</td></tr></tbody></table></div><p>표는 순서대로 전체를 처리할 때의 계산 예시입니다. 실제 대기 시간은 교사가 준비한 측정 기록으로 비교합니다.</p><p class="note-meta">분석 빈도를 바꾸면 새 분석이 필요합니다. 영상의 원본 재생 fps는 유지되며, 분석이 늦으면 동기화 모드에서 대기합니다.</p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="표시 조정과 모델 개선 구분하기">
+<div class="two-column"><div><h3>지금 바꾸는 화면</h3><ul><li>최소 신뢰도·표시할 클래스</li><li>도로 영역 불투명도</li><li>이미 받은 결과의 보이는 방식</li></ul></div><div><h3>다음 버전의 모델</h3><ul><li>놓친 상황의 학습 자료 추가</li><li>잘못 붙인 정답·경계 수정</li><li>새 버전 학습 후 남겨 둔 영상으로 확인</li></ul></div></div><p class="prompt">분석 빈도를 높이면 더 자주 갱신합니다. 모델이 대상을 더 잘 배웠다는 뜻은 아닙니다.</p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="비교 결과를 다시 확인할 수 있게 남기기">
+<ul class="learning-list"><li>같은 재생 시각의 40%·70% 캡처를 저장합니다.</li><li>분석 기록 JSON과 Workflow/모델 버전을 함께 기록합니다.</li><li>비교표에는 관찰 사실과 원인 추정을 나누어 적습니다.</li></ul><p class="prompt">“노란 신호를 놓쳤다”는 관찰, “작은 신호 학습 자료가 부족할 것 같다”는 추정입니다.</p><p class="note-meta">같은 Workflow ID라도 연결된 모델이 달라질 수 있으므로 교사가 사용한 모델 버전도 기록합니다.</p>
+</div><details class="capture-note" id="l4-capture-02"><summary><span class="capture-id">L4-CAPTURE-02</span>같은 장면의 조건 비교</summary><p>03-threshold-040.png와 04-threshold-070.png를 같은 재생 시각에서 저장합니다. 교사는 2회·5회 분석 비교의 실제 처리 시간과 기준 장면을 미리 준비합니다. 측정하지 않은 시간은 비워 둡니다.</p><p class="note-meta"><a href="../docs/lesson-04-capture-guide.md">캡처 파일명과 확인 항목</a></p></details></div></section>
+<section class="lecture-section" id="app-sharing" aria-labelledby="app-sharing-title" data-reveal><div class="section-heading"><p class="kicker">04 / SHARE<span class="section-time">10분</span></p><h2 id="app-sharing-title">다른 환경에서도 확인하기</h2></div><div class="lesson-stack">
+<div class="lesson-panel" data-slide data-slide-title="세 주소는 역할이 다릅니다">
+<ol class="process-flow"><li><span>강의 자료</span><strong>GitHub Pages</strong><p>강의 HTML·PDF·실습 ZIP을 제공합니다.</p></li><li><span>내 컴퓨터</span><strong>127.0.0.1:7862</strong><p>내 PC에서 실행한 Python 앱에 접속합니다.</p></li><li><span>공유 앱</span><strong>교사의 배포 주소</strong><p>서버에서 실행 중인 앱을 다른 기기로 사용합니다.</p></li></ol><p class="prompt">GitHub에 코드를 올리는 것만으로 Python 앱 서버가 실행되지는 않습니다.</p><p class="note-meta">근거: <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" target="_blank" rel="noopener noreferrer">GitHub Pages의 정적 호스팅</a></p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="교사 시연 · 배포 전에 준비할 것">
+<ul class="rule-list"><li><strong>실행 환경</strong><span>Python 서버가 실행되는 환경과 필요한 패키지를 준비합니다.</span></li><li><strong>접속 설정</strong><span>서버 주소·허용 호스트·HTTPS·접근 대상을 확인합니다.</span></li><li><strong>모델 연결</strong><span>Workflow 입출력·키 권한·사용량을 확인합니다.</span></li></ul><p class="note-meta">현재 배포 ZIP은 로컬 실행용입니다. 외부 공유에는 별도 서버 설정이 필요합니다. 학생 계정 생성·서버 구성은 50분 실습에 포함하지 않습니다.</p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="공유 체험 · 교사가 정한 방식으로">
+<div class="two-column"><div><h3>A. 배포 주소가 준비되었을 때</h3><ol class="learning-list"><li>교사가 제공한 주소에 접속합니다.</li><li>예제 또는 허용된 영상을 선택합니다.</li><li>화면·재생·결과 표시를 확인합니다.</li></ol></div><div><h3>B. 배포 주소가 없을 때</h3><ol class="learning-list"><li>별도 PC에서 같은 ZIP을 실행합니다.</li><li>같은 영상·설정으로 확인합니다.</li><li>별도 PC 실행으로 기록합니다.</li></ol></div></div><p class="prompt">B는 실행 환경을 바꾸는 대체 활동입니다. 외부 배포 완료로 기록하지 않습니다.</p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="받는 사람이 확인할 네 가지">
+<ul class="tick-list"><li><label><input type="checkbox"><span>안내한 주소 또는 실행 방법으로 앱을 열 수 있다.</span></label></li><li><label><input type="checkbox"><span>영상 선택·재생·일시정지·탐색이 동작한다.</span></label></li><li><label><input type="checkbox"><span>예제·미분석·실제 모델 결과를 구분할 수 있다.</span></label></li><li><label><input type="checkbox"><span>신호 안내와 현재 구간의 결과가 맞고, 키가 화면 기록에 없다.</span></label></li></ul><p class="note-meta">공유 전 모델·설정·기기·브라우저를 기록합니다. 배포 접속 검사와 새 영상의 인식 성능 검사는 구분합니다.</p>
+</div><details class="capture-note" id="l4-capture-03"><summary><span class="capture-id">L4-CAPTURE-03</span>공유 또는 별도 PC 실행 화면</summary><p>05-sharing-check.png에 실제 실행 화면을 저장합니다. 활동지에 A 배포 접속 / B 별도 PC 실행 중 수행한 방법, 기기·브라우저와 결과를 적습니다. 공유 URL이 준비되지 않았다면 임의 주소를 만들지 않습니다.</p><p class="note-meta"><a href="../docs/lesson-04-capture-guide.md">캡처 파일명과 확인 항목</a></p></details></div></section>
+<section class="lecture-section" id="project-showcase" aria-labelledby="project-showcase-title" data-reveal><div class="section-heading"><p class="kicker">05 / SHOWCASE<span class="section-time">10분</span></p><h2 id="project-showcase-title">성공과 실패를 함께 발표하기</h2></div><div class="lesson-stack">
+<div class="lesson-panel" data-slide data-slide-title="두 장면으로 설명하기">
+<div class="two-column"><div><h3>성공 장면 1장</h3><ul><li>어떤 대상을 잘 찾았나요?</li><li>박스·도로 경계에서 근거는 무엇인가요?</li><li>시각과 설정을 말할 수 있나요?</li></ul></div><div><h3>실패 장면 1장</h3><ul><li>무엇을 놓치거나 잘못 표시했나요?</li><li>모델·표시·연결 중 어느 문제인가요?</li><li>다음에 어떤 자료로 다시 확인하나요?</li></ul></div></div><p class="prompt">원본도 판독하기 어렵다면 판단 보류와 그 이유를 설명합니다.</p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="60초 발표 틀">
+<ol class="numbered-steps"><li><strong>15초 · 시험 조건</strong><p>“우리는 ○○ 영상의 ○초 장면을 같은 모델로 확인했습니다.”</p></li><li><strong>25초 · 성공과 실패</strong><p>“잘 찾은 것은 ○○이고, ○○에서는 이런 오류가 보였습니다.”</p></li><li><strong>20초 · 개선 계획</strong><p>“다음에는 ○○를 바꾸고, 별도로 남겨 둔 영상으로 확인하겠습니다.”</p></li></ol><p class="note-meta">짝 발표 후 2~3개 모둠만 전체 공유합니다. 전체 학생의 발표가 10분을 넘지 않게 합니다.</p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="동료에게 줄 피드백">
+<ul class="tick-list"><li><label><input type="checkbox"><span>영상·재생 시각·설정이 있어 결과를 다시 확인할 수 있다.</span></label></li><li><label><input type="checkbox"><span>성공과 실패를 원본 장면의 근거로 설명한다.</span></label></li><li><label><input type="checkbox"><span>신뢰도와 정확도, 화면 조정과 재학습을 구분한다.</span></label></li><li><label><input type="checkbox"><span>개선 행동과 다시 확인할 자료를 구체적으로 제안한다.</span></label></li></ul><p class="prompt">“좋았어요”에 더해 “○○ 장면을 추가하면 이 설명을 확인할 수 있어요”를 남깁니다.</p>
+</div>
+<div class="lesson-panel" data-slide data-slide-title="4차시 프로젝트 마무리">
+<ol class="process-flow"><li><span>1·2차시</span><strong>정답 만들기·학습</strong><p>일관된 라벨과 남겨 둔 평가 자료를 준비했습니다.</p></li><li><span>3차시</span><strong>앱으로 연결</strong><p>API 결과를 영상 위 박스·도로·신호 안내로 표현했습니다.</p></li><li><span>4차시</span><strong>검증·공유·개선</strong><p>새 영상의 성공과 실패를 근거로 설명했습니다.</p></li></ol><p class="big-question">“우리 모델의 다음 버전은<br>무엇을 더 배워야 할까요?”</p><p class="note-meta">최종 제출: 캡처 2장·조건 비교표·공유 방식 기록·개선 계획 한 문장. API 키는 제출하지 않습니다.</p>
+</div></div></section>
+<aside class="lesson-references"><p><strong>자료 안내</strong> 계산 표는 수업용 예시입니다. 실제 모델의 결과와 처리 시간은 학생·교사의 관찰로 기록합니다.</p><p><a href="../files/lesson-04-workbook.pdf" download>활동지 PDF</a> · <a href="../files/lesson-03.zip" download>실습 앱 ZIP</a> · <a href="../docs/lesson-04-teacher-guide.md">교사용 진행안</a></p><p>배포 개념 근거: <a href="https://fastapi.tiangolo.com/deployment/concepts/" target="_blank" rel="noopener noreferrer">FastAPI 배포 개념</a> · <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" target="_blank" rel="noopener noreferrer">GitHub Pages</a></p><p><a href="../api-app/index.html">← 3차시</a> · <a href="../index.html">전체 강의 목록</a></p></aside>      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-instructor">
+          <div data-instructor-avatar>
+          </div>
+          <div>
+            <strong data-instructor-name>
+            </strong>
+            <p data-instructor-affiliation>
+            </p>
+            <a class="footer-email" data-instructor-email>
+            </a>
+          </div>
+        </div>
+        <div data-other-lectures-region>
+          <h2 class="footer-heading">
+            다른 강의 둘러보기
+          </h2>
+          <div class="other-lectures" data-other-lectures>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- 선생님 소개 모달의 내용은 shared.js가 SITE.instructor로 한 번만 생성합니다. -->
+    <div class="sr-only" role="status" aria-live="polite" data-copy-status>
+    </div>
+    <noscript>
+      강의 정보와 인터랙션을 표시하려면 브라우저에서 JavaScript를 켜 주세요.
+    </noscript>
+  </body>
+</html>
