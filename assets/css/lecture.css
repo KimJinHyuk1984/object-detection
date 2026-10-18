@@ -145,3 +145,9 @@ a.course-step:focus-visible { outline: 3px solid var(--accent-text); outline-off
 .comparison-label { fill: var(--accent-text); font: 600 20px var(--font-sans); }
 .comparison-grid h4 { font-size: var(--font-card); }
 .table-scroll:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; }
+
+/* 이 저장소에서는 선생님 소개를 표시하지 않습니다.
+ * 공통 스크립트가 자동 생성하는 허브 소개 영역에도 적용합니다. */
+.hub-instructor,
+[data-open-instructor] { display: none; }
+.site-footer .footer-grid { grid-template-columns: minmax(0, 1fr); }
