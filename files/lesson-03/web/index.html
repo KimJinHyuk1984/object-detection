@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drive Vision · 주행 인식 스튜디오</title>
+<link rel="stylesheet" href="/assets/dashboard.css">
+<script type="module" src="/assets/dashboard.mjs"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/" aria-label="Drive Vision 처음으로">DRIVE<span>VISION</span></a>
+  <span class="edition">ROAD PERCEPTION LAB <span>01</span></span>
+  <button class="button quiet" id="settings-open">연결 설정 <span aria-hidden="true">⚙</span></button>
+</header>
+<main>
+  <div class="page-heading"><div><p class="eyebrow">주행 인식 스튜디오</p><h1>도로를 보는 새로운 시선.</h1></div>
+    <div class="connection"><i id="connection-dot"></i><span id="connection-text">Workflow 연결 대기</span></div>
+  </div>
+  <section class="dashboard" aria-label="영상 인식 대시보드">
+    <aside class="drive-panel">
+      <div class="panel-label"><span>DRIVING ASSIST</span><span class="mode-pill" id="mode-pill">대기</span></div>
+      <div class="signal-display" id="signal-display" data-tone="neutral">
+        <div class="traffic-light" aria-hidden="true"><i class="red"></i><i class="yellow"></i><i class="green"></i></div>
+        <p class="signal-caption" id="signal-caption">SIGNAL NOT DETECTED</p>
+        <h2 id="signal-title">신호 확인</h2>
+        <p class="signal-message" id="signal-message">영상을 선택하고 분석을 시작하세요.</p>
+        <div class="confidence"><span>신호 신뢰도</span><strong id="signal-confidence">—</strong></div>
+      </div>
+      <div class="road-view" aria-hidden="true">
+        <svg viewBox="0 0 360 290" role="presentation">
+          <defs><linearGradient id="road-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e7e9eb"/><stop offset="1" stop-color="#f7f8f9"/></linearGradient><linearGradient id="path-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#489aff" stop-opacity="0"/><stop offset="1" stop-color="#489aff" stop-opacity=".28"/></linearGradient><filter id="shadow"><feGaussianBlur stdDeviation="5"/></filter></defs>
+          <path d="M140 0h80l128 290H12z" fill="url(#road-fill)"/>
+          <path d="M166 0h28l55 290H111z" fill="url(#path-fill)" id="road-highlight"/>
+          <g stroke="#c4c9cf" stroke-width="2" stroke-dasharray="14 18"><path d="M148 0L46 290"/><path d="M212 0l102 290"/></g>
+          <g stroke="#4292ef" stroke-width="2" opacity=".7"><path d="M166 0l-55 290"/><path d="M194 0l55 290"/></g>
+          <ellipse cx="180" cy="227" rx="34" ry="38" fill="#b3b7bc" opacity=".35" filter="url(#shadow)"/>
+          <g transform="translate(151 164)"><rect x="1" y="8" width="56" height="96" rx="19" fill="#fff" stroke="#bac0c8" stroke-width="1.5"/><path d="M9 30q20-9 40 0l-4 24H13z" fill="#35414d"/><path d="M13 67h32l4 18q-20 10-40 0z" fill="#596775"/><path d="M4 16h8m34 0h8" stroke="#cdd8e5" stroke-width="4"/><path d="M6 96h9m28 0h9" stroke="#dd424b" stroke-width="3"/></g>
+          <text x="180" y="130" text-anchor="middle" fill="#7c8793" font-size="10" letter-spacing="3">PERCEPTION</text>
+        </svg>
+        <span>인식 상태 시각화 · 차량 제어 없음</span>
+      </div>
+      <div class="object-counts"><div><strong id="vehicle-count">0</strong><span>차량</span></div><div><strong id="people-count">0</strong><span>사람</span></div><div><strong id="road-confidence">—</strong><span>도로 신뢰도</span></div></div>
+      <p class="notice">신호 인식 기반 학습용 안내입니다.<br>실제 운전 판단에 사용하지 마세요.</p>
+    </aside>
+    <div class="vision-panel">
+      <div class="viewer-toolbar"><div><span class="live-dot"></span><strong>FRONT CAMERA</strong><span id="source-name">영상 없음</span></div><span id="result-badge">LOCAL VIDEO</span></div>
+      <div class="video-stage" id="video-stage">
+        <video id="video" playsinline preload="metadata" aria-label="주행 영상"></video>
+        <canvas id="overlay" aria-label="객체 박스와 주행 가능 도로 마스크"></canvas>
+        <div class="empty-state" id="empty-state">
+          <div class="road-icon" aria-hidden="true">↗</div><p class="eyebrow">YOUR ROAD. YOUR MODEL.</p>
+          <h2>주행 영상을 열어보세요.</h2><p>원본 영상 위에 객체와 도로를 표시합니다.<br>3분 영상도 자를 필요 없이 그대로.</p>
+          <label class="button primary file-label" for="video-file">영상 선택 <span>＋</span></label>
+          <button class="text-button" id="demo-start">화면 예제 보기 · API 사용 없음</button>
+        </div>
+        <div class="buffering" id="buffering" hidden><span class="spinner"></span><strong>이 구간을 분석하고 있어요</strong><span>완료되면 이어서 재생합니다.</span></div>
+        <div class="demo-mark" id="demo-mark" hidden>DEMO · 직접 만든 가상 도로 / 실제 모델 결과 아님</div>
+      </div>
+      <div class="transport">
+        <button id="play-toggle" class="play-button" aria-label="재생" disabled>▶</button>
+        <span id="current-time">00:00</span><div class="timeline"><div id="analysis-coverage"></div><input id="seek" type="range" min="0" max="1" value="0" step=".01" aria-label="재생 위치" disabled></div><span id="total-time">00:00</span>
+        <label class="loop-control"><input type="checkbox" id="loop" checked>반복</label>
+        <button class="icon-button" id="mute" aria-label="음소거 해제">음소거</button>
+        <button class="icon-button" id="fullscreen" aria-label="전체 화면">⛶</button>
+      </div>
+      <div class="analysis-actions"><div class="analysis-status"><span class="eyebrow">ANALYSIS</span><p id="analysis-status" role="status" aria-live="polite">영상 선택 후 연결 설정을 입력하세요.</p></div><button id="analyze" class="button primary" disabled>분석 시작</button><button id="stop" class="button secondary" hidden>분석 중지</button></div>
+      <div class="progress-track"><div id="analysis-progress"></div></div>
+      <p id="response-notice" class="response-notice" role="status"></p>
+    </div>
+  </section>
+  <section class="controls-panel" aria-label="인식 표시 설정">
+    <div class="controls-heading"><div><p class="eyebrow">PERCEPTION LAYERS</p><h2>필요한 정보만, 선명하게.</h2></div><label class="button secondary file-label" for="video-file">영상 바꾸기</label></div>
+    <div class="control-grid">
+      <div class="layer-options"><span class="field-title">표시할 객체</span><div class="chips" id="class-filters"></div></div>
+      <label class="slider-field">최소 신뢰도 <strong id="threshold-value">50%</strong><input id="threshold" type="range" min="5" max="95" value="50" step="5"></label>
+      <label class="slider-field">도로 영역 불투명도 <strong id="opacity-value">28%</strong><input id="opacity" type="range" min="5" max="70" value="28"></label>
+    </div>
+    <div class="footer-controls"><label><input id="sync" type="checkbox" checked>분석 결과에 맞춰 재생 <span>결과가 없는 구간은 잠시 대기</span></label><div><button id="snapshot" class="text-button" disabled>현재 화면 저장 ↗</button><button id="export" class="text-button" disabled>분석 기록 JSON ↗</button></div></div>
+  </section>
+  <footer><span>DRIVE VISION / OBJECT DETECTION + INSTANCE SEGMENTATION</span><span>퍼센트는 모델의 예측 신뢰도입니다.</span></footer>
+</main>
+<input id="video-file" type="file" accept="video/mp4,video/webm,video/quicktime" hidden>
+<dialog id="settings">
+<form method="dialog"><div class="dialog-heading"><div><p class="eyebrow">ROBOFLOW WORKFLOW</p><h2>내 모델 연결</h2></div><button class="icon-button" aria-label="닫기">✕</button></div></form>
+<p>Deploy Workflow → Cloud API의 값을 입력하세요.<br>9개 클래스가 있는 Instance Segmentation 모델을 연결합니다.</p>
+<label>Workspace ID<input id="workspace" autocomplete="off" placeholder="workspace-id"></label>
+<label>Workflow ID<input id="workflow" autocomplete="off" placeholder="workflow-id"></label>
+<label>Private API Key<input id="api-key" type="password" autocomplete="off" placeholder="브라우저 메모리에만 보관"></label>
+<div class="settings-grid"><label>AI 분석 빈도<select id="rate"><option value="1">초당 1회</option><option value="2" selected>초당 2회</option><option value="5">초당 5회</option><option value="10">초당 10회</option></select></label><label>요청 묶음 크기<select id="batch-size"><option>1</option><option>4</option><option selected>8</option><option>16</option></select></label></div>
+<details><summary>Workflow 입출력 이름</summary><div class="settings-grid"><label>이미지 입력 이름<input id="input-name" value="image"></label><label>예측 출력 이름<input id="output-name" value="predictions"></label></div><p>Outputs에서 모델의 Predictions를 선택하세요. 시각화 이미지 출력이 아닙니다.</p></details>
+<p class="settings-note">분석 시작 시 축소한 장면을 Roboflow로 전송합니다. 묶음 요청도 이미지 수에 따라 사용량이 발생합니다. 연결 값을 바꾸면 이전 분석 결과는 초기화됩니다.</p>
+<button class="button primary wide" id="settings-save">설정 적용</button>
+</dialog>
+</body></html>

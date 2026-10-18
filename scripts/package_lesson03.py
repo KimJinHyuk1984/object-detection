@@ -4,8 +4,8 @@ import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/"files/lesson-03"
-FILES=("app.py","core.py","demo.py","video.py","video_ui.py","requirements.txt","README.md","run-local.txt","run-local-cmd.txt",
-       ".gitignore",".streamlit/config.toml",".streamlit/secrets.toml.example")
+FILES=("app.py","core.py","workflow.py","requirements.txt","README.md","run-local.txt","run-local-cmd.txt",
+       ".gitignore","workflow-settings.example.txt","web/index.html","web/dashboard.css","web/dashboard.mjs","web/perception.mjs")
 target=ROOT/"files/lesson-03.zip"
 with zipfile.ZipFile(target,"w",compression=zipfile.ZIP_DEFLATED) as bundle:
     for name in FILES:

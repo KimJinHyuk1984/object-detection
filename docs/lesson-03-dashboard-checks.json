@@ -1,0 +1,137 @@
+{
+  "checked": "2026-10-18",
+  "template": {
+    "url": "https://github.com/gamza-lab/object-detection-with-microbit",
+    "commit": "9fe43f91b726531ff20c171628f1297db7241873"
+  },
+  "architecture": "native browser video + canvas + FastAPI Workflow batch adapter",
+  "python": [
+    {
+      "python": "3.11.9",
+      "run": 14,
+      "failures": 0,
+      "errors": 0,
+      "passed": true
+    },
+    {
+      "python": "3.12.14",
+      "run": 14,
+      "failures": 0,
+      "errors": 0,
+      "passed": true
+    }
+  ],
+  "javascript": {
+    "unitTests": 13,
+    "controllerIntegrationTests": 1,
+    "passed": true,
+    "browser": "not_run; fake media and DOM for controller test"
+  },
+  "http": [
+    {
+      "resource": "/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "resource": "/assets/dashboard.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8"
+    },
+    {
+      "resource": "/assets/dashboard.mjs",
+      "status": 200,
+      "type": "text/javascript; charset=utf-8"
+    },
+    {
+      "resource": "/assets/perception.mjs",
+      "status": 200,
+      "type": "text/javascript; charset=utf-8"
+    },
+    {
+      "resource": "/api/config",
+      "status": 200,
+      "type": "application/json"
+    }
+  ],
+  "static": [
+    {
+      "file": "api-app/index.html",
+      "slides": 18,
+      "tagErrors": [],
+      "duplicateIds": [],
+      "nested": 0
+    },
+    {
+      "file": "road-perception/index.html",
+      "slides": 21,
+      "tagErrors": [],
+      "duplicateIds": [],
+      "nested": 0
+    },
+    {
+      "file": "files/lesson-03/web/index.html",
+      "slides": 0,
+      "tagErrors": [],
+      "duplicateIds": [],
+      "nested": 0
+    }
+  ],
+  "codeExcerpts": [
+    {
+      "source": "../files/lesson-03/run-local.txt",
+      "matches": true
+    },
+    {
+      "source": "../files/lesson-03/run-local-cmd.txt",
+      "matches": true
+    },
+    {
+      "source": "../files/lesson-03/workflow-settings.example.txt",
+      "matches": true
+    },
+    {
+      "source": "../files/lesson-03/workflow.py",
+      "matches": true
+    }
+  ],
+  "localLinkErrors": [],
+  "protected": [
+    {
+      "file": "DESIGN.md",
+      "unchanged": true
+    },
+    {
+      "file": "assets/css/tokens.css",
+      "unchanged": true
+    },
+    {
+      "file": "assets/css/base.css",
+      "unchanged": true
+    },
+    {
+      "file": "assets/js/shared.js",
+      "unchanged": true
+    },
+    {
+      "file": "source.mp4",
+      "unchanged": true
+    }
+  ],
+  "instructorUnchanged": true,
+  "actualRoboflowRequests": 0,
+  "actualVideoPlayback": "not_run; no browser connected",
+  "zip": {
+    "files": 13,
+    "sourceBytesMatch": true,
+    "bytes": 25778,
+    "sha256": "f97a7ca4499734d17d8c1e618a0c7863499bbd694290be5d785883c1c50f2b1e"
+  },
+  "pdf": {
+    "pages": 2,
+    "renderedWith": "Poppler 100dpi",
+    "review": "both pages visually inspected; no overlaps or clipping",
+    "sha256": "ffa1e215236a79213d77df2bcb13d7f0d02db2c001c740e5b9169e6c60ee5502"
+  },
+  "diffCheck": "pass"
+}

@@ -1,0 +1,105 @@
+{
+  "checked": "2026-10-18",
+  "python": [
+    {
+      "python": "3.11.9",
+      "packages": {
+        "streamlit": "1.66.0",
+        "inference-sdk": "1.8.0",
+        "Pillow": "12.3.0",
+        "av": "18.1.0"
+      },
+      "tests": {
+        "run": 14,
+        "failures": 0,
+        "errors": 0,
+        "passed": true
+      }
+    },
+    {
+      "python": "3.12.14",
+      "packages": {
+        "streamlit": "1.66.0",
+        "inference-sdk": "1.8.0",
+        "Pillow": "12.3.0",
+        "av": "18.1.0"
+      },
+      "tests": {
+        "run": 14,
+        "failures": 0,
+        "errors": 0,
+        "passed": true
+      }
+    }
+  ],
+  "sourceVideo": {
+    "sampled_frames": 100,
+    "decoded_frames": 100,
+    "duration_seconds": 10,
+    "fps": 10,
+    "size": [
+      960,
+      540
+    ],
+    "codec": "h264",
+    "bytes": 3469672,
+    "api_calls": 0,
+    "mode": "upload check"
+  },
+  "static": {
+    "slides": 18,
+    "tagErrors": [],
+    "duplicateIds": [],
+    "nestedSlides": 0,
+    "referenceErrors": [],
+    "codeExcerpts": [
+      {
+        "source": "../files/lesson-03/run-local.txt",
+        "matches": true
+      },
+      {
+        "source": "../files/lesson-03/run-local-cmd.txt",
+        "matches": true
+      },
+      {
+        "source": "../files/lesson-03/.streamlit/secrets.toml.example",
+        "matches": true
+      },
+      {
+        "source": "../files/lesson-03/core.py",
+        "matches": true
+      }
+    ]
+  },
+  "protected": [
+    {
+      "file": "DESIGN.md",
+      "unchanged": true
+    },
+    {
+      "file": "assets/css/tokens.css",
+      "unchanged": true
+    },
+    {
+      "file": "assets/css/base.css",
+      "unchanged": true
+    },
+    {
+      "file": "assets/js/shared.js",
+      "unchanged": true
+    },
+    {
+      "file": "source.mp4",
+      "unchanged": true
+    }
+  ],
+  "browser": "not_run",
+  "actualRoboflowRequests": 0,
+  "zip": {
+    "files": 12,
+    "sourceBytesMatch": true,
+    "bytes": 20133,
+    "sha256": "9382d831a1a2e9a2dfdfec0e325a9a4da12238f72355e94b1bdb3fcacf2d88af"
+  },
+  "diffCheck": "pass"
+}

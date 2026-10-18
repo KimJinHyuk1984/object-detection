@@ -1,0 +1,17 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {signalState,resultAt,nextBatch,visible,sampleCount,formatTime,demoResult,CLASSES} from "../files/lesson-03/web/perception.mjs";
+const p=(label,confidence=.9)=>({class:label,confidence});
+test("red overrides green and retains red confidence",()=>{const s=signalState([p("lampg",.99),p("lampr",.78)]);assert.equal(s.tone,"red");assert.equal(s.confidence,.78);});
+test("yellow overrides green",()=>assert.equal(signalState([p("lampy"),p("lampg")]).tone,"yellow"));
+test("unknown colour never becomes green",()=>assert.equal(signalState([p("lamp"),p("lampg")]).title,"신호 확인"));
+test("no signal does not mean go",()=>assert.equal(signalState([p("car")]).title,"신호 확인"));
+test("missing analysis clears traffic instruction",()=>assert.equal(signalState([p("lampg")],false).title,"분석 대기"));
+test("green message and highest confidence",()=>{const s=signalState([p("lampg",.8),p("lampg",.95)]);assert.equal(s.tone,"green");assert.equal(s.confidence,.95);assert.match(s.message,/조심히/);});
+test("current slot only: never future or old stale result",()=>{const c=new Map([[0,{id:0}],[2,{id:2}]]);assert.equal(resultAt(c,.49,2).id,0);assert.equal(resultAt(c,.5,2),null);assert.equal(resultAt(c,1,2).id,2);assert.equal(resultAt(c,9,2),null);});
+test("empty result is a valid analyzed slot",()=>assert.deepEqual(resultAt(new Map([[1,{predictions:[]}]]),.5,2),{predictions:[]}));
+test("three minute scheduling and tail wrap",()=>{assert.equal(sampleCount(180,2),360);assert.equal(sampleCount(301.433,2),603);assert.deepEqual(nextBatch(new Map(),180,2,179,4),[358,359,0,1]);});
+test("seek prioritizes current uncached slots and repeat skips cache",()=>{const c=new Map(Array.from({length:360},(_,i)=>[i,{}]));assert.deepEqual(nextBatch(c,180,2,20,8),[]);c.delete(40);assert.deepEqual(nextBatch(c,180,2,20,8),[40]);});
+test("threshold and class filtering",()=>assert.deepEqual(visible({predictions:[p("car",.6),p("line",.4),p("people",.9)]},.5,new Set(["car","line"])),[p("car",.6)]));
+test("all labels and road polygon are represented",()=>{assert.equal(Object.keys(CLASSES).length,9);assert.equal(demoResult(0).predictions.find(p=>p.class==="line").points.length,4);assert.equal(demoResult(12).predictions.at(-1).class,"lampr");});
+test("duration format remains valid after three minutes",()=>assert.equal(formatTime(301.433),"05:01"));

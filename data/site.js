@@ -5,7 +5,7 @@
 window.SITE = {
   site: {
     title: "자율주행 자동차 모델 만들기",
-    subtitle: "Roboflow와 Streamlit으로 완성하는 4차시 프로젝트",
+    subtitle: "Roboflow와 Python 웹앱으로 완성하는 4차시 프로젝트",
     repo: "object-detection" // 진행 기록을 구분하는 이름. 복제한 저장소 이름으로 변경합니다.
   },
   // ── 이 아래 instructor 블록은 모든 강의 저장소에서 동일하게 유지한다 ──
@@ -46,7 +46,7 @@ window.SITE = {
       "tags": [
         "Roboflow",
         "Instance Segmentation",
-        "Streamlit"
+        "Python 웹앱"
       ],
       "accent": "neon-green",
       "emoji": "",
@@ -83,7 +83,7 @@ window.SITE = {
       "difficulty": "입문",
       "tags": [
         "Roboflow API",
-        "Streamlit"
+        "Python 웹앱"
       ],
       "accent": "amber",
       "emoji": "",
@@ -101,7 +101,7 @@ window.SITE = {
       "difficulty": "입문",
       "tags": [
         "영상",
-        "Streamlit"
+        "Python 웹앱"
       ],
       "accent": "neon-green",
       "emoji": "",

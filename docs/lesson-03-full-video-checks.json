@@ -1,0 +1,107 @@
+{
+  "checked": "2026-10-18",
+  "python": [
+    {
+      "python": "3.11.9",
+      "packages": {
+        "streamlit": "1.66.0",
+        "inference-sdk": "1.8.0",
+        "Pillow": "12.3.0",
+        "av": "18.1.0"
+      },
+      "tests": {
+        "run": 17,
+        "failures": 0,
+        "errors": 0,
+        "passed": true
+      }
+    },
+    {
+      "python": "3.12.14",
+      "packages": {
+        "streamlit": "1.66.0",
+        "inference-sdk": "1.8.0",
+        "Pillow": "12.3.0",
+        "av": "18.1.0"
+      },
+      "tests": {
+        "run": 17,
+        "failures": 0,
+        "errors": 0,
+        "passed": true
+      }
+    }
+  ],
+  "sourceVideo": {
+    "source": "first 180 seconds of source.mp4",
+    "analysis_frames": 360,
+    "decoded_frames": 5400,
+    "duration_seconds": 180,
+    "fps": 30,
+    "size": [
+      960,
+      540
+    ],
+    "codec": "h264",
+    "bytes": 94013673,
+    "api_calls": 0,
+    "mode": "upload check",
+    "elapsed_seconds": 375.38
+  },
+  "static": {
+    "slides": 18,
+    "tagErrors": [],
+    "duplicateIds": [],
+    "nestedSlides": 0,
+    "referenceErrors": [],
+    "codeExcerpts": [
+      {
+        "source": "../files/lesson-03/run-local.txt",
+        "matches": true
+      },
+      {
+        "source": "../files/lesson-03/run-local-cmd.txt",
+        "matches": true
+      },
+      {
+        "source": "../files/lesson-03/.streamlit/secrets.toml.example",
+        "matches": true
+      },
+      {
+        "source": "../files/lesson-03/core.py",
+        "matches": true
+      }
+    ]
+  },
+  "protected": [
+    {
+      "file": "DESIGN.md",
+      "unchanged": true
+    },
+    {
+      "file": "assets/css/tokens.css",
+      "unchanged": true
+    },
+    {
+      "file": "assets/css/base.css",
+      "unchanged": true
+    },
+    {
+      "file": "assets/js/shared.js",
+      "unchanged": true
+    },
+    {
+      "file": "source.mp4",
+      "unchanged": true
+    }
+  ],
+  "actualRoboflowRequests": 0,
+  "browser": "not_run",
+  "zip": {
+    "files": 12,
+    "sourceBytesMatch": true,
+    "bytes": 21517,
+    "sha256": "c38315b8b46eddcbd95e37d6e6656bad1ef469815b3c2acc52c511bc9efce2d0"
+  },
+  "diffCheck": "pass"
+}

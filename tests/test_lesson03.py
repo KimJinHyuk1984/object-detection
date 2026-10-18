@@ -1,143 +1,162 @@
-"""Regression tests: real API calls are replaced; no key or network is needed."""
+"""Dashboard API contract checks. Roboflow calls are replaced with fixtures."""
+import base64
 import io
+import json
+import os
+from pathlib import Path
 import sys
 import unittest
-from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, patch
+from PIL import Image
+from fastapi.testclient import TestClient
 
 ROOT = Path(__file__).resolve().parents[1]
-APP = ROOT / "files/lesson-03"
-sys.path.insert(0, str(APP))
-from PIL import Image
-import core
-from demo import make_demo
+sys.path.insert(0, str(ROOT / "files/lesson-03"))
+from app import app
+from core import normalize_response
+from workflow import WorkflowError, request_predictions
+import requests
 
 
-class ImageTests(unittest.TestCase):
-    def test_orientation_and_alpha(self):
-        image = Image.new("RGB", (10, 20), "red")
-        exif = Image.Exif()
-        exif[274] = 6
-        buffer = io.BytesIO()
-        image.save(buffer, "JPEG", exif=exif)
-        self.assertEqual(core.prepare_image(buffer.getvalue()).size, (20, 10))
-        transparent = Image.new("RGBA", (2, 2), (0, 0, 0, 0))
-        self.assertEqual(core.prepare_image(core.png_bytes(transparent)).getpixel((0,0)), (255,255,255))
-
-    def test_bad_and_oversized_inputs(self):
-        for data in [b"not an image", b"", b"x" * (core.MAX_FILE_BYTES+1)]:
-            with self.assertRaises(ValueError):
-                core.prepare_image(data)
-        huge = Image.new("RGB", (1800, 1000))
-        prepared = core.prepare_image(core.png_bytes(huge))
-        self.assertEqual(prepared.size, (1600, 889))
-
-    def test_response_scale_and_masks(self):
-        image, payload = make_demo()
-        result, warnings = core.normalize_response(payload, (480,270))
-        self.assertFalse(warnings)
-        self.assertEqual(len(result["predictions"]),9)
-        road = next(p for p in result["predictions"] if p["class"]=="line")
-        self.assertEqual(road["points"][0],[215,105])
-        vehicle = next(p for p in result["predictions"] if p["class"]=="car")
-        self.assertEqual(vehicle["box"],[84,161.5,139,217])
-        drawn = core.render_predictions(image, core.normalize_response(payload,image.size)[0]["predictions"])
-        self.assertNotEqual(drawn.getpixel((480,500)),image.getpixel((480,500)))
-        self.assertEqual(drawn.getpixel((900,500)),image.getpixel((900,500)))
-
-    def test_empty_missing_and_malformed_results(self):
-        result, messages = core.normalize_response({"image":{"width":20,"height":20},"predictions":[]},(20,20))
-        self.assertEqual(result["predictions"],[])
-        self.assertFalse(messages)
-        for data in [{}, {"image":{"width":0,"height":20},"predictions":[]}, {"predictions":[]}]:
-            with self.assertRaises(ValueError):
-                core.normalize_response(data,(20,20))
-        image,payload=make_demo()
-        payload["predictions"][-1].pop("points")
-        payload["predictions"][0]["confidence"]=float("nan")
-        result,messages=core.normalize_response(payload,image.size)
-        self.assertEqual(len(result["predictions"]),7)
-        self.assertTrue(messages)
-        self.assertNotIn("line",[p["class"] for p in result["predictions"]])
-
-    def test_confidence_and_identity(self):
-        image,payload=make_demo()
-        result,_=core.normalize_response(payload,image.size)
-        self.assertEqual(len(core.visible_predictions(result,.4,list(core.CLASSES))),8)
-        self.assertEqual(len(core.visible_predictions(result,.7,list(core.CLASSES))),6)
-        self.assertEqual(len(core.visible_predictions(result,.9,list(core.CLASSES))),2)
-        self.assertEqual(core.visible_predictions(result,.05,[]),[])
-        a=core.context_id(image,"real","road/1","key")
-        self.assertNotEqual(a,core.context_id(image,"real","road/2","key"))
-        self.assertNotEqual(a,core.context_id(image,"real","road/1","other"))
-        self.assertNotEqual(a,core.context_id(Image.new("RGB",image.size),"real","road/1","key"))
-
-    def test_sdk_contract_and_redacted_failure(self):
-        image,payload=make_demo()
-        with patch("inference_sdk.InferenceHTTPClient") as client:
-            client.return_value.infer.return_value=payload
-            self.assertEqual(core.infer_image(image,"road/1","test-key"),payload)
-            configuration=client.return_value.configure.call_args.args[0]
-            self.assertEqual(configuration.confidence_threshold,.05)
-            self.assertEqual(configuration.response_mask_format,"polygon")
-            client.return_value.infer.assert_called_once_with(image,model_id="road/1")
-            client.return_value.infer.side_effect=RuntimeError("url?api_key=DO-NOT-LEAK")
-            with self.assertRaises(core.InferenceFailure) as raised:
-                core.infer_image(image,"road/1","test-key")
-            self.assertNotIn("DO-NOT-LEAK",str(raised.exception))
+def frame(index=0):
+    buffer = io.BytesIO()
+    Image.new("RGB", (64, 36), "gray").save(buffer, "JPEG")
+    return {"index": index, "timestamp": index / 2,
+            "jpeg": base64.b64encode(buffer.getvalue()).decode()}
 
 
-class AppTests(unittest.TestCase):
+def prediction(label="car", confidence=.93):
+    result = {"class": label, "confidence": confidence, "x": 32, "y": 18,
+              "width": 20, "height": 12}
+    if label == "line":
+        result["points"] = [{"x": 24, "y": 12}, {"x": 40, "y": 12}, {"x": 55, "y": 35}, {"x": 5, "y": 35}]
+    return result
+
+
+def response(count=1):
+    return Mock(ok=True, status_code=200, json=lambda: {"outputs": [
+        {"predictions": {"image": {"width": 64, "height": 36},
+                         "predictions": [prediction("car"), prediction("line"), prediction("lampr")]}}
+        for _ in range(count)
+    ]})
+
+
+class DashboardTests(unittest.TestCase):
     def setUp(self):
-        from streamlit.testing.v1 import AppTest
-        self.app=AppTest.from_file(str(APP/"app.py"),default_timeout=20)
+        self.client = TestClient(app)
+        self.body = {"workspace": "test-space", "workflow": "test-workflow",
+                     "api_key": "private-test-key", "frames": [frame()]}
 
-    def test_demo_controls_and_mode_reset(self):
-        with patch("core.infer_image") as inference:
-            app=self.app.run()
-            app.radio(key="mode").set_value("예제 결과로 연습").run()
-            self.assertFalse(app.exception)
-            app.button(key="analyze").click().run()
-            self.assertFalse(app.exception)
-            self.assertEqual(len(app.session_state.prediction_result["predictions"]),9)
-            app.slider(key="threshold").set_value(.9).run()
-            self.assertFalse(app.exception)
-            app.multiselect(key="classes").set_value([]).run()
-            self.assertFalse(app.exception)
-            self.assertTrue(any("현재 조건" in x.value for x in app.info))
-            inference.assert_not_called()
-            app.radio(key="mode").set_value("내 모델로 분석").run()
-            app.radio(key="input_type").set_value("이미지 한 장").run()
-            self.assertTrue(app.button(key="analyze").disabled)
-            self.assertNotIn("prediction_result",app.session_state)
+    def test_static_dashboard_and_module_are_served(self):
+        for url in ("/", "/assets/dashboard.css", "/assets/dashboard.mjs", "/assets/perception.mjs"):
+            self.assertEqual(self.client.get(url).status_code, 200, url)
+        self.assertIn("DRIVE", self.client.get("/").text)
+        self.assertEqual(self.client.get("/assets/../app.py").status_code, 404)
 
-    def test_real_request_once_rerender_and_invalidation(self):
-        image,payload=make_demo()
-        self.app.secrets["ROBOFLOW_API_KEY"]="test-key"
-        self.app.secrets["ROBOFLOW_MODEL_ID"]="road/1"
-        with patch("streamlit.file_uploader",return_value=io.BytesIO(core.png_bytes(image))), \
-             patch("core.infer_image",return_value=payload) as inference:
-            app=self.app.run()
-            app.radio(key="mode").set_value("내 모델로 분석").run()
-            app.radio(key="input_type").set_value("이미지 한 장").run()
-            self.assertFalse(app.button(key="analyze").disabled)
-            app.button(key="analyze").click().run()
-            self.assertFalse(app.exception)
-            inference.assert_called_once()
-            app.slider(key="threshold").set_value(.9).run()
-            app.slider(key="opacity").set_value(.5).run()
-            self.assertFalse(app.exception)
-            inference.assert_called_once()
-            app.text_input(key="model_id").set_value("road/2").run()
-            self.assertNotIn("prediction_result",app.session_state)
-            app.button(key="analyze").click().run()
-            self.assertEqual(inference.call_count,2)
-            inference.side_effect=core.InferenceFailure("요청 실패")
-            app.button(key="analyze").click().run()
-            self.assertNotIn("prediction_result",app.session_state)
-            self.assertTrue(app.error)
-            self.assertFalse(app.exception)
+    def test_config_never_returns_key(self):
+        with patch.dict(os.environ, {"ROBOFLOW_API_KEY": "secret-value", "ROBOFLOW_WORKSPACE": "sample"}):
+            output = self.client.get("/api/config")
+        self.assertTrue(output.json()["has_key"])
+        self.assertNotIn("secret-value", output.text)
+
+    @patch("workflow.requests.post")
+    def test_batch_contract_header_mapping_and_polygons(self, post):
+        post.return_value = response(2)
+        self.body["frames"] = [frame(0), frame(1)]
+        output = self.client.post("/api/infer", json=self.body)
+        self.assertEqual(output.status_code, 200, output.text)
+        self.assertEqual(len(output.json()["results"]), 2)
+        self.assertEqual(output.json()["results"][1]["timestamp"], .5)
+        self.assertEqual(output.json()["results"][0]["predictions"][0]["box"], [22, 12, 42, 24])
+        self.assertEqual(len(output.json()["results"][0]["predictions"][1]["points"]), 4)
+        post.assert_called_once()
+        args, kwargs = post.call_args
+        self.assertEqual(args[0], "https://serverless.roboflow.com/test-space/workflows/test-workflow")
+        self.assertEqual(kwargs["headers"], {"Authorization": "Bearer private-test-key"})
+        self.assertEqual(len(kwargs["json"]["inputs"]["image"]), 2)
+        self.assertNotIn("api_key", kwargs["json"])
+
+    @patch("workflow.requests.post", return_value=response())
+    def test_environment_key_and_custom_output(self, post):
+        self.body["api_key"] = ""
+        self.body["output_name"] = "road_result"
+        post.return_value = Mock(ok=True, json=lambda: {"outputs": [{"road_result": {"predictions": []}}]})
+        with patch.dict(os.environ, {"ROBOFLOW_API_KEY": "from-environment"}):
+            output = self.client.post("/api/infer", json=self.body)
+        self.assertEqual(output.status_code, 200)
+        self.assertEqual(output.json()["results"][0]["predictions"], [])
+        self.assertEqual(post.call_args.kwargs["headers"]["Authorization"], "Bearer from-environment")
+
+    @patch("workflow.requests.post")
+    def test_api_error_is_safe_and_not_retried(self, post):
+        post.return_value = Mock(ok=False, status_code=401, text="secret-token")
+        output = self.client.post("/api/infer", json=self.body)
+        self.assertEqual(output.status_code, 502)
+        self.assertIn("401", output.text)
+        self.assertNotIn("secret-token", output.text)
+        post.assert_called_once()
+
+    @patch("workflow.requests.post", side_effect=requests.Timeout("private-test-key"))
+    def test_timeout_never_echoes_key(self, post):
+        output = self.client.post("/api/infer", json=self.body)
+        self.assertEqual(output.status_code, 502)
+        self.assertNotIn("private-test-key", output.text)
+
+    @patch("workflow.requests.post", return_value=response(2))
+    def test_wrong_output_count_fails(self, post):
+        output = self.client.post("/api/infer", json=self.body)
+        self.assertEqual(output.status_code, 502)
+        self.assertIn("outputs", output.json()["detail"])
+
+    @patch("workflow.requests.post")
+    def test_visualization_output_rejected(self, post):
+        post.return_value = Mock(ok=True, json=lambda: {"outputs": [{"predictions": "base64-image"}]})
+        self.assertEqual(self.client.post("/api/infer", json=self.body).status_code, 502)
+
+    @patch("workflow.requests.post")
+    def test_invalid_image_does_not_call_api(self, post):
+        self.body["frames"][0]["jpeg"] = "this-is-not-jpeg"
+        self.assertEqual(self.client.post("/api/infer", json=self.body).status_code, 502)
+        post.assert_not_called()
+
+    @patch("workflow.requests.post")
+    def test_validation_redacts_body_and_limits_batch(self, post):
+        self.body["frames"] = [frame(i) for i in range(17)]
+        output = self.client.post("/api/infer", json=self.body)
+        self.assertEqual(output.status_code, 422)
+        self.assertNotIn("private-test-key", output.text)
+        post.assert_not_called()
+
+    @patch("workflow.requests.post")
+    def test_duplicate_slots_invalid_timestamp_and_cross_origin(self, post):
+        self.body["frames"] = [frame(), frame()]
+        self.assertEqual(self.client.post("/api/infer", json=self.body).status_code, 422)
+        self.body["frames"] = [frame()]
+        self.body["frames"][0]["timestamp"] = -1
+        self.assertEqual(self.client.post("/api/infer", json=self.body).status_code, 422)
+        self.assertEqual(self.client.post("/api/infer", json=self.body, headers={"Origin": "https://unrelated.example"}).status_code, 403)
+        post.assert_not_called()
+
+    def test_line_requires_polygon_and_unknown_class_is_dropped(self):
+        invalid = prediction("line")
+        invalid.pop("points")
+        result, notices = normalize_response({"image": {"width": 64, "height": 36},
+            "predictions": [invalid, prediction("other"), prediction("lampy")]}, (64, 36))
+        self.assertEqual([p["class"] for p in result["predictions"]], ["lampy"])
+        self.assertEqual(len(notices), 2)
+
+    def test_coordinates_scale_to_input_size(self):
+        result, _ = normalize_response({"image": {"width": 64, "height": 36},
+                                      "predictions": [prediction("line")]}, (128, 72))
+        self.assertEqual(result["predictions"][0]["points"][0], [48, 24])
+        self.assertEqual(result["predictions"][0]["box"], [44, 24, 84, 48])
+
+    @patch("workflow.requests.post")
+    def test_invalid_workflow_cannot_change_endpoint(self, post):
+        self.body["workflow"] = "../another"
+        self.assertEqual(self.client.post("/api/infer", json=self.body).status_code, 422)
+        post.assert_not_called()
 
 
-if __name__=="__main__":
-    unittest.main(verbosity=2)
+if __name__ == "__main__":
+    unittest.main()

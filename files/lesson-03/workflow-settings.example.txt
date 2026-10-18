@@ -1,0 +1,3 @@
+Workspace ID: Deploy Workflow의 workspace_name
+Workflow ID: Deploy Workflow의 workflow_id
+Private API Key: 앱 입력창에만 입력 (캡처하지 않음)

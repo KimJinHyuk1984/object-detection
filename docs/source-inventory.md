@@ -93,3 +93,41 @@ assets/img/lesson-03/demo-result.png는 앱의 그리기 함수로 만든 예제
 | source-030 | https://roboflow.com/blog/instance-segmentation | 객체 탐지의 박스와 인스턴스 분할의 객체별 마스크·출력 비교. 동일 장면 개념도·표를 직접 작성 |
 
 폴리곤과 탐지 출력의 관계는 기존 Polygons for Object Detection 근거를 유지했습니다. 해당 링크는 이번 웹 도구 재조회에서 접근 오류가 났으며 새로 검증한 것으로 기록하지 않습니다. 개념도는 실제 학습 모델의 결과가 아니며 별도 영상 추적 기능을 뜻하지 않습니다.
+
+## 영상 결과 자동 재생 요청 (2026-10-18)
+
+| 자료 ID | 위치 | 확인·사용 |
+| --- | --- | --- |
+| source-031 | 사용자 제공 Gradio·Roboflow Workflow 얼굴 탐지 코드 | 분석 후 결과를 반복 재생하는 사용 흐름 참고. 사용자가 작동한다고 설명했으며 여기서 해당 코드를 실행하거나 Workflow를 호출하지 않음 |
+| source-020 재확인 | https://docs.streamlit.io/develop/api-reference/media/st.video | Streamlit 1.66.0의 autoplay·loop·muted 옵션과 브라우저 자동 재생 조건 확인 |
+
+기존 단일 모델 추론 방식을 유지했고 Gradio·마이크로비트·소리 재생 의존성은 추가하지 않았습니다. 재생 검사는 로컬 영상과 대체 API 응답으로 수행했습니다.
+
+## 원본 영상 재생과 분석 빈도 분리 (2026-10-18)
+
+| 자료 ID | 위치 | 확인·사용 |
+| --- | --- | --- |
+| source-032 | 사용자 “프레임 추출이 아니고 … 재생되는 영상에 나오도록” | 영상 플레이어 중심 UI, 원본 영상 장면·재생 시간 간격 유지 요청 |
+| source-033 | https://pyav.basswood.io/docs/stable/api/time.html | PTS·time_base와 인코더 타임스탬프 처리 확인. 실제 설치된 PyAV 18.1.0에서 동작 검사 |
+
+source.mp4의 실제 30fps 영상으로 10초·300프레임 출력과 길이를 확인했습니다. 저빈도 분석 사이의 표시는 가장 최근 결과를 유지하는 방식이며, 객체 추적이나 새 추론 결과로 간주하지 않습니다.
+
+
+## 전체 길이 영상 사용 요청 (2026-10-18)
+
+| 자료 ID | 위치 | 확인·사용 |
+| --- | --- | --- |
+| source-034 | 사용자 “3분짜리 영상을 … 그냥 쓰면 안되?” | 전체 영상 기본 선택, 고정 길이·분석 장면 수 상한 제거, 실제 길이에 따른 API 요청 수와 처리 진행률 표시 |
+
+기존 source-001을 로컬에서만 사용해 180초 구간 검사를 수행합니다. 최신 결과는 [전체 영상 검사](lesson-03-full-video-checks.json)에 기록합니다. 외부 API 호출이나 원본 업로드는 하지 않았습니다.
+
+
+## Drive Vision 전면 개편 근거 (2026-10-18)
+
+| 자료 ID | 위치 | 확인·사용 |
+| --- | --- | --- |
+| source-035 | https://github.com/gamza-lab/object-detection-with-microbit | 사용자 지정 템플릿. main 9fe43f91b726531ff20c171628f1297db7241873의 app.py·README 확인. Workflow base64 이미지 배열과 Bearer 헤더 요청 구조 참고. 참조 저장소는 수정·실행하지 않음 |
+| source-036 | https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback | 원본 영상과 별도 Canvas 표시 구조 검토. 최종 구현은 현재 video.currentTime과 requestAnimationFrame으로 표시 갱신 |
+| source-037 | https://pypi.org/project/fastapi/ · https://pypi.org/project/uvicorn/ · https://pypi.org/project/requests/ | Python 지원 메타데이터 확인 및 FastAPI 0.143.3·Uvicorn 0.54.0·requests 2.34.2 실제 설치 검사 |
+
+새 화면 예제는 직접 작성한 Canvas 가상 도로이며 실제 모델 결과·사용자 원본 영상이 아닙니다. 테슬라 로고·제품 이미지는 사용하지 않았습니다. 모델 API·원본 영상의 외부 전송은 수행하지 않았습니다.
