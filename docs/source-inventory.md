@@ -85,3 +85,11 @@ assets/img/lesson-03/demo-result.png는 앱의 그리기 함수로 만든 예제
 | --- | --- | --- |
 | source-028 | https://pypi.org/project/av/18.1.0/ | Requires-Python >=3.11, cp311-abi3 Windows x86-64 wheel. 두 Python 버전의 공통 의존성으로 적용·실행 검사 |
 | source-029 | https://www.python.org/downloads/release/python-3119/ | 공식 64비트 embeddable 패키지·체크섬. work-temp의 실제 Python 3.11 테스트에만 사용 |
+
+## 바운딩 박스·인스턴스 세그멘테이션 비교 보강 (2026-10-18)
+
+| 자료 ID | 위치 | 확인·사용 |
+| --- | --- | --- |
+| source-030 | https://roboflow.com/blog/instance-segmentation | 객체 탐지의 박스와 인스턴스 분할의 객체별 마스크·출력 비교. 동일 장면 개념도·표를 직접 작성 |
+
+폴리곤과 탐지 출력의 관계는 기존 Polygons for Object Detection 근거를 유지했습니다. 해당 링크는 이번 웹 도구 재조회에서 접근 오류가 났으며 새로 검증한 것으로 기록하지 않습니다. 개념도는 실제 학습 모델의 결과가 아니며 별도 영상 추적 기능을 뜻하지 않습니다.

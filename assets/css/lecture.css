@@ -136,3 +136,12 @@ a.course-step:focus-visible { outline: 3px solid var(--accent-text); outline-off
 @media (max-width: 767px) {
   .training-table th, .training-table td { padding: var(--space-3) var(--space-2); }
 }
+
+/* 1차시: 같은 장면의 박스·인스턴스 마스크 비교. 공통 테마 토큰 사용. */
+.comparison-visual { display: block; width: 100%; max-height: 238px; }
+.comparison-marking { fill: none; stroke: var(--text-muted); stroke-width: 3; stroke-dasharray: 10 8; }
+.comparison-box { fill: none; stroke: var(--accent-text); stroke-width: 3; stroke-dasharray: 6 4; }
+.comparison-mask { fill: var(--accent-soft); fill-opacity: .7; stroke: var(--accent-text); stroke-width: 3; }
+.comparison-label { fill: var(--accent-text); font: 600 20px var(--font-sans); }
+.comparison-grid h4 { font-size: var(--font-card); }
+.table-scroll:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; }

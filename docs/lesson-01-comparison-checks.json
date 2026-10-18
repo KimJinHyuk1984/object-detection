@@ -1,0 +1,69 @@
+{
+  "checked": "2026-10-18",
+  "pages": [
+    {
+      "file": "index.html",
+      "slides": 0,
+      "tagErrors": [],
+      "duplicateIds": [],
+      "nestedSlides": 0,
+      "svg": 2
+    },
+    {
+      "file": "road-perception/index.html",
+      "slides": 21,
+      "tagErrors": [],
+      "duplicateIds": [],
+      "nestedSlides": 0,
+      "svg": 8
+    },
+    {
+      "file": "model-training/index.html",
+      "slides": 20,
+      "tagErrors": [],
+      "duplicateIds": [],
+      "nestedSlides": 0,
+      "svg": 3
+    },
+    {
+      "file": "api-app/index.html",
+      "slides": 18,
+      "tagErrors": [],
+      "duplicateIds": [],
+      "nestedSlides": 0,
+      "svg": 2
+    }
+  ],
+  "localReferences": 108,
+  "referenceErrors": [],
+  "slideMapErrors": [],
+  "protected": [
+    {
+      "file": "DESIGN.md",
+      "unchanged": true
+    },
+    {
+      "file": "assets/css/tokens.css",
+      "unchanged": true
+    },
+    {
+      "file": "assets/css/base.css",
+      "unchanged": true
+    },
+    {
+      "file": "assets/js/shared.js",
+      "unchanged": true
+    },
+    {
+      "file": "source.mp4",
+      "unchanged": true
+    }
+  ],
+  "browser": {
+    "apps": [],
+    "browsers": [],
+    "visualCheck": "not_run_no_connected_browser"
+  },
+  "siteDataUnchanged": true,
+  "diffCheck": "pass"
+}

@@ -12,8 +12,8 @@
 | 4 | road-mission | 이번 수업의 영상 | 기본 |
 | 5 | road-mission | 영상에서 학습 장면 고르기 | 기본 |
 | 6 | vision-concepts | 분류·탐지·분할 | 기본 |
-| 7 | vision-concepts | 누끼는 픽셀의 정답 영역 | 기본 |
-| 8 | vision-concepts | 학습할 정답과 화면의 표시 | 기본 |
+| 7 | vision-concepts | 바운딩 박스와 인스턴스 세그멘테이션 | 기본 · 같은 도로 도식·비교표 펼치기 |
+| 8 | vision-concepts | 모델 하나, 객체 박스와 도로 마스크 | 기본 · 학습·예측·앱 표시 |
 | 9 | vision-concepts | 개념 확인 | 기본 |
 | 10 | annotation-ready | 프로젝트와 배정 이미지를 확인 | 기본 |
 | 11 | annotation-ready | 라벨의 경계부터 합의하기 | 기본 |
