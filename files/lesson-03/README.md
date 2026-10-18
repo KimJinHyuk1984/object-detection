@@ -6,18 +6,20 @@
 
 ## 실행 준비
 
-Python 3.12와 인터넷 연결이 필요합니다. ZIP을 풀었다면 이 README와 app.py가 있는 폴더에서 터미널을 엽니다. 저장소를 복제했다면 먼저 다음 폴더로 이동합니다.
+64비트 Python 3.11 또는 3.12와 인터넷 연결이 필요합니다. ZIP을 풀었다면 이 README와 app.py가 있는 폴더에서 터미널을 엽니다. 저장소를 복제했다면 먼저 다음 폴더로 이동합니다.
 
 ~~~powershell
 cd files/lesson-03
 ~~~
 
-사용하는 터미널에 맞춰 **PowerShell 또는 CMD 중 한 가지**를 선택해 세 명령을 순서대로 실행합니다. 설치는 수업 전에 마치는 것이 좋습니다.
+사용하는 터미널에 맞춰 **PowerShell 또는 CMD 중 한 가지**를 선택해 세 명령을 순서대로 실행합니다. 아래 명령은 Python 3.11 기준입니다. 3.12를 사용한다면 첫 줄의 -3.11을 -3.12로 바꾸면 됩니다. 설치는 수업 전에 마치는 것이 좋습니다.
+
+이미 다른 Python 버전으로 만든 .venv가 있다면 기존 환경을 덮어쓰지 말고, 새 폴더에 ZIP을 풀어 해당 버전의 가상환경을 만드세요.
 
 ### PowerShell
 
 ~~~powershell
-py -3.12 -m venv .venv
+py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m streamlit run app.py
 ~~~
@@ -25,7 +27,7 @@ py -3.12 -m venv .venv
 ### CMD(명령 프롬프트)
 
 ~~~bat
-py -3.12 -m venv .venv
+py -3.11 -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
 .venv\Scripts\python.exe -m streamlit run app.py
 ~~~
@@ -41,15 +43,15 @@ py -3.12 -m venv .venv
 
 다운로드해 둔 이전 실습 폴더는 저장소 수정으로 자동 갱신되지 않습니다. 새 ZIP을 별도 폴더에 풀고 위의 가상환경 설치·실행 명령을 사용하세요. 기존 secrets.toml이 있다면 로컬에서 새 폴더로 옮길 수 있습니다.
 
-이 영상 실습의 PyAV 19.0.1은 Python 3.12 이상이 필요하며, 안내와 검증 기준은 Python 3.12입니다. 오류 기록에 Python311 경로가 보이면 위에서 만든 3.12 가상환경의 Python으로 실행하는지 확인하세요. 이미지 폭 오류의 직접 원인은 Streamlit API 차이입니다.
+이 실습은 Python 3.11과 3.12에서 사용할 수 있도록 PyAV 18.1.0을 지정합니다. 이전 ZIP의 av==19.0.1은 3.11에서 설치할 수 없으므로 최신 requirements.txt도 함께 교체하세요. 이미지 폭 오류의 직접 원인은 Python 3.11이 아니라 Streamlit API 차이이며, 지정한 Streamlit 1.66.0을 설치해 사용합니다.
 
 설치한 환경과 실행 환경을 다음 명령으로 확인할 수 있습니다(PowerShell·CMD 공통).
 
 ~~~bat
-.\.venv\Scripts\python.exe -c "import sys, streamlit; print(sys.executable); print(streamlit.__version__)"
+.\.venv\Scripts\python.exe -c "import sys, streamlit; print(sys.executable); print(sys.version); print(streamlit.__version__)"
 ~~~
 
-프로젝트의 .venv 경로와 Streamlit 1.66.0이 출력되어야 합니다. 전역 `streamlit run app.py` 대신 같은 가상환경의 `python.exe -m streamlit run app.py`를 사용합니다.
+프로젝트의 .venv 경로, 선택한 Python 3.11 또는 3.12, Streamlit 1.66.0이 출력되어야 합니다. 전역 `streamlit run app.py` 대신 같은 가상환경의 `python.exe -m streamlit run app.py`를 사용합니다.
 
 ## 실제 모델 연결 - 학습이 끝난 뒤
 
@@ -108,7 +110,7 @@ py -3.12 -m venv .venv
 
 | 상황 | 확인 |
 | --- | --- |
-| py를 찾을 수 없음 / 3.12가 없음 | Python 설치·선택 버전과 터미널 경로 |
+| py를 찾을 수 없음 / 선택한 버전이 없음 | 64비트 Python 3.11 또는 3.12 설치·선택과 터미널 경로 |
 | API 키 없음 | 실행 폴더의 .streamlit/secrets.toml과 앱 재시작 |
 | 요청 실패 | 키 권한, 모델 ID, Serverless 지원 여부, 네트워크 |
 | 표시 결과 0개 | 실제 응답, 임계값, 선택 클래스 |
@@ -118,7 +120,7 @@ py -3.12 -m venv .venv
 ## 파일과 확인
 
 app.py·video_ui.py는 화면·세션 상태, video.py는 프레임 추출·MP4 생성, core.py는 입력 처리·API·그리기, demo.py는 가상 예제입니다.
-requirements.txt는 검사에 사용한 Streamlit 1.66.0, inference-sdk 1.8.0, Pillow 12.3.0, PyAV 19.0.1을 지정합니다.
+requirements.txt는 검사에 사용한 Streamlit 1.66.0, inference-sdk 1.8.0, Pillow 12.3.0, PyAV 18.1.0을 지정합니다.
 3차시에서 영상 업로드 테스트까지 진행하고, 4차시에서는 배포와 다른 환경에서의 점검을 다룹니다.
 
 공식 자료:
@@ -129,3 +131,4 @@ requirements.txt는 검사에 사용한 Streamlit 1.66.0, inference-sdk 1.8.0, P
 
 - [Streamlit 영상 표시와 H.264](https://docs.streamlit.io/develop/api-reference/media/st.video)
 - [PyAV 영상 처리](https://pyav.basswood.io/docs/stable/cookbook/basics.html)
+- [PyAV 18.1.0의 Python 3.11 지원](https://pypi.org/project/av/18.1.0/)

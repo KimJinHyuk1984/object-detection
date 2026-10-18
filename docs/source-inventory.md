@@ -78,3 +78,10 @@ assets/img/lesson-03/demo-result.png는 앱의 그리기 함수로 만든 예제
 | source-027 | https://rfdetr.roboflow.com/latest/learn/run/segmentation/ | RF-DETR의 분할 모델과 마스크 출력 확인. 현재 탐지 모델과 구분 |
 
 현재 학습 결과는 박스 평가로 반영했습니다. 도로 마스크 성공, API model_id, 실제 API 호출 성공은 추정하지 않았습니다. 9번의 계정 식별 정보와 10번의 사용량·결제 관련 영역은 공개 이미지로 복사하지 않았습니다. 원본 12장·공개 복사본 8장의 해시·정적 검사는 training-result-checks.json을 참고합니다.
+
+## Python 3.11 호환성 추가 근거 (2026-10-18)
+
+| 자료 ID | 위치 | 확인·사용 |
+| --- | --- | --- |
+| source-028 | https://pypi.org/project/av/18.1.0/ | Requires-Python >=3.11, cp311-abi3 Windows x86-64 wheel. 두 Python 버전의 공통 의존성으로 적용·실행 검사 |
+| source-029 | https://www.python.org/downloads/release/python-3119/ | 공식 64비트 embeddable 패키지·체크섬. work-temp의 실제 Python 3.11 테스트에만 사용 |

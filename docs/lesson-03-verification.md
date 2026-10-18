@@ -114,3 +114,19 @@
 
 공식 근거: [Streamlit 1.32 image](https://docs.streamlit.io/1.32.0/develop/api-reference/media/st.image), [1.32 dataframe](https://docs.streamlit.io/1.32.0/develop/api-reference/data/st.dataframe), [현재 image](https://docs.streamlit.io/develop/api-reference/media/st.image).
 검사 결과는 lesson-03-width-fix-checks.json에 기록했습니다. 이전 ZIP 해시는 해당 시점의 이력입니다.
+
+## 2026-10-18 Python 3.11 지원 추가
+
+사용자 요청에 따라 PyAV를 19.0.1에서 18.1.0으로 변경했습니다. 18.1.0은 Requires-Python >=3.11이며 Windows x86-64용 cp311-abi3 wheel을 제공합니다. 같은 requirements.txt로 Python 3.11과 3.12를 사용합니다. Streamlit 1.66.0, inference-sdk 1.8.0, Pillow 12.3.0은 유지했습니다.
+
+- PowerShell·CMD 실행 원문과 강의 코드 블록을 Python 3.11 기준으로 수정했습니다. 3.12 사용 시 첫 줄의 선택 버전만 바꾸도록 안내했습니다. 기존 가상환경에 다른 Python을 덮어쓰지 않도록 새 폴더 사용 방법을 명시했습니다.
+- 실행 README의 3.12 필수 안내·문제 해결·패키지 버전을 수정하고 교사용 안내와 루트 README에 지원 환경을 반영했습니다. PDF에는 해당 버전 명령이 없어 수정하지 않았습니다.
+- Windows Python 3.11.9에서 새 requirements 전체를 별도 임시 폴더에 설치하고 테스트 12개 통과. 3.12.14에서도 PyAV 18.1.0을 적용해 같은 12개 테스트 통과. 두 환경 모두 Streamlit 1.66.0입니다.
+- 3.11에서 실제 source.mp4의 0~10초·2fps를 20프레임으로 추출하고 960×540·10초 H.264 MP4로 인코딩·디코딩했습니다. 결과 1,612,073바이트, 디코딩 20프레임 확인. API 호출은 0회입니다.
+- 검증용 3.11은 Python 공식 embeddable 64-bit 패키지를 work-temp/에만 풀었습니다. 공식 페이지의 MD5와 다운로드 파일이 일치합니다. 사용자 Python·Downloads·가상환경·Git 인덱스는 변경하지 않았습니다. 사용자의 py 런처와 venv 명령을 실행한 검증과는 구분합니다.
+- 3차시 발표 조각 18개, HTML 태그·중복 ID·중첩 오류 0개. 공개 코드 발췌 4개와 소스 일치. 실습 ZIP은 공개 파일 12개와 바이트 일치, 19,326바이트입니다.
+- ZIP SHA-256: 15e883a2a0a8d00d4f8a309bb58aba68102c085d6d0dcb769ef5199c4a54fdac.
+- 보호 파일 4개·source.mp4 해시 불변, git diff --check 통과. 실제 브라우저 클릭·재생과 실제 Roboflow 모델 연결은 미검증입니다.
+
+[검사 JSON](lesson-03-python-compatibility-checks.json), [PyAV 18.1.0 배포 정보](https://pypi.org/project/av/18.1.0/).
+앞선 기록의 Python 3.12 필수·PyAV 19.0.1·ZIP 해시는 그때의 버전 기준입니다. 최신 지원 환경은 Python 3.11 또는 3.12입니다.

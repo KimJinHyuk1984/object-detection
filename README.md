@@ -12,6 +12,8 @@ Roboflow로 객체와 주행 가능 도로 영역을 인식하는 단일 분할 
 
 캡처 12장으로 201장·정답 2,972개와 RF-DETR Object Detection (Small) v1 학습 완료를 확인했습니다. Test 20장 기준 mAP@50 47.3%, Precision 53.0%, Recall 41.2%입니다. 현재 모델은 박스를 출력하므로 기존 데이터를 보존하며 Instance Segmentation 모델을 준비한 뒤 도로 마스크·API 연결을 확인합니다. [캡처 검토와 다음 확인](docs/training-capture-review.md)을 참고하세요. `line`은 도색된 선이 아닌 **차선 사이의 주행 가능한 도로 영역**입니다.
 
+3차시 실습 앱은 **Python 3.11 또는 3.12**에서 실행합니다. PowerShell·CMD 명령은 [실행 안내](files/lesson-03/README.md)에 있습니다.
+
 - [2차시 활동지 PDF · A4 4쪽](files/lesson-02-workbook.pdf)
 - [3차시 실습 ZIP](files/lesson-03.zip) · [실행 안내](files/lesson-03/README.md) · [활동지 PDF · A4 2쪽](files/lesson-03-workbook.pdf)
 - [3차시 캡처 안내](docs/lesson-03-capture-guide.md) · [검증 기록](docs/lesson-03-verification.md)
